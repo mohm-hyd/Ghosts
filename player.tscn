@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://uk3yptd5e8fq" path="res://aspen.tscn" id="2_onrkg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kd8bc"]
-radius = 22.0
-height = 128.0
+radius = 100.0
+height = 476.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kd8bc"]
-radius = 76.941536
+radius = 240.65952
 
 [node name="Player" type="CharacterBody2D" unique_id=1572405853]
 script = ExtResource("1_onrkg")

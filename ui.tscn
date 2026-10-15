@@ -13,14 +13,16 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="InteractionPrompt" type="Label" parent="." unique_id=2070763363]
+visible = false
 layout_mode = 0
-offset_left = 667.0
-offset_top = 57.0
-offset_right = 802.0
-offset_bottom = 87.0
+offset_left = 1497.0
+offset_top = 526.0
+offset_right = 1632.0
+offset_bottom = 556.0
 text = "Press E to inspect"
 
 [node name="DoorInteractionPrompt" type="Label" parent="." unique_id=639672698]
+visible = false
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 0
 offset_left = 905.0

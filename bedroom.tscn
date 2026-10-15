@@ -15,8 +15,14 @@
 shader = ExtResource("1_885xx")
 shader_parameter/fade_amount = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kd8bc"]
-size = Vector2(195.62265, 275.64005)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2b15"]
+size = Vector2(418, 724)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhkfy"]
+size = Vector2(203.0293, 293.37347)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
+size = Vector2(175.23253, 523.8804)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tw3v3"]
 a = Vector2(-1741, 107)
@@ -66,8 +72,7 @@ metadata/_edit_lock_ = true
 
 [node name="World" type="CanvasGroup" parent="." unique_id=1508815095]
 material = SubResource("ShaderMaterial_onrkg")
-position = Vector2(969, 539)
-metadata/_edit_group_ = true
+position = Vector2(975, 537)
 
 [node name="Floor" type="Sprite2D" parent="World" unique_id=731793379]
 texture = ExtResource("2_iwj3i")
@@ -80,12 +85,12 @@ position = Vector2(-858, 11)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Furniture/Bed" unique_id=697031282]
-position = Vector2(103, -181)
-shape = SubResource("RectangleShape2D_kd8bc")
+position = Vector2(94, -180)
+shape = SubResource("RectangleShape2D_m2b15")
 
 [node name="Desk" type="StaticBody2D" parent="World/Furniture" unique_id=161221675]
-position = Vector2(-678.99994, 139.99994)
-rotation = -1.5925779
+position = Vector2(-179, -235.99997)
+rotation = -0.00055778027
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="World/Furniture/Desk" unique_id=1935777168]
@@ -93,17 +98,17 @@ scale = Vector2(0.6989732, 0.54618275)
 texture = ExtResource("3_m2b15")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Furniture/Desk" unique_id=1326723935]
-position = Vector2(-241.71628, -192.04742)
+position = Vector2(-232.79498, -195.61691)
 rotation = -1.5557468
-shape = SubResource("RectangleShape2D_kd8bc")
+shape = SubResource("RectangleShape2D_dhkfy")
 
 [node name="Wardrobe" type="StaticBody2D" parent="World/Furniture" unique_id=955860692]
 position = Vector2(160, -467)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Furniture/Wardrobe" unique_id=1850007148]
-position = Vector2(16.486282, 8.133484)
+position = Vector2(22.898438, 2.7450638)
 rotation = -1.5557468
-shape = SubResource("RectangleShape2D_kd8bc")
+shape = SubResource("RectangleShape2D_i3pqv")
 
 [node name="Player" parent="World" unique_id=1572405853 instance=ExtResource("5_o412v")]
 position = Vector2(-30, 12)
@@ -138,7 +143,7 @@ position = Vector2(132, 964)
 scale = Vector2(0.043, 0.05)
 
 [node name="Safe" parent="ClueObjects" unique_id=1301034906 instance=ExtResource("7_jsdaq")]
-position = Vector2(545, 90.00006)
+position = Vector2(1781, 631)
 scale = Vector2(0.259, 0.3)
 
 [node name="Door" type="StaticBody2D" parent="." unique_id=1397144151]
