@@ -35,13 +35,21 @@ func _init_player() -> void:
 
 func load_level(local_scene : String) -> void:
 	_deferred_load_room.call_deferred(local_scene)
+func  quit_game() -> void:
+	get_tree().root.propogate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
+	get_tree().quit()
 
+
+func _unhandled_input(event :InputEvent) -> void:
+	if event.is_action_pressed(&"debug_quit"):
+		quit_game()
+		
 func _deferred_load_room(level_scene_uid : String) -> void:
 	if _current_level != null:
 		_current_level.queue_free()
 		_current_level = null
+		await get_tree().process_frame
 	
-	await get_tree().process_frame
 	
 	var new_level_packed : PackedScene =\
 		ResourceLoader.load(level_scene_uid, "PackedScene") as PackedScene
@@ -49,16 +57,24 @@ func _deferred_load_room(level_scene_uid : String) -> void:
 		push_error("Could not load level as a packed scene : " + level_scene_uid)
 		return
 	
-	_current_level = new_level_packed.instantiate() as BaseLevel
-	if _current_level == null:
-		push_error("Loaded room is not of type room or does not exist")
+	var new_level : Node = new_level_packed.instantiate()
+	
+	if not new_level:
+		push_error("Could not instantiate ne level " + level_scene_uid)
 		return
+	
+	if not new_level is BaseLevel:
+		new_level.free()
+		push_error("Loaded level is not of type BaseLevel" + level_scene_uid)
+		return
+	
+	_current_level = new_level as BaseLevel
+	
 		# FUTURE (main_menu): should have a fall back scene
 	level_root.add_child(_current_level)
 	
-	await get_tree().process_frame
 	_place_player_at_level_spawn()
-	_setup_level_camera()
+	_setup_level_cameras()
 	
 func _place_player_at_level_spawn()->void:
 	if player == null:
@@ -69,13 +85,15 @@ func _place_player_at_level_spawn()->void:
 		return
 	player.global_position = _current_level.get_default_player_spawn()
 	
-func _setup_level_camera() -> void:
+func _setup_level_cameras() -> void:
 	if player == null or _current_level == null:
 		return
 	
 	var level_camera : Camera2D = _current_level.get_player_camera()
 	if level_camera == null:
 		return
+		
+	var ghost_camera : Camera2D = _current_level.get_ghost_vision_camera()
+	if ghost_camera == null:
+		return
 	
-		
-		

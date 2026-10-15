@@ -28,8 +28,6 @@ layer = 10
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="PauseLayer" type="CanvasLayer" parent="." unique_id=69841727]
 process_mode = 2
@@ -39,8 +37,7 @@ layer = 20
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=1737297716]
@@ -51,6 +48,5 @@ layer = 100
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true

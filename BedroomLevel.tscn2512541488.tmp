@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://d1wycq0ylykwr"]
+
+[ext_resource type="Script" uid="uid://c3x0foqt4c4bh" path="res://bedroom_level.gd" id="1_g4153"]
+[ext_resource type="Texture2D" uid="uid://cosur5m6gdilc" path="res://art/bedroomfloor.png" id="2_g4153"]
+
+[node name="BedroomLevel" type="Node2D" unique_id=1185810557]
+script = ExtResource("1_g4153")
+
+[node name="BackBackground" type="CanvasLayer" parent="." unique_id=1530136866]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="BackBackground" unique_id=826389738]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Backgound" type="Node2D" parent="." unique_id=1432915085]
+
+[node name="Bedroom" type="Sprite2D" parent="Backgound" unique_id=2090999657]
+texture = ExtResource("2_g4153")
+
+[node name="Entities" type="Node2D" parent="." unique_id=1093988494]
+
+[node name="PlayerCamera" type="Camera2D" parent="Entities" unique_id=2136906483]
+
+[node name="GhostVisionCamera" type="Camera2D" parent="Entities" unique_id=971230209]
+
+[node name="PlayerSpawn" type="Marker2D" parent="Entities" unique_id=1705999704]

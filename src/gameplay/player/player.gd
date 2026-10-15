@@ -20,6 +20,8 @@ func _process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and nearby_clue != null:
 		nearby_clue.interact()
+		# FUTURE add camera switching logic here
+	
 		
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_axis("move_left","move_right")

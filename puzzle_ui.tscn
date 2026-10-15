@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://btk80fuqivtt1" path="res://puzzle_ui.gd" id="1_scvx3"]
 
+
 [node name="PuzzleUI" type="CanvasLayer" unique_id=1887719840]
 script = ExtResource("1_scvx3")
 
