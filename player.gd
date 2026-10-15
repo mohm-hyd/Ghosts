@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @onready var interaction_area: Area2D = $InteractionArea
@@ -21,10 +22,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		nearby_clue.interact()
 		
 func _physics_process(delta: float) -> void:
-	var direction = Input.get_vector("move_left","move_right","move_up","move_down")
-	velocity = direction * 600.
+	var direction = Input.get_axis("move_left","move_right")
+	velocity.x = direction * 600
 	move_and_slide()
 	
+	if direction <0:
+		%Aspen.scale.x = abs(%Aspen.scale.x) 
+	elif direction > 0:
+		%Aspen.scale.x = -abs(%Aspen.scale.x) 
+
+
 	if velocity.length() > 0.0:
 		%Aspen.play_walk_animation()
 	else: 

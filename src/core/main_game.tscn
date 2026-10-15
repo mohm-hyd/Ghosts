@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dv7g0gei7xp3y"]
+
+[ext_resource type="Script" uid="uid://d083gesrvtgrj" path="res://src/core/main_game.gd" id="1_keldc"]
+
+[node name="MainGame" type="Node" unique_id=891597255]
+process_mode = 3
+script = ExtResource("1_keldc")
+
+[node name="System" type="Node" parent="." unique_id=1338775885]
+
+[node name="World" type="Node2D" parent="." unique_id=1638708533]
+process_mode = 1
+
+[node name="LevelRoot" type="Node2D" parent="World" unique_id=1940770140]
+unique_name_in_owner = true
+
+[node name="EntityRoot" type="Node2D" parent="World" unique_id=1647456941]
+unique_name_in_owner = true
+
+[node name="EffectRoot" type="Node2D" parent="World" unique_id=1100746793]
+unique_name_in_owner = true
+
+[node name="HudLayer" type="CanvasLayer" parent="." unique_id=1502391682]
+process_mode = 1
+layer = 10
+
+[node name="HudRoot" type="Control" parent="HudLayer" unique_id=1705770973]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=69841727]
+process_mode = 2
+layer = 20
+
+[node name="PauseRoot" type="Control" parent="PauseLayer" unique_id=1949363227]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=1737297716]
+process_mode = 3
+layer = 100
+
+[node name="TransitionRoot" type="Control" parent="TransitionLayer" unique_id=472472791]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
