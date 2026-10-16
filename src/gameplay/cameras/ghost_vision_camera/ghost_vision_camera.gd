@@ -1,6 +1,7 @@
 class_name GhostCamera
 extends Camera2D
 
+@export var transition_duration: float = 0.5
 
 const LERP_WEIGHT : float = 2.0
 const CAMERA_LOOK_AHEAD_VAL : Vector2 = Vector2(0.0, -8.0)
@@ -28,11 +29,15 @@ func _follow_camera_target(delta : float) -> void:
 
 	global_position = camera_pos_out
 
-
-# Called when the node enters the scene tree for the first time.
+	
+func toggle_ghost_vision() -> void:
+	$CanvasLayer.visible = true
 func _ready() -> void:
-	pass # Replace with function body.
-
+	pass
+	#world.material.set_shader_parameter(
+	#	"fade_amount",
+	#	0.0
+	#)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

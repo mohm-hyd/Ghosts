@@ -1,12 +1,21 @@
 [gd_scene format=3 uid="uid://dv7g0gei7xp3y"]
 
 [ext_resource type="Script" uid="uid://d083gesrvtgrj" path="res://src/core/main_game.gd" id="1_keldc"]
+[ext_resource type="PackedScene" uid="uid://b10as4y0tod41" path="res://src/system/vision_state/vision_state_controller.tscn" id="2_ike8k"]
+[ext_resource type="PackedScene" uid="uid://dqxhkdr4jkn7a" path="res://src/system/game_state/GameStateController.tscn" id="3_bycoy"]
+[ext_resource type="PackedScene" uid="uid://o83ledwls4xx" path="res://src/system/ui_state/ui_state_controller.tscn" id="4_rt44x"]
 
 [node name="MainGame" type="Node" unique_id=891597255]
 process_mode = 3
 script = ExtResource("1_keldc")
 
 [node name="System" type="Node" parent="." unique_id=1338775885]
+
+[node name="VisionStateController" parent="System" unique_id=1482139677 instance=ExtResource("2_ike8k")]
+
+[node name="GameStateController" parent="System" unique_id=964836541 instance=ExtResource("3_bycoy")]
+
+[node name="UiStateController" parent="System" unique_id=1884406569 instance=ExtResource("4_rt44x")]
 
 [node name="World" type="Node2D" parent="." unique_id=1638708533]
 process_mode = 1

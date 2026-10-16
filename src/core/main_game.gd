@@ -7,7 +7,9 @@ const PLAYER_SCENE_UID: String = "uid://ckudr8chj1kgo"
 var player : Player = null
 
 var _current_level : BaseLevel
-var _active_camera : Camera2D = null
+
+
+@onready var vision_state_controller: Node2D = $System/VisionStateController
 
 @onready var level_root: Node2D = %LevelRoot
 @onready var entity_root: Node2D = %EntityRoot
@@ -38,7 +40,6 @@ func _init_player() -> void:
 func load_level(local_scene : String) -> void:
 	_deferred_load_room.call_deferred(local_scene)
 func  quit_game() -> void:
-	get_tree().root.propogate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 	get_tree().quit()
 
 
@@ -91,9 +92,9 @@ func _place_player_at_level_spawn()->void:
 func _setup_level_cameras() -> void:
 	if player == null or _current_level == null:
 		return
-
-	var level_camera: PlayerCamera = _current_level.get_player_camera()
-	var ghost_camera: GhostCamera = _current_level.get_ghost_vision_camera()
+		
+	var level_camera = _current_level.get_player_camera()
+	var ghost_camera = _current_level.get_ghost_vision_camera()
 
 	if level_camera == null or ghost_camera == null:
 		push_error("Level is missing a required camera")
@@ -105,17 +106,6 @@ func _setup_level_cameras() -> void:
 	level_camera.enabled = false
 	ghost_camera.enabled = false
 
-	_activate_camera(level_camera)
-
-
-func _activate_camera(camera: Camera2D) -> void:
-	if camera == null:
-		return
-
-	if _active_camera != null \
-			and is_instance_valid(_active_camera):
-		_active_camera.enabled = false
-
-	_active_camera = camera
-	_active_camera.enabled = true
-	_active_camera.make_current()
+	vision_state_controller.activate_camera(level_camera)
+	vision_state_controller.level_camera = level_camera
+	vision_state_controller.ghost_camera = ghost_camera
