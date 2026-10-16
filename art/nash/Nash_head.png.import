@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqytb1mjnbxrh"
-path="res://.godot/imported/Aspen_L_leg.png-2725907799a6953b997936d3279a561f.ctex"
+uid="uid://dbbpltpbpai25"
+path="res://.godot/imported/Nash_head.png-55d60054dfd0ba1c5daa916478b7d7d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://aspen/Aspen_L_leg.png"
-dest_files=["res://.godot/imported/Aspen_L_leg.png-2725907799a6953b997936d3279a561f.ctex"]
+source_file="res://art/nash/Nash_head.png"
+dest_files=["res://.godot/imported/Nash_head.png-55d60054dfd0ba1c5daa916478b7d7d9.ctex"]
 
 [params]
 

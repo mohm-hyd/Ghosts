@@ -1,3 +1,4 @@
+class_name GhostCamera
 extends Camera2D
 
 

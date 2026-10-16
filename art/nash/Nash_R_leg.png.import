@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cosur5m6gdilc"
-path="res://.godot/imported/bedroomfloor.png-513ab485a4182aad4fa2cc84076e208b.ctex"
+uid="uid://codvfjqq0bdv0"
+path="res://.godot/imported/Nash_R_leg.png-c866c94852946bf6a2a33b3fa07ab0ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/bedroomfloor.png"
-dest_files=["res://.godot/imported/bedroomfloor.png-513ab485a4182aad4fa2cc84076e208b.ctex"]
+source_file="res://art/nash/Nash_R_leg.png"
+dest_files=["res://.godot/imported/Nash_R_leg.png-c866c94852946bf6a2a33b3fa07ab0ea.ctex"]
 
 [params]
 

@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://d254p8jqutkx"]
-
-[ext_resource type="Script" uid="uid://ca0ckd6i7xbs3" path="res://src/gameplay/cameras/ghost_vision_cameras/ghost_vision_camera.gd" id="1_m0ig2"]
-
-[node name="GhostVisionCamera" type="Camera2D" unique_id=393315676]
-script = ExtResource("1_m0ig2")

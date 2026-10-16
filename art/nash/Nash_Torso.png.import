@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bno4vo38k2fcp"
-path="res://.godot/imported/Nash_ponytail.png-5f75ceab3f48a605ac7dc801b0240254.ctex"
+uid="uid://cb4nlvi7udto3"
+path="res://.godot/imported/Nash_Torso.png-1f3838ac34127d4a656235464d4ce928.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Nash/Nash_ponytail.png"
-dest_files=["res://.godot/imported/Nash_ponytail.png-5f75ceab3f48a605ac7dc801b0240254.ctex"]
+source_file="res://art/nash/Nash_Torso.png"
+dest_files=["res://.godot/imported/Nash_Torso.png-1f3838ac34127d4a656235464d4ce928.ctex"]
 
 [params]
 

@@ -7,6 +7,7 @@ const PLAYER_SCENE_UID: String = "uid://ckudr8chj1kgo"
 var player : Player = null
 
 var _current_level : BaseLevel
+var _active_camera : Camera2D = null
 
 @onready var level_root: Node2D = %LevelRoot
 @onready var entity_root: Node2D = %EntityRoot
@@ -19,6 +20,7 @@ var _current_level : BaseLevel
 
 func _ready() -> void:
 	_init_player()
+	load_level(TUTORIAL_BEDROOM_SCENE_UID)
 	
 func _init_player() -> void:
 	var player_scene : PackedScene = ResourceLoader.load(PLAYER_SCENE_UID) as PackedScene
@@ -85,15 +87,35 @@ func _place_player_at_level_spawn()->void:
 		return
 	player.global_position = _current_level.get_default_player_spawn()
 	
+	
 func _setup_level_cameras() -> void:
 	if player == null or _current_level == null:
 		return
-	
-	var level_camera : Camera2D = _current_level.get_player_camera()
-	if level_camera == null:
+
+	var level_camera: PlayerCamera = _current_level.get_player_camera()
+	var ghost_camera: GhostCamera = _current_level.get_ghost_vision_camera()
+
+	if level_camera == null or ghost_camera == null:
+		push_error("Level is missing a required camera")
 		return
 		
-	var ghost_camera : Camera2D = _current_level.get_ghost_vision_camera()
-	if ghost_camera == null:
+	level_camera.target = player
+	ghost_camera.target = player
+
+	level_camera.enabled = false
+	ghost_camera.enabled = false
+
+	_activate_camera(level_camera)
+
+
+func _activate_camera(camera: Camera2D) -> void:
+	if camera == null:
 		return
-	
+
+	if _active_camera != null \
+			and is_instance_valid(_active_camera):
+		_active_camera.enabled = false
+
+	_active_camera = camera
+	_active_camera.enabled = true
+	_active_camera.make_current()

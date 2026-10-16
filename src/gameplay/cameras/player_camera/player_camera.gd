@@ -1,10 +1,11 @@
+class_name PlayerCamera
 extends Camera2D
 
 const LERP_WEIGHT : float = 2.0
 const CAMERA_LOOK_AHEAD_VAL : Vector2 = Vector2(0.0, -8.0)
 const CAMERA_LOOK_AMOUNT    : float =  64.0  
 
-var target : Node2D = null
+var target : Player = null
 
 func _physics_process(delta : float) -> void:
 	_follow_camera_target(delta)

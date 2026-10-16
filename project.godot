@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GoingToSchool"
-run/main_scene="uid://d1wycq0ylykwr"
+run/main_scene="uid://dv7g0gei7xp3y"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

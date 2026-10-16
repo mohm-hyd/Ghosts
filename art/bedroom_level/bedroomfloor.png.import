@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceo8x77ltloaw"
-path="res://.godot/imported/Aspen_bhair.png-fff71afcaeba74fa6dec0db138683f88.ctex"
+uid="uid://cosur5m6gdilc"
+path="res://.godot/imported/bedroomfloor.png-bba899f91506dee0a07da36c2ad97b4e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://aspen/Aspen_bhair.png"
-dest_files=["res://.godot/imported/Aspen_bhair.png-fff71afcaeba74fa6dec0db138683f88.ctex"]
+source_file="res://art/bedroom_level/bedroomfloor.png"
+dest_files=["res://.godot/imported/bedroomfloor.png-bba899f91506dee0a07da36c2ad97b4e.ctex"]
 
 [params]
 
