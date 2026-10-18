@@ -8,6 +8,11 @@ const CAMERA_LOOK_AHEAD_VAL : Vector2 = Vector2(0.0, -8.0)
 const CAMERA_LOOK_AMOUNT    : float =  64.0  
 
 var target : Node2D = null
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var color_rect: ColorRect = $CanvasLayer/ColorRect
+
+var is_active_vision: bool = false
+var current_tween: Tween = null
 
 func _physics_process(delta : float) -> void:
 	_follow_camera_target(delta)
@@ -30,15 +35,24 @@ func _follow_camera_target(delta : float) -> void:
 	global_position = camera_pos_out
 
 	
-func toggle_ghost_vision() -> void:
-	$CanvasLayer.visible = true
-func _ready() -> void:
-	pass
-	#world.material.set_shader_parameter(
-	#	"fade_amount",
-	#	0.0
-	#)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func set_ghost_vision_active(active: bool) -> void:
+	is_active_vision = active
+	
+	if current_tween and current_tween.is_valid():
+		current_tween.kill()
+	
+	current_tween = create_tween().set_parallel(true)
+	
+	if active:
+		canvas_layer.visible = true
+		current_tween.tween_method(
+			func(val): color_rect.material.set_shader_parameter("fade_amount", val),
+			0.0, 1.0, transition_duration
+			)
+	else:
+		current_tween.tween_method(
+			func(val): color_rect.material.set_shader_parameter("fade_amount", val),
+			1.0, 0.0, transition_duration
+			)
+		current_tween.chain().tween_callback(func(): canvas_layer.visible = false)
+		

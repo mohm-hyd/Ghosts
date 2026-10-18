@@ -32,9 +32,9 @@ texture = ExtResource("2_l52dp")
 
 [node name="GhostVisionCamera" parent="Entities" unique_id=393315676 instance=ExtResource("3_tlaxa")]
 position = Vector2(951, 539)
-transition_duration = 0.5
 
 [node name="PlayerCamera" parent="Entities" unique_id=436012757 instance=ExtResource("4_yu3f5")]
 position = Vector2(945, 550)
 
 [node name="PlayerSpawn" parent="Entities" unique_id=1644690995 instance=ExtResource("5_ih3vv")]
+position = Vector2(957, 546)

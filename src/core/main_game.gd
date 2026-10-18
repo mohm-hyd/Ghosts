@@ -5,11 +5,11 @@ const TUTORIAL_BEDROOM_SCENE_UID : String="uid://d1wycq0ylykwr"
 const PLAYER_SCENE_UID: String = "uid://ckudr8chj1kgo"
 
 var player : Player = null
-
 var _current_level : BaseLevel
 
 
 @onready var vision_state_controller: Node2D = $System/VisionStateController
+@onready var game_state_controller: GameStateController = $System/GameStateController
 
 @onready var level_root: Node2D = %LevelRoot
 @onready var entity_root: Node2D = %EntityRoot
@@ -22,7 +22,16 @@ var _current_level : BaseLevel
 
 func _ready() -> void:
 	_init_player()
+	if game_state_controller:
+		game_state_controller.game_started.connect(_on_game_started)
+		game_state_controller.game_quit.connect(_on_game_quit)
+
+func _on_game_started() -> void:
 	load_level(TUTORIAL_BEDROOM_SCENE_UID)
+
+func _on_game_quit() -> void:
+	quit_game()
+
 	
 func _init_player() -> void:
 	var player_scene : PackedScene = ResourceLoader.load(PLAYER_SCENE_UID) as PackedScene
@@ -39,6 +48,7 @@ func _init_player() -> void:
 
 func load_level(local_scene : String) -> void:
 	_deferred_load_room.call_deferred(local_scene)
+	
 func  quit_game() -> void:
 	get_tree().quit()
 
@@ -53,7 +63,6 @@ func _deferred_load_room(level_scene_uid : String) -> void:
 		_current_level = null
 		await get_tree().process_frame
 	
-	
 	var new_level_packed : PackedScene =\
 		ResourceLoader.load(level_scene_uid, "PackedScene") as PackedScene
 	if new_level_packed == null:
@@ -61,7 +70,6 @@ func _deferred_load_room(level_scene_uid : String) -> void:
 		return
 	
 	var new_level : Node = new_level_packed.instantiate()
-	
 	if not new_level:
 		push_error("Could not instantiate ne level " + level_scene_uid)
 		return
@@ -72,8 +80,6 @@ func _deferred_load_room(level_scene_uid : String) -> void:
 		return
 	
 	_current_level = new_level as BaseLevel
-	
-		# FUTURE (main_menu): should have a fall back scene
 	level_root.add_child(_current_level)
 	
 	_place_player_at_level_spawn()

@@ -4,5 +4,3 @@
 
 [node name="GameStateController" type="Node2D" unique_id=964836541]
 script = ExtResource("1_8ius2")
-
-[connection signal="pauseGame" from="." to="." method="_on_pause_game"]
