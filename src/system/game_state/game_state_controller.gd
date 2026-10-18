@@ -6,6 +6,7 @@ signal game_paused
 signal game_resumed
 signal returned_to_main_menu
 signal game_quit
+signal level_transition_requested(level_uid: String, spawn_name: String)
 
 var in_game : bool = false
 var is_paused : bool = false
@@ -44,3 +45,8 @@ func return_to_main_menu() -> void:
 func quit_game() -> void:
 	get_tree().paused = false
 	game_quit.emit()
+	
+func request_level_transition(level_uid: String, spawn_name: String) -> void:
+	if not in_game:
+		return
+	level_transition_requested.emit(level_uid, spawn_name)

@@ -13,7 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_m3ldw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=153784688]
-position = Vector2(969, 547)
+position = Vector2(961, 543)
 texture = ExtResource("2_xre00")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=11274864]
@@ -44,7 +44,16 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 80
-text = "QuitGame"
+text = "Quit Game"
+
+[node name="CreditsButton" type="Button" parent="HBoxContainer" unique_id=212726370]
+custom_minimum_size = Vector2(600, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 80
+text = "Credits"
 
 [connection signal="pressed" from="HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

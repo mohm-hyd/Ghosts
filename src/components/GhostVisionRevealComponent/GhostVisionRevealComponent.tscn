@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://c123v3db4lkfu"]
-
-[ext_resource type="Script" uid="uid://diijc6hm0mspu" path="res://src/components/GhostVisionRevealComponent/ghost_vision_reveal_component.gd" id="1_0kf3q"]
-
-[node name="GhostVisionRevealComponent" type="Node2D" unique_id=2030860639]
-script = ExtResource("1_0kf3q")

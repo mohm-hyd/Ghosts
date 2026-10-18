@@ -19,19 +19,24 @@ var _current_level : BaseLevel
 @onready var pause_root: Control = %PauseRoot
 @onready var transition_root: Control = %TransitionRoot
 
+var next_spawn_marker_name : String = "PlayerSpawn"
 
 func _ready() -> void:
-	_init_player()
 	if game_state_controller:
 		game_state_controller.game_started.connect(_on_game_started)
 		game_state_controller.game_quit.connect(_on_game_quit)
+		game_state_controller.level_transition_requested.connect(_on_level_transition_requested)
 
 func _on_game_started() -> void:
 	load_level(TUTORIAL_BEDROOM_SCENE_UID)
+	_init_player()
 
 func _on_game_quit() -> void:
 	quit_game()
 
+func _on_level_transition_requested(level_uid: String, spawn_name: String) -> void:
+	next_spawn_marker_name = spawn_name
+	load_level(level_uid)
 	
 func _init_player() -> void:
 	var player_scene : PackedScene = ResourceLoader.load(PLAYER_SCENE_UID) as PackedScene
@@ -92,7 +97,12 @@ func _place_player_at_level_spawn()->void:
 	if _current_level == null:
 		push_error("Can not place player into level because level is null")
 		return
-	player.global_position = _current_level.get_default_player_spawn()
+	
+	var spawn_node = _current_level.find_child(next_spawn_marker_name, true, false)
+	if spawn_node and spawn_node is Marker2D:
+		player.global_position = spawn_node.global_position
+	else:
+		player.global_position = _current_level.get_default_player_spawn()
 	
 	
 func _setup_level_cameras() -> void:

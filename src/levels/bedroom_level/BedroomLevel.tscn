@@ -5,6 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://d254p8jqutkx" path="res://src/gameplay/cameras/ghost_vision_camera/GhostVisionCamera.tscn" id="3_tlaxa"]
 [ext_resource type="PackedScene" uid="uid://wsrbanrjsdtq" path="res://src/gameplay/cameras/player_camera/PlayerCamera.tscn" id="4_yu3f5"]
 [ext_resource type="PackedScene" uid="uid://b5denm6htffy0" path="res://src/levels/level_objects/PlayerSpawn.tscn" id="5_ih3vv"]
+[ext_resource type="PackedScene" uid="uid://dpaxyirrvfu6o" path="res://src/components/level_transition_component/LevelTransition.tscn" id="6_l52dp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kd8bc"]
+size = Vector2(87, 493)
 
 [node name="BedroomLevel" type="Node2D" unique_id=1185810557]
 script = ExtResource("1_7dtca")
@@ -38,3 +42,11 @@ position = Vector2(945, 550)
 
 [node name="PlayerSpawn" parent="Entities" unique_id=1644690995 instance=ExtResource("5_ih3vv")]
 position = Vector2(957, 546)
+
+[node name="LevelTransition" parent="." unique_id=153564768 instance=ExtResource("6_l52dp")]
+position = Vector2(1834, 622)
+target_level_uid = "uid://cerpx8cld4433"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransition" unique_id=1116808007]
+position = Vector2(46, -9.5)
+shape = SubResource("RectangleShape2D_kd8bc")
