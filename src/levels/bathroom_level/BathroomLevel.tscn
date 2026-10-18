@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bp8a8x1xw0agi"]
+
+[ext_resource type="Texture2D" uid="uid://c06vndpmed4u1" path="res://art/bathroom/bathroom_stall_closed.png" id="1_emqms"]
+[ext_resource type="PackedScene" uid="uid://wsrbanrjsdtq" path="res://src/gameplay/cameras/player_camera/PlayerCamera.tscn" id="2_wbm8p"]
+[ext_resource type="PackedScene" uid="uid://d254p8jqutkx" path="res://src/gameplay/cameras/ghost_vision_camera/GhostVisionCamera.tscn" id="3_cgeu1"]
+[ext_resource type="PackedScene" uid="uid://b5denm6htffy0" path="res://src/levels/level_objects/PlayerSpawn.tscn" id="4_g6cap"]
+[ext_resource type="PackedScene" uid="uid://dpaxyirrvfu6o" path="res://src/components/level_transition_component/LevelTransition.tscn" id="5_hv8o5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kd8bc"]
+size = Vector2(71, 597)
+
+[node name="BathroomLevel" type="Node2D" unique_id=778967887]
+
+[node name="BackBackground" type="CanvasLayer" parent="." unique_id=2095015324]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="BackBackground" unique_id=1699339057]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="Node2D" parent="." unique_id=103844965]
+
+[node name="Bus" type="Sprite2D" parent="Background" unique_id=1916204365]
+position = Vector2(962, 539)
+texture = ExtResource("1_emqms")
+
+[node name="Entities" type="Node2D" parent="." unique_id=81746490]
+
+[node name="PlayerCamera" parent="Entities" unique_id=436012757 instance=ExtResource("2_wbm8p")]
+
+[node name="GhostVisionCamera" parent="Entities" unique_id=393315676 instance=ExtResource("3_cgeu1")]
+
+[node name="PlayerSpawn" parent="Entities" unique_id=1644690995 instance=ExtResource("4_g6cap")]
+position = Vector2(1694, 758)
+
+[node name="FrontOfBus" parent="Entities" unique_id=731827706 instance=ExtResource("4_g6cap")]
+position = Vector2(197, 670)
+
+[node name="LevelTransition" parent="." unique_id=153564768 instance=ExtResource("5_hv8o5")]
+position = Vector2(0, 651)
+target_level_uid = "uid://b22c8mb7r6qo4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransition" unique_id=2092818825]
+position = Vector2(23.5, -39.5)
+shape = SubResource("RectangleShape2D_kd8bc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=507430907]

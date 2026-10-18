@@ -12,7 +12,6 @@ size = Vector2(87, 493)
 
 [node name="BedroomLevel" type="Node2D" unique_id=1185810557]
 script = ExtResource("1_7dtca")
-metadata/_edit_group_ = true
 
 [node name="BackBackground" type="CanvasLayer" parent="." unique_id=1530136866]
 layer = -1

@@ -38,7 +38,7 @@ texture = ExtResource("1_xr3by")
 [node name="GhostVisionCamera" parent="Entities" unique_id=393315676 instance=ExtResource("3_8ojvc")]
 
 [node name="PlayerSpawn" parent="Entities" unique_id=1644690995 instance=ExtResource("5_cy15j")]
-position = Vector2(1843, 739)
+position = Vector2(1694, 758)
 
 [node name="FrontOfBus" parent="Entities" unique_id=731827706 instance=ExtResource("5_cy15j")]
 position = Vector2(197, 670)

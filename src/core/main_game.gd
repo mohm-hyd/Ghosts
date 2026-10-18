@@ -3,10 +3,7 @@ extends Node
 
 const TUTORIAL_BEDROOM_SCENE_UID : String="uid://d1wycq0ylykwr"
 const PLAYER_SCENE_UID: String = "uid://ckudr8chj1kgo"
-
-var player : Player = null
-var _current_level : BaseLevel
-
+const SCENE_TRANSITION : PackedScene = preload("uid://cy18gylahgif")
 
 @onready var vision_state_controller: Node2D = $System/VisionStateController
 @onready var game_state_controller: GameStateController = $System/GameStateController
@@ -19,7 +16,10 @@ var _current_level : BaseLevel
 @onready var pause_root: Control = %PauseRoot
 @onready var transition_root: Control = %TransitionRoot
 
+var player : Player = null
+var _current_level : BaseLevel
 var next_spawn_marker_name : String = "PlayerSpawn"
+var is_transitioning : bool = false
 
 func _ready() -> void:
 	if game_state_controller:
@@ -50,6 +50,7 @@ func _init_player() -> void:
 		return
 	
 	entity_root.add_child(player)
+	player.hide()
 
 func load_level(local_scene : String) -> void:
 	_deferred_load_room.call_deferred(local_scene)
@@ -63,6 +64,15 @@ func _unhandled_input(event :InputEvent) -> void:
 		quit_game()
 		
 func _deferred_load_room(level_scene_uid : String) -> void:
+	if is_transitioning:
+		return
+	is_transitioning = true
+	
+	var transition = SCENE_TRANSITION.instantiate() as SceneTransition
+	transition_root.add_child(transition)
+	
+	await transition.fade_in()
+	
 	if _current_level != null:
 		_current_level.queue_free()
 		_current_level = null
@@ -72,16 +82,22 @@ func _deferred_load_room(level_scene_uid : String) -> void:
 		ResourceLoader.load(level_scene_uid, "PackedScene") as PackedScene
 	if new_level_packed == null:
 		push_error("Could not load level as a packed scene : " + level_scene_uid)
+		transition.fade_out()
+		is_transitioning = false
 		return
 	
 	var new_level : Node = new_level_packed.instantiate()
 	if not new_level:
-		push_error("Could not instantiate ne level " + level_scene_uid)
+		push_error("Could not instantiate new level " + level_scene_uid)
+		transition.fade_out()
+		is_transitioning = false
 		return
 	
 	if not new_level is BaseLevel:
 		new_level.free()
 		push_error("Loaded level is not of type BaseLevel" + level_scene_uid)
+		transition.fade_out()
+		is_transitioning = false
 		return
 	
 	_current_level = new_level as BaseLevel
@@ -89,6 +105,11 @@ func _deferred_load_room(level_scene_uid : String) -> void:
 	
 	_place_player_at_level_spawn()
 	_setup_level_cameras()
+	
+	await get_tree().process_frame
+	
+	await transition.fade_out()
+	is_transitioning = false
 	
 func _place_player_at_level_spawn()->void:
 	if player == null:
@@ -101,6 +122,7 @@ func _place_player_at_level_spawn()->void:
 	var spawn_node = _current_level.find_child(next_spawn_marker_name, true, false)
 	if spawn_node and spawn_node is Marker2D:
 		player.global_position = spawn_node.global_position
+		player.show()
 	else:
 		player.global_position = _current_level.get_default_player_spawn()
 	

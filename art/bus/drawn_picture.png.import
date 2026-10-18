@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cedpo4xelmouc"
-path="res://.godot/imported/drawn_picture.png-f175118c784e28ad2bbefe1381c0c32c.ctex"
+path="res://.godot/imported/drawn_picture.png-24818a17e5ec8077e89bde18cbae7bce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/clue_objects/drawn_picture.png"
-dest_files=["res://.godot/imported/drawn_picture.png-f175118c784e28ad2bbefe1381c0c32c.ctex"]
+source_file="res://art/bus/drawn_picture.png"
+dest_files=["res://.godot/imported/drawn_picture.png-24818a17e5ec8077e89bde18cbae7bce.ctex"]
 
 [params]
 
