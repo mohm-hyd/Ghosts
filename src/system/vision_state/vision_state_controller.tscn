@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b10as4y0tod41"]
+
+[ext_resource type="Script" uid="uid://b3mdsl3dnwktd" path="res://src/system/vision_state/vision_state_controller.gd" id="1_ckjqj"]
+
+[node name="VisionStateController" type="Node2D" unique_id=1482139677]
+script = ExtResource("1_ckjqj")

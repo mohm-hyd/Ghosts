@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://o83ledwls4xx"]
+
+[ext_resource type="Script" uid="uid://6vwrr563c4lx" path="res://src/system/ui_state/ui_state_controller.gd" id="1_fs7dg"]
+
+[node name="UiStateController" type="Node2D" unique_id=1884406569]
+script = ExtResource("1_fs7dg")

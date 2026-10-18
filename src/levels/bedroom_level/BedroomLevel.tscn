@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://d1wycq0ylykwr"]
+
+[ext_resource type="Script" uid="uid://c3x0foqt4c4bh" path="res://src/levels/bedroom_level/bedroom_level.gd" id="1_7dtca"]
+[ext_resource type="Texture2D" uid="uid://cosur5m6gdilc" path="res://art/bedroom_level/bedroomfloor.png" id="2_l52dp"]
+[ext_resource type="PackedScene" uid="uid://d254p8jqutkx" path="res://src/gameplay/cameras/ghost_vision_camera/GhostVisionCamera.tscn" id="3_tlaxa"]
+[ext_resource type="PackedScene" uid="uid://wsrbanrjsdtq" path="res://src/gameplay/cameras/player_camera/PlayerCamera.tscn" id="4_yu3f5"]
+[ext_resource type="PackedScene" uid="uid://b5denm6htffy0" path="res://src/levels/level_objects/PlayerSpawn.tscn" id="5_ih3vv"]
+
+[node name="BedroomLevel" type="Node2D" unique_id=1185810557]
+script = ExtResource("1_7dtca")
+metadata/_edit_group_ = true
+
+[node name="BackBackground" type="CanvasLayer" parent="." unique_id=1530136866]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="BackBackground" unique_id=826389738]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Backgound" type="Node2D" parent="." unique_id=1432915085]
+
+[node name="Bedroom" type="Sprite2D" parent="Backgound" unique_id=2090999657]
+position = Vector2(968, 557)
+texture = ExtResource("2_l52dp")
+
+[node name="Entities" type="Node2D" parent="." unique_id=1093988494]
+
+[node name="GhostVisionCamera" parent="Entities" unique_id=393315676 instance=ExtResource("3_tlaxa")]
+position = Vector2(951, 539)
+
+[node name="PlayerCamera" parent="Entities" unique_id=436012757 instance=ExtResource("4_yu3f5")]
+position = Vector2(945, 550)
+
+[node name="PlayerSpawn" parent="Entities" unique_id=1644690995 instance=ExtResource("5_ih3vv")]
+position = Vector2(957, 546)

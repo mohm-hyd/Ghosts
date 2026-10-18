@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://m3enuov566vc"]
+
+[ext_resource type="Script" uid="uid://0285pcu5qrt0" path="res://src/ui/main_menu/main_menu.gd" id="1_m3ldw"]
+[ext_resource type="Texture2D" uid="uid://cosur5m6gdilc" path="res://art/bedroom_level/bedroomfloor.png" id="2_xre00"]
+
+[node name="MainMenu" type="Control" unique_id=1073486521]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m3ldw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=153784688]
+position = Vector2(969, 547)
+texture = ExtResource("2_xre00")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=11274864]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameNameLabel" type="Label" parent="HBoxContainer" unique_id=209424823]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = "Game Name Place Holder"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="HBoxContainer" unique_id=198918616]
+custom_minimum_size = Vector2(600, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 80
+text = "Start Game"
+
+[node name="QuitButton" type="Button" parent="HBoxContainer" unique_id=382945461]
+custom_minimum_size = Vector2(600, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 80
+text = "QuitGame"
+
+[connection signal="pressed" from="HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

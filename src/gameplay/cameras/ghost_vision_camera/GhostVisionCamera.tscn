@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d254p8jqutkx"]
+
+[ext_resource type="Script" uid="uid://ca0ckd6i7xbs3" path="res://src/gameplay/cameras/ghost_vision_camera/ghost_vision_camera.gd" id="1_m0ig2"]
+[ext_resource type="Shader" uid="uid://drm4tq15npb7s" path="res://src/gameplay/cameras/ghost_vision_camera/GhostVisionCamera.gdshader" id="2_jb1vw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mic76"]
+shader = ExtResource("2_jb1vw")
+shader_parameter/fade_amount = 0.0
+
+[node name="GhostVisionCamera" type="Camera2D" unique_id=393315676]
+script = ExtResource("1_m0ig2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=87807986]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=676832431]
+material = SubResource("ShaderMaterial_mic76")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
