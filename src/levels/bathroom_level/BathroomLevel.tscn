@@ -1,15 +1,22 @@
 [gd_scene format=3 uid="uid://bp8a8x1xw0agi"]
 
+[ext_resource type="Script" uid="uid://dy1iv03xajsv5" path="res://src/levels/bathroom_level/bathroom_level.gd" id="1_cgeu1"]
 [ext_resource type="Texture2D" uid="uid://c06vndpmed4u1" path="res://art/bathroom/bathroom_stall_closed.png" id="1_emqms"]
+[ext_resource type="PackedScene" uid="uid://budryreehyrlk" path="res://src/components/room_bounds_component/room_bounds_component.tscn" id="2_cgeu1"]
 [ext_resource type="PackedScene" uid="uid://wsrbanrjsdtq" path="res://src/gameplay/cameras/player_camera/PlayerCamera.tscn" id="2_wbm8p"]
 [ext_resource type="PackedScene" uid="uid://d254p8jqutkx" path="res://src/gameplay/cameras/ghost_vision_camera/GhostVisionCamera.tscn" id="3_cgeu1"]
 [ext_resource type="PackedScene" uid="uid://b5denm6htffy0" path="res://src/levels/level_objects/PlayerSpawn.tscn" id="4_g6cap"]
 [ext_resource type="PackedScene" uid="uid://dpaxyirrvfu6o" path="res://src/components/level_transition_component/LevelTransition.tscn" id="5_hv8o5"]
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_kd8bc"]
+a = Vector2(1892, -24)
+b = Vector2(-23, 5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kd8bc"]
 size = Vector2(71, 597)
 
 [node name="BathroomLevel" type="Node2D" unique_id=778967887]
+script = ExtResource("1_cgeu1")
 
 [node name="BackBackground" type="CanvasLayer" parent="." unique_id=2095015324]
 layer = -1
@@ -29,6 +36,12 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(962, 539)
 texture = ExtResource("1_emqms")
 
+[node name="RoomBoundsComponent" parent="." unique_id=1265175140 instance=ExtResource("2_cgeu1")]
+
+[node name="FloorEdge" type="CollisionShape2D" parent="RoomBoundsComponent" unique_id=1743185399]
+position = Vector2(3, 506)
+shape = SubResource("SegmentShape2D_kd8bc")
+
 [node name="Entities" type="Node2D" parent="." unique_id=81746490]
 
 [node name="PlayerCamera" parent="Entities" unique_id=436012757 instance=ExtResource("2_wbm8p")]
@@ -36,17 +49,13 @@ texture = ExtResource("1_emqms")
 [node name="GhostVisionCamera" parent="Entities" unique_id=393315676 instance=ExtResource("3_cgeu1")]
 
 [node name="PlayerSpawn" parent="Entities" unique_id=1644690995 instance=ExtResource("4_g6cap")]
-position = Vector2(1694, 758)
+position = Vector2(210, 812)
 
-[node name="FrontOfBus" parent="Entities" unique_id=731827706 instance=ExtResource("4_g6cap")]
-position = Vector2(197, 670)
+[node name="HallwayPosterTransition" parent="." unique_id=153564768 instance=ExtResource("5_hv8o5")]
+position = Vector2(-8, 716)
+target_level_uid = "uid://0i7swgf8ofww"
+target_spawn_name = "HallwayPosterSpawn"
 
-[node name="LevelTransition" parent="." unique_id=153564768 instance=ExtResource("5_hv8o5")]
-position = Vector2(0, 651)
-target_level_uid = "uid://b22c8mb7r6qo4"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransition" unique_id=2092818825]
-position = Vector2(23.5, -39.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HallwayPosterTransition" unique_id=2092818825]
+position = Vector2(31, 56)
 shape = SubResource("RectangleShape2D_kd8bc")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=507430907]

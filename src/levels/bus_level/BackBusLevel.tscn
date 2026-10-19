@@ -3,9 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://dfdykqkxtrf3w" path="res://art/bus/bus.png" id="1_3jikx"]
 [ext_resource type="Script" uid="uid://drpdeuuyc7ndl" path="res://src/levels/bus_level/back_bus_level.gd" id="1_xcr33"]
 [ext_resource type="PackedScene" uid="uid://wsrbanrjsdtq" path="res://src/gameplay/cameras/player_camera/PlayerCamera.tscn" id="2_lqthv"]
+[ext_resource type="PackedScene" uid="uid://budryreehyrlk" path="res://src/components/room_bounds_component/room_bounds_component.tscn" id="3_2gxcm"]
 [ext_resource type="PackedScene" uid="uid://d254p8jqutkx" path="res://src/gameplay/cameras/ghost_vision_camera/GhostVisionCamera.tscn" id="3_xcr33"]
 [ext_resource type="PackedScene" uid="uid://b5denm6htffy0" path="res://src/levels/level_objects/PlayerSpawn.tscn" id="4_2gxcm"]
 [ext_resource type="PackedScene" uid="uid://dpaxyirrvfu6o" path="res://src/components/level_transition_component/LevelTransition.tscn" id="5_e6jmk"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_kd8bc"]
+a = Vector2(1938, -10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tw3v3"]
 size = Vector2(76, 654)
@@ -30,6 +34,12 @@ metadata/_edit_use_anchors_ = true
 [node name="Bus" type="Sprite2D" parent="Background" unique_id=1916204365]
 position = Vector2(962, 539)
 texture = ExtResource("1_3jikx")
+
+[node name="RoomBoundsComponent" parent="." unique_id=1265175140 instance=ExtResource("3_2gxcm")]
+
+[node name="FloorEdge" type="CollisionShape2D" parent="RoomBoundsComponent" unique_id=859964264]
+position = Vector2(0, 545)
+shape = SubResource("SegmentShape2D_kd8bc")
 
 [node name="Entities" type="Node2D" parent="." unique_id=81746490]
 

@@ -1,15 +1,6 @@
 class_name Player
 extends CharacterBody2D
 
-
-
-
-func _process(_delta: float) -> void:
-	pass
-
-	
-		
-
 const SPEED : float = 600.0
 
 var camera_look_direction : Vector2 = Vector2.ZERO
@@ -17,10 +8,10 @@ var camera_look_direction : Vector2 = Vector2.ZERO
 @onready var player_sprite = %Aspen
 
 func _physics_process(_delta: float) -> void:
-	var input_direction = Input.get_axis(&"move_left", &"move_right")
+	var input_direction = Input.get_vector(&"move_left", &"move_right", &"move_up", &"move_down")
 
 
-	velocity.x = input_direction * SPEED 
+	velocity = input_direction * SPEED 
 
 
 	if velocity.length() > 0.0:

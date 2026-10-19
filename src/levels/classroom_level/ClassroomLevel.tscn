@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://8axw3nvdk2qm"]
+
+[ext_resource type="Script" uid="uid://l7yauqkuu12m" path="res://src/levels/classroom_level/classroom_level.gd" id="1_0o8ub"]
+[ext_resource type="Texture2D" uid="uid://bce0n5udl17q2" path="res://art/classroom/classroom_no_seats.png" id="2_ptrsb"]
+[ext_resource type="PackedScene" uid="uid://budryreehyrlk" path="res://src/components/room_bounds_component/room_bounds_component.tscn" id="3_0o8ub"]
+[ext_resource type="PackedScene" uid="uid://wsrbanrjsdtq" path="res://src/gameplay/cameras/player_camera/PlayerCamera.tscn" id="3_f06ws"]
+[ext_resource type="PackedScene" uid="uid://d254p8jqutkx" path="res://src/gameplay/cameras/ghost_vision_camera/GhostVisionCamera.tscn" id="4_214d8"]
+[ext_resource type="PackedScene" uid="uid://b5denm6htffy0" path="res://src/levels/level_objects/PlayerSpawn.tscn" id="5_8vc0d"]
+[ext_resource type="PackedScene" uid="uid://dpaxyirrvfu6o" path="res://src/components/level_transition_component/LevelTransition.tscn" id="6_15g4u"]
+[ext_resource type="Texture2D" uid="uid://bgrgw6h827al5" path="res://art/classroom/classroom_seats_row2.png" id="7_f06ws"]
+[ext_resource type="Texture2D" uid="uid://w8rshnk8d63u" path="res://art/classroom/classroom_seats_row1.png" id="8_214d8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nqjk"]
+size = Vector2(1425, 214)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_udblw"]
+size = Vector2(1544.5, 229)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kd8bc"]
+size = Vector2(71, 597)
+
+[node name="ClassroomLevel" type="Node2D" unique_id=1339029774]
+script = ExtResource("1_0o8ub")
+
+[node name="BackBackground" type="CanvasLayer" parent="." unique_id=2095015324]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="BackBackground" unique_id=1699339057]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="Node2D" parent="." unique_id=103844965]
+
+[node name="Classroom" type="Sprite2D" parent="Background" unique_id=1916204365]
+position = Vector2(962, 539)
+texture = ExtResource("2_ptrsb")
+
+[node name="BackRow" type="StaticBody2D" parent="." unique_id=1227723093]
+position = Vector2(946, 630)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackRow" unique_id=374147111]
+position = Vector2(250.5, 53)
+shape = SubResource("RectangleShape2D_2nqjk")
+debug_color = Color(0.078431375, 0.92156863, 0.08235294, 0.41960785)
+
+[node name="RoomBoundsComponent" parent="." unique_id=1265175140 instance=ExtResource("3_0o8ub")]
+
+[node name="Entities" type="Node2D" parent="." unique_id=81746490]
+
+[node name="PlayerCamera" parent="Entities" unique_id=436012757 instance=ExtResource("3_f06ws")]
+
+[node name="GhostVisionCamera" parent="Entities" unique_id=393315676 instance=ExtResource("4_214d8")]
+
+[node name="PlayerSpawn" parent="Entities" unique_id=1644690995 instance=ExtResource("5_8vc0d")]
+position = Vector2(203, 758)
+
+[node name="FrontRow" type="StaticBody2D" parent="." unique_id=1083673698]
+position = Vector2(963, 866)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontRow" unique_id=310467663]
+position = Vector2(193.25, -18)
+shape = SubResource("RectangleShape2D_udblw")
+debug_color = Color(0.078431375, 0.92156863, 0.08235294, 0.41960785)
+
+[node name="ForeGroundVisuals" type="Node2D" parent="." unique_id=1091080096]
+
+[node name="BackRowSeats" type="Sprite2D" parent="ForeGroundVisuals" unique_id=651623062]
+position = Vector2(1234, 556)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_f06ws")
+
+[node name="FrontRowSeats" type="Sprite2D" parent="ForeGroundVisuals" unique_id=520367014]
+position = Vector2(1151, 568)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_214d8")
+
+[node name="Hallway360Transition" parent="." unique_id=153564768 instance=ExtResource("6_15g4u")]
+position = Vector2(16, 729)
+target_level_uid = "uid://dnlbnbxiyqnrq"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hallway360Transition" unique_id=2092818825]
+position = Vector2(23.5, -39.5)
+shape = SubResource("RectangleShape2D_kd8bc")

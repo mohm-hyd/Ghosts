@@ -11,6 +11,7 @@ height = 476.0
 radius = 240.65952
 
 [node name="Player" type="CharacterBody2D" unique_id=1572405853]
+collision_layer = 2
 script = ExtResource("1_onrkg")
 
 [node name="Aspen" parent="." unique_id=519938265 instance=ExtResource("2_onrkg")]
