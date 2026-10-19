@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 const DIALOGUE_BUTTON_PRELOAD = preload("uid://dihmkew2ce3oe")
 
@@ -131,8 +131,7 @@ func _choice_button_pressed(target_node: Node, wait_for_signal_to_continue : Str
 	
 func _text_resource(i : DialogueText) -> void:
 	speakerName.text = i.speaker_name
-	$AudioStreamPlayer.stream = i.text_sound
-	$AudioStreamPlayer.volume_db = i.text_volume_db
+	
 	
 	var camera : Camera2D = get_viewport().get_camera_2d()
 	if camera and i.camera_position != Vector2(999.999,999.999):
@@ -141,4 +140,45 @@ func _text_resource(i : DialogueText) -> void:
 	
 	dialogue_label.visible_characters = 0
 	dialogue_label.text = i.text
+	var text_without_square_brackets : String = _text_without_square_brackets(i.text)
+	var total_characters: int = text_without_square_brackets.length()
+	var character_timer : float = 0.0
+	
+	while dialogue_label.visible_characters < total_characters:
+		if Input.is_action_pressed("skip_text"):
+			dialogue_label.visible_characters = total_characters
+			break 
 		
+		character_timer += get_process_delta_time()
+		if character_timer >= (1.0 / i.text_speed) or text_without_square_brackets[dialogue_label.visible_characters] == " " :
+			var character: String = text_without_square_brackets[dialogue_label.visible_characters]
+			dialogue_label.visible_characters += 1
+			if character != " ":
+				AudioManager.play_text_sfx()
+				
+			character_timer = 0.0
+			
+		await get_tree().process_frame
+	
+	while true:
+		await get_tree().process_frame
+		if dialogue_label.visible_characters == total_characters:
+			if Input.is_action_just_pressed("next_text"):
+				current_dialogue_item += 1
+				next_item = true
+
+func _text_without_square_brackets(text: String) -> String:
+	var result : String = ""
+	var inside_bracket : bool = false
+	
+	for i in text:
+		if i == "[": 
+			inside_bracket = true
+			continue
+		if i == "]":
+			inside_bracket = false
+			continue
+		if !inside_bracket:
+			result += i
+		
+	return result
