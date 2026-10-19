@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://hdkrdoo7lmii"]
+
+[ext_resource type="Script" uid="uid://buuof31ky5qqv" path="res://src/system/dialogue_system/dialogue_system.gd" id="1_4vuq7"]
+[ext_resource type="FontFile" uid="uid://cpldgjk3fl2uj" path="res://assets/fonts/Xolonium-Regular.ttf" id="1_5csqq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s8t4v"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="DialogueSystem" type="Node2D" unique_id=445014197]
+z_index = 4096
+script = ExtResource("1_4vuq7")
+
+[node name="Panel" type="Panel" parent="." unique_id=1283432136]
+offset_left = -144.0
+offset_top = -28.0
+offset_right = 144.0
+offset_bottom = 28.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_s8t4v")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=114595467]
+offset_left = -144.0
+offset_top = -28.0
+offset_right = 144.0
+offset_bottom = 28.0
+
+[node name="SpeakerParent" type="Control" parent="HBoxContainer" unique_id=879573424]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/SpeakerParent" unique_id=503770771]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_5csqq")
+theme_override_font_sizes/font_size = 20
+text = "Player"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1194227651]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer" unique_id=1317482560]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("1_5csqq")
+bbcode_enabled = true
+scroll_active = false
+visible_characters_behavior = 1
+
+[node name="ButtonContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1310604314]
+visible = false
+layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=298869450]
