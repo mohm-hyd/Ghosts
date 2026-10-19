@@ -54,6 +54,7 @@ func _init_player() -> void:
 
 func load_level(local_scene : String) -> void:
 	_deferred_load_room.call_deferred(local_scene)
+	vision_state_controller.reset_vision()
 	
 func  quit_game() -> void:
 	get_tree().quit()

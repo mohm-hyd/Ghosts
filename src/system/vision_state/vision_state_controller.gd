@@ -7,6 +7,9 @@ var ghost_camera :GhostCamera
 
 var is_ghost_vision_on : bool = false
 
+func _process(_delta) -> void:
+	_sync_audio_state()
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"toggle_ghost_vision"):
 		is_ghost_vision_on = !is_ghost_vision_on
@@ -15,9 +18,26 @@ func _unhandled_input(event: InputEvent) -> void:
 			ghost_camera.set_ghost_vision_active(true)
 			activate_camera(ghost_camera)
 			view_clue_objects()
+			AudioManager.play_ghost_music()
 		else:
 			ghost_camera.set_ghost_vision_active(false)
 			activate_camera(level_camera)
+			AudioManager.play_normal_music()
+
+func _sync_audio_state() -> void:
+	if is_ghost_vision_on:
+		AudioManager.play_ghost_music()
+	else:
+		AudioManager.play_normal_music()
+
+func reset_vision() -> void:
+	is_ghost_vision_on = false
+	if ghost_camera:
+		ghost_camera.set_ghost_vision_active(false)
+	if level_camera:
+		activate_camera(level_camera)
+		view_clue_objects()
+	AudioManager.play_normal_music()
 
 func activate_camera(camera: Camera2D) -> void:
 	if camera == null:
@@ -34,14 +54,3 @@ func view_clue_objects() -> void:
 	for clue in get_tree().get_nodes_in_group("clue_objects"):
 				if clue.has_method("set_ghost_vision_active"):
 					clue.set_ghost_vision_active(is_ghost_vision_on)
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
