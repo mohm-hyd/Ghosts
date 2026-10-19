@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://f1yyxvt25dxx"]
+
+[ext_resource type="Script" uid="uid://cuhcgi1rmfxxr" path="res://src/levels/lockers_level/lockers_level.gd" id="1_4yq7o"]
+[ext_resource type="Texture2D" uid="uid://2osnr48qcdep" path="res://art/lockers/lockers_closed.png" id="1_rmhx3"]
+[ext_resource type="PackedScene" uid="uid://budryreehyrlk" path="res://src/components/room_bounds_component/room_bounds_component.tscn" id="2_4yq7o"]
+[ext_resource type="PackedScene" uid="uid://wsrbanrjsdtq" path="res://src/gameplay/cameras/player_camera/PlayerCamera.tscn" id="3_48237"]
+[ext_resource type="PackedScene" uid="uid://d254p8jqutkx" path="res://src/gameplay/cameras/ghost_vision_camera/GhostVisionCamera.tscn" id="4_f1q8i"]
+[ext_resource type="PackedScene" uid="uid://b5denm6htffy0" path="res://src/levels/level_objects/PlayerSpawn.tscn" id="5_0xs54"]
+[ext_resource type="PackedScene" uid="uid://dpaxyirrvfu6o" path="res://src/components/level_transition_component/LevelTransition.tscn" id="6_xyl76"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_kd8bc"]
+a = Vector2(1926, -2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xspsg"]
+size = Vector2(76, 654)
+
+[node name="LockersLevel" type="Node2D" unique_id=1990274207]
+script = ExtResource("1_4yq7o")
+
+[node name="BackBackground" type="CanvasLayer" parent="." unique_id=2095015324]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="BackBackground" unique_id=1699339057]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="Node2D" parent="." unique_id=103844965]
+
+[node name="Lockers" type="Sprite2D" parent="Background" unique_id=1916204365]
+position = Vector2(962, 539)
+texture = ExtResource("1_rmhx3")
+
+[node name="RoomBoundsComponent" parent="." unique_id=1265175140 instance=ExtResource("2_4yq7o")]
+
+[node name="FloorEdge" type="CollisionShape2D" parent="RoomBoundsComponent" unique_id=474692125]
+position = Vector2(18, 415)
+shape = SubResource("SegmentShape2D_kd8bc")
+
+[node name="Entities" type="Node2D" parent="." unique_id=81746490]
+
+[node name="PlayerCamera" parent="Entities" unique_id=436012757 instance=ExtResource("3_48237")]
+
+[node name="GhostVisionCamera" parent="Entities" unique_id=393315676 instance=ExtResource("4_f1q8i")]
+
+[node name="PlayerSpawn" parent="Entities" unique_id=1644690995 instance=ExtResource("5_0xs54")]
+position = Vector2(173, 977)
+
+[node name="LockerSpawn" parent="Entities" unique_id=989081812 instance=ExtResource("5_0xs54")]
+position = Vector2(1699, 784)
+
+[node name="Hallway360Transition" parent="." unique_id=153564768 instance=ExtResource("6_xyl76")]
+position = Vector2(1836, 803)
+target_level_uid = "uid://dnlbnbxiyqnrq"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hallway360Transition" unique_id=1054793371]
+position = Vector2(42, -61)
+shape = SubResource("RectangleShape2D_xspsg")

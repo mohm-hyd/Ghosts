@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://uk3yptd5e8fq"]
 
-[ext_resource type="Script" uid="uid://bl0fvbq18eqyy" path="res://aspen.gd" id="1_leo1f"]
-[ext_resource type="Texture2D" uid="uid://ceo8x77ltloaw" path="res://aspen/Aspen_bhair.png" id="1_n8bdx"]
-[ext_resource type="Texture2D" uid="uid://ryy5138jltm5" path="res://aspen/Aspen_R_arm.png" id="2_leo1f"]
-[ext_resource type="Texture2D" uid="uid://bobodw02h8u57" path="res://aspen/Aspen_ R_leg.png" id="3_513wr"]
-[ext_resource type="Texture2D" uid="uid://cqytb1mjnbxrh" path="res://aspen/Aspen_L_leg.png" id="4_4f7x0"]
-[ext_resource type="Texture2D" uid="uid://dho7m3bqb5bkt" path="res://aspen/Aspen_torso.png" id="5_wukye"]
-[ext_resource type="Texture2D" uid="uid://m2tr0cnpyjdh" path="res://aspen/AspenHead.png" id="6_s6ua5"]
-[ext_resource type="Texture2D" uid="uid://dsbdlc1sln2xh" path="res://aspen/AspenFhair.png" id="7_mq4u8"]
-[ext_resource type="Texture2D" uid="uid://bd6naj35ruaj5" path="res://aspen/Aspen_L_arm.png" id="8_kp6lk"]
+[ext_resource type="Script" uid="uid://bl0fvbq18eqyy" path="res://assets/characters/aspen/aspen.gd" id="1_leo1f"]
+[ext_resource type="Texture2D" uid="uid://ceo8x77ltloaw" path="res://art/characters/aspen/Aspen_bhair.png" id="1_n8bdx"]
+[ext_resource type="Texture2D" uid="uid://ryy5138jltm5" path="res://art/characters/aspen/Aspen_R_arm.png" id="2_leo1f"]
+[ext_resource type="Texture2D" uid="uid://bobodw02h8u57" path="res://art/characters/aspen/Aspen_ R_leg.png" id="3_513wr"]
+[ext_resource type="Texture2D" uid="uid://cqytb1mjnbxrh" path="res://art/characters/aspen/Aspen_L_leg.png" id="4_4f7x0"]
+[ext_resource type="Texture2D" uid="uid://dho7m3bqb5bkt" path="res://art/characters/aspen/Aspen_torso.png" id="5_wukye"]
+[ext_resource type="Texture2D" uid="uid://m2tr0cnpyjdh" path="res://art/characters/aspen/AspenHead.png" id="6_s6ua5"]
+[ext_resource type="Texture2D" uid="uid://dsbdlc1sln2xh" path="res://art/characters/aspen/AspenFhair.png" id="7_mq4u8"]
+[ext_resource type="Texture2D" uid="uid://bd6naj35ruaj5" path="res://art/characters/aspen/Aspen_L_arm.png" id="8_kp6lk"]
 
 [sub_resource type="Animation" id="Animation_n8bdx"]
 length = 0.96666664
