@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://m3enuov566vc"]
 
 [ext_resource type="Script" uid="uid://0285pcu5qrt0" path="res://src/ui/main_menu/main_menu.gd" id="1_m3ldw"]
-[ext_resource type="Texture2D" uid="uid://cosur5m6gdilc" path="res://art/bedroom_level/bedroomfloor.png" id="2_xre00"]
+[ext_resource type="Texture2D" uid="uid://cosur5m6gdilc" path="res://art/main_menu/bedroomfloor.png" id="2_xre00"]
 
 [node name="MainMenu" type="Control" unique_id=1073486521]
 layout_mode = 3
@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m3ldw")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=153784688]
+[node name="BedroomFloor" type="Sprite2D" parent="." unique_id=153784688]
 position = Vector2(961, 543)
 texture = ExtResource("2_xre00")
 
@@ -26,6 +26,7 @@ grow_vertical = 2
 
 [node name="GameNameLabel" type="Label" parent="HBoxContainer" unique_id=209424823]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.6499779, 0.08311876, 0.84178084, 1)
 theme_override_font_sizes/font_size = 120
 text = "Game Name Place Holder"
 horizontal_alignment = 1

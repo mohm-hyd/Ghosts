@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cosur5m6gdilc"
-path="res://.godot/imported/bedroomfloor.png-bba899f91506dee0a07da36c2ad97b4e.ctex"
+uid="uid://dvicrgkhg42am"
+path="res://.godot/imported/drawer_open.png-dd0d6014e7f6e40426c191324f97ce9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/bedroom_level/bedroomfloor.png"
-dest_files=["res://.godot/imported/bedroomfloor.png-bba899f91506dee0a07da36c2ad97b4e.ctex"]
+source_file="res://art/bedroom_level/drawer_open.png"
+dest_files=["res://.godot/imported/drawer_open.png-dd0d6014e7f6e40426c191324f97ce9f.ctex"]
 
 [params]
 
