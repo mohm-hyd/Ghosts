@@ -5,6 +5,8 @@ signal game_started
 signal game_paused
 signal game_resumed
 signal returned_to_main_menu
+signal credits_requested
+signal returned_from_credits
 signal game_quit
 signal level_transition_requested(level_uid: String, spawn_name: String)
 
@@ -36,6 +38,12 @@ func resume_game() -> void:
 	get_tree().paused = false
 	game_resumed.emit()
 
+func show_credits() -> void:
+	credits_requested.emit()
+
+func return_from_credits() -> void:
+	returned_from_credits.emit()
+	
 func return_to_main_menu() -> void:
 	in_game = false
 	is_paused = false

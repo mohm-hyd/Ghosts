@@ -28,7 +28,7 @@ size = Vector2(87, 221)
 [sub_resource type="Resource" id="Resource_yu3f5"]
 script = ExtResource("10_hymaj")
 speaker_name = "Aspen's Thoughts"
-text = "I need to exorcise all [b]5[/b] ghosts before class todayor something bad will happen. [i](hit enter to go through text)[\\i]"
+text = "I need to exorcise all [b]5[/b] ghosts before class today or something bad will happen. [i](hit enter to go through text)[\\i]"
 metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
 
 [sub_resource type="Resource" id="Resource_q1kh8"]

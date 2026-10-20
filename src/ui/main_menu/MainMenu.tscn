@@ -16,7 +16,7 @@ script = ExtResource("1_m3ldw")
 position = Vector2(961, 543)
 texture = ExtResource("2_xre00")
 
-[node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=11274864]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=992466913]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,14 +24,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GameNameLabel" type="Label" parent="HBoxContainer" unique_id=209424823]
+[node name="GameNameLabel" type="Label" parent="VBoxContainer" unique_id=209424823]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6499779, 0.08311876, 0.84178084, 1)
 theme_override_font_sizes/font_size = 120
 text = "Game Name Place Holder"
 horizontal_alignment = 1
 
-[node name="StartButton" type="Button" parent="HBoxContainer" unique_id=198918616]
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=198918616]
 custom_minimum_size = Vector2(600, 180)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -39,7 +39,7 @@ size_flags_vertical = 6
 theme_override_font_sizes/font_size = 80
 text = "Start Game"
 
-[node name="QuitButton" type="Button" parent="HBoxContainer" unique_id=382945461]
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=382945461]
 custom_minimum_size = Vector2(600, 180)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -47,7 +47,7 @@ size_flags_vertical = 6
 theme_override_font_sizes/font_size = 80
 text = "Quit Game"
 
-[node name="CreditsButton" type="Button" parent="HBoxContainer" unique_id=212726370]
+[node name="CreditsButton" type="Button" parent="VBoxContainer" unique_id=212726370]
 custom_minimum_size = Vector2(600, 180)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -55,6 +55,6 @@ size_flags_vertical = 6
 theme_override_font_sizes/font_size = 80
 text = "Credits"
 
-[connection signal="pressed" from="HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

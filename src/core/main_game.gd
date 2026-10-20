@@ -26,7 +26,7 @@ func _ready() -> void:
 		game_state_controller.game_started.connect(_on_game_started)
 		game_state_controller.game_quit.connect(_on_game_quit)
 		game_state_controller.level_transition_requested.connect(_on_level_transition_requested)
-
+		
 func _on_game_started() -> void:
 	load_level(TUTORIAL_BEDROOM_SCENE_UID)
 	_init_player()
@@ -34,6 +34,7 @@ func _on_game_started() -> void:
 func _on_game_quit() -> void:
 	quit_game()
 
+	
 func _on_level_transition_requested(level_uid: String, spawn_name: String) -> void:
 	next_spawn_marker_name = spawn_name
 	load_level(level_uid)
