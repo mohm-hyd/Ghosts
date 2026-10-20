@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c3cl1qkegsa3h"]
+
+[ext_resource type="Script" uid="uid://b40y5gwwal0pb" path="res://src/cursed_objects/item/item.gd" id="1_vah5o"]
+
+[node name="Item" type="Node" unique_id=914395549]
+script = ExtResource("1_vah5o")

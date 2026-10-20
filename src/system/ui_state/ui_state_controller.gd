@@ -4,6 +4,7 @@ extends Node2D
 const MAIN_MENU = preload("uid://m3enuov566vc")
 const PAUSE_SCREEN = preload("uid://37s110v2h0ue")
 const CREDIT_SCENE = preload("uid://baxl57vk8crpg")
+const INVENTORY_SCENE = preload("uid://bm7naboypwi3i")
 
 @onready var hud_root : Control = %HudRoot
 @onready var pause_root : Control = %PauseRoot
@@ -13,6 +14,7 @@ const CREDIT_SCENE = preload("uid://baxl57vk8crpg")
 var active_pause_menu: Node = null
 var active_main_menu: Node = null
 var active_credits : Node = null
+var active_inventory : Node = null
 
 func _ready() -> void:
 	if game_state:
@@ -68,6 +70,10 @@ func _on_game_started() -> void:
 	if active_main_menu:
 		active_main_menu.queue_free()
 		active_main_menu = null
+		
+	if not active_inventory and INVENTORY_SCENE:
+		active_inventory = INVENTORY_SCENE.instantiate()
+		hud_root.add_child(active_inventory)
 
 func _on_game_paused() -> void:
 	if not active_pause_menu and PAUSE_SCREEN:
@@ -86,5 +92,8 @@ func _on_returned_to_main_menu() -> void:
 	if active_credits:
 		active_credits.queue_free()
 		active_credits = null
+	if active_inventory:
+		active_inventory.queue_free()
+		active_inventory = null
 	show_main_menu()
 	

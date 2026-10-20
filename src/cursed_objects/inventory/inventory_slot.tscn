@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cmlhn4odctb4f"]
+
+[ext_resource type="Script" uid="uid://lo4bcsveuflr" path="res://src/cursed_objects/inventory/inventory_slot.gd" id="1_u0grl"]
+
+[node name="InventorySlot" type="CenterContainer" unique_id=261939382]
+custom_minimum_size = Vector2(64, 64)
+script = ExtResource("1_u0grl")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1606692468]
+layout_mode = 2

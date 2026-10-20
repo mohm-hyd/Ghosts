@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dsiuo5ciwurqj"]
+
+[ext_resource type="Script" uid="uid://bti5tntaa3xti" path="res://src/cursed_objects/item/inventory_item.gd" id="1_og6hr"]
+
+[node name="InventoryItem" type="Node" unique_id=133588231]
+script = ExtResource("1_og6hr")

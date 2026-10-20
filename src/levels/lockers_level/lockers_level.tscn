@@ -54,9 +54,9 @@ position = Vector2(173, 977)
 [node name="LockerSpawn" parent="Entities" unique_id=989081812 instance=ExtResource("5_0xs54")]
 position = Vector2(1699, 784)
 
-[node name="Lockers" type="Node2D" parent="." unique_id=29583478]
+[node name="Interactables" type="Node2D" parent="." unique_id=29583478]
 
-[node name="InteractableLocker" parent="Lockers" unique_id=1188018842 instance=ExtResource("7_f1q8i")]
+[node name="InteractableLocker" parent="Interactables" unique_id=1188018842 instance=ExtResource("7_f1q8i")]
 position = Vector2(961, 539)
 
 [node name="Hallway360Transition" parent="." unique_id=153564768 instance=ExtResource("6_xyl76")]
