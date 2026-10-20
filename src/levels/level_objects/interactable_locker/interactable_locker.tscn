@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://fsmbovuxijd7"]
+
+[ext_resource type="Script" uid="uid://boqy1pkef1ca" path="res://src/levels/level_objects/interactable_locker/interactable_locker.gd" id="1_35fkr"]
+[ext_resource type="Texture2D" uid="uid://cew2h5gpfcc0a" path="res://art/lockers/locker_closed.png" id="2_prxbu"]
+[ext_resource type="Texture2D" uid="uid://djtgrw72esj6u" path="res://art/lockers/locker_open.png" id="3_tgxpw"]
+[ext_resource type="PackedScene" uid="uid://dqnofcbxhaiyo" path="res://src/components/interactable_component/InteractableComponent.tscn" id="4_87m86"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kd8bc"]
+size = Vector2(72, 171)
+
+[node name="InteractableLocker" type="Node2D" unique_id=1188018842]
+script = ExtResource("1_35fkr")
+
+[node name="LockerClosed" type="Sprite2D" parent="." unique_id=766520404]
+texture = ExtResource("2_prxbu")
+
+[node name="LockerOpen" type="Sprite2D" parent="." unique_id=1656045800]
+visible = false
+texture = ExtResource("3_tgxpw")
+
+[node name="InteractableComponent" parent="." unique_id=2145141222 instance=ExtResource("4_87m86")]
+position = Vector2(320, 111)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1481393835]
+position = Vector2(17, -93)
+shape = SubResource("RectangleShape2D_kd8bc")

@@ -145,7 +145,7 @@ func _text_resource(i : DialogueText) -> void:
 	var character_timer : float = 0.0
 	
 	while dialogue_label.visible_characters < total_characters:
-		if Input.is_action_pressed("skip_text"):
+		if Input.is_action_just_pressed("skip_text"):
 			dialogue_label.visible_characters = total_characters
 			break 
 		

@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://f1yyxvt25dxx"]
 
 [ext_resource type="Script" uid="uid://cuhcgi1rmfxxr" path="res://src/levels/lockers_level/lockers_level.gd" id="1_4yq7o"]
-[ext_resource type="Texture2D" uid="uid://2osnr48qcdep" path="res://art/lockers/lockers_closed.png" id="1_rmhx3"]
 [ext_resource type="PackedScene" uid="uid://budryreehyrlk" path="res://src/components/room_bounds_component/room_bounds_component.tscn" id="2_4yq7o"]
+[ext_resource type="Texture2D" uid="uid://bb6k7vwmr11cw" path="res://art/lockers/lockers_open.png" id="2_48237"]
 [ext_resource type="PackedScene" uid="uid://wsrbanrjsdtq" path="res://src/gameplay/cameras/player_camera/PlayerCamera.tscn" id="3_48237"]
 [ext_resource type="PackedScene" uid="uid://d254p8jqutkx" path="res://src/gameplay/cameras/ghost_vision_camera/GhostVisionCamera.tscn" id="4_f1q8i"]
 [ext_resource type="PackedScene" uid="uid://b5denm6htffy0" path="res://src/levels/level_objects/PlayerSpawn.tscn" id="5_0xs54"]
 [ext_resource type="PackedScene" uid="uid://dpaxyirrvfu6o" path="res://src/components/level_transition_component/LevelTransition.tscn" id="6_xyl76"]
+[ext_resource type="PackedScene" uid="uid://fsmbovuxijd7" path="res://src/levels/level_objects/interactable_locker/interactable_locker.tscn" id="7_f1q8i"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_kd8bc"]
 a = Vector2(1926, -2)
@@ -33,7 +34,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Lockers" type="Sprite2D" parent="Background" unique_id=1916204365]
 position = Vector2(962, 539)
-texture = ExtResource("1_rmhx3")
+texture = ExtResource("2_48237")
 
 [node name="RoomBoundsComponent" parent="." unique_id=1265175140 instance=ExtResource("2_4yq7o")]
 
@@ -52,6 +53,11 @@ position = Vector2(173, 977)
 
 [node name="LockerSpawn" parent="Entities" unique_id=989081812 instance=ExtResource("5_0xs54")]
 position = Vector2(1699, 784)
+
+[node name="Lockers" type="Node2D" parent="." unique_id=29583478]
+
+[node name="InteractableLocker" parent="Lockers" unique_id=1188018842 instance=ExtResource("7_f1q8i")]
+position = Vector2(961, 539)
 
 [node name="Hallway360Transition" parent="." unique_id=153564768 instance=ExtResource("6_xyl76")]
 position = Vector2(1836, 803)

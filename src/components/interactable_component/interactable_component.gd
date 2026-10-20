@@ -8,16 +8,10 @@ signal player_exited_range
 @export var prompt_text : String = "Press E to Inspect"
 
 var player_in_range : bool = false
+var current_player : Player = null
 
 func _ready() -> void:
-	# Make sure this Area2D detects the player's InteractionArea
-	collision_layer = 0
-	collision_mask = 2 # Assuming your player's InteractionArea is on layer/mask 2, or adjust as needed
-	
-	body_entered.connect(_on_body_entered)
-	body_exited.connect(_on_body_exited)
-	
-	# Alternatively, if using Area2D-to-Area2D detection, connect to area_entered/area_exited instead:
+
 	area_entered.connect(_on_area_entered)
 	area_exited.connect(_on_area_exited)
 
@@ -27,27 +21,20 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func interact() -> void:
 	# Emit signal or call whatever UI/clue logic is needed
-	interacted.emit(null)
-	print("Interacted with object!")
+	interacted.emit(current_player)
 
-func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
-		player_in_range = true
-		player_entered_range.emit()
-		# TODO: Tell HUD to show prompt text
 
-func _on_body_exited(body: Node2D) -> void:
-	if body is Player:
-		player_in_range = false
-		player_exited_range.emit()
-		# TODO: Tell HUD to hide prompt text
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.name == "InteractionArea": # Player's interaction collision area
+	if area.name == "InteractionArea" or area.get_parent() is Player:
 		player_in_range = true
-		player_entered_range.emit()
+		current_player = area.get_parent() as Player
+		if not current_player and area.owner is Player:
+			current_player = area.owner as Player
+			
+	player_entered_range.emit()
 
 func _on_area_exited(area: Area2D) -> void:
-	if area.name == "InteractionArea":
+	if area.name == "InteractionArea" or area.get_parent() is Player:
 		player_in_range = false
 		player_exited_range.emit()
