@@ -2,8 +2,22 @@
 
 [ext_resource type="Script" uid="uid://lo4bcsveuflr" path="res://src/cursed_objects/inventory/inventory_slot.gd" id="1_u0grl"]
 
-[node name="InventorySlot" type="CenterContainer" unique_id=261939382]
-custom_minimum_size = Vector2(64, 64)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0grl"]
+bg_color = Color(0.37254903, 0.37254903, 0.37254903, 0.5803922)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="InventorySlot" type="PanelContainer" unique_id=92946594]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u0grl")
 script = ExtResource("1_u0grl")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1606692468]
