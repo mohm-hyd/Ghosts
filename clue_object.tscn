@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ci2f640h7glbf"]
+
+[ext_resource type="Script" path="res://clue_object.gd" id="1_2ohoc"]
+[ext_resource type="Texture2D" path="res://art/note.jpg" id="1_t4x4c"]
+[ext_resource type="Texture2D" path="res://art/blue_note.png" id="2_2ohoc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kd8bc"]
+radius = 771.3279
+height = 1704.3857
+
+[node name="BaseClueObject" type="Area2D" unique_id=1185403542]
+scale = Vector2(0.14963612, 0.1737401)
+script = ExtResource("1_2ohoc")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=235740605]
+texture = ExtResource("1_t4x4c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=227132675]
+rotation = 3.1415927
+scale = Vector2(1.074351, 0.94983816)
+shape = SubResource("CapsuleShape2D_kd8bc")
+debug_color = Color(0.1619797, 0.6225108, 0.48174596, 0.41960785)
+
+[node name="Highlight" type="Sprite2D" parent="." unique_id=816449145]
+visible = false
+scale = Vector2(0.9999999, 0.9999998)
+texture = ExtResource("2_2ohoc")
