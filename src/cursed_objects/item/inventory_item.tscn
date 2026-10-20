@@ -4,3 +4,9 @@
 
 [node name="InventoryItem" type="Node" unique_id=133588231]
 script = ExtResource("1_og6hr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=931714889]
+
+[node name="Label" type="Label" parent="." unique_id=1376799363]
+offset_right = 40.0
+offset_bottom = 23.0

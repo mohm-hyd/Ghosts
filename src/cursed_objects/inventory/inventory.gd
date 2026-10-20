@@ -1,7 +1,7 @@
 extends Control
 class_name Inventory
 
-var inventory_item_scene = preload("uid://dsiuo5ciwurqj")
+const INVENTORY_ITEM_SCENE = preload("uid://dsiuo5ciwurqj")
 
 @export var rows: int = 1
 @export var cols: int = 7
@@ -15,6 +15,7 @@ static var selected_item: Item = null
 
 
 func _ready():
+	add_to_group("inventory")
 	inventory_grid.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
 	
 	for i in range(rows * cols):
@@ -66,21 +67,18 @@ func _on_slot_hovered(which: InventorySlot, is_hovering: bool):
 
 
 
-func add_item(item: Item, amount: int) -> void:
-	var _item: InventoryItem = inventory_item_scene.instantiate()
-	_item.set_data(
-		item.item_name, item.icon, item.is_stackable, amount
-	)
-	item.queue_free()
-	if item.is_stackable:
-		for slot in slots:
-			if slot.item and slot.item.item_name == _item.item_name:
-				slot.item.amount += _item.amount
-				return
+func add_item(world_item : WorldItem) -> void:
+	var item_data = world_item.get_item_data()
+	
+	var _item : InventoryItem = INVENTORY_ITEM_SCENE.instantiate()
+	_item.set_data(item_data.item_name, item_data.icon)
+	
 	for slot in slots:
-		if slot.item == null and slot.is_respecting_hint(_item):
+		if slot.is_empty and slot.is_respecting_hint(_item):
 			slot.item = _item
+			
 			slot.update_slot()
+			world_item.queue_free()
 			return
 
 

@@ -15,7 +15,6 @@ script = ExtResource("1_61hh6")
 texture = ExtResource("1_kn8oq")
 
 [node name="DrawerOpen" type="Sprite2D" parent="." unique_id=1618599256]
-visible = false
 texture = ExtResource("2_yw3y6")
 
 [node name="InteractableComponent" parent="." unique_id=2145141222 instance=ExtResource("4_qe0ox")]

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b4d5gf6tagj2x"]
+
+[ext_resource type="Script" uid="uid://71h2h42xgjve" path="res://src/cursed_objects/item/world_item.gd" id="1_g4tbd"]
+[ext_resource type="PackedScene" uid="uid://dqnofcbxhaiyo" path="res://src/components/interactable_component/InteractableComponent.tscn" id="2_3evex"]
+[ext_resource type="PackedScene" uid="uid://c123v3db4lkfu" path="res://src/components/ghost_vision_reveal_component/GhostVisionRevealComponent.tscn" id="2_pklap"]
+[ext_resource type="PackedScene" uid="uid://bt4oigxm2d1l6" path="res://src/components/highlight_component/HighlightComponent.tscn" id="3_girxj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mic76"]
+radius = 45.891174
+
+[node name="WorldItem" type="Node2D" unique_id=696127865]
+script = ExtResource("1_g4tbd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1799629576]
+
+[node name="GhostVisionRevealComponent" parent="." unique_id=2030860639 instance=ExtResource("2_pklap")]
+
+[node name="HighlightComponent" parent="." unique_id=2096291363 instance=ExtResource("3_girxj")]
+unique_name_in_owner = true
+
+[node name="InteractableComponent" parent="." unique_id=2145141222 instance=ExtResource("2_3evex")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1532821006]
+shape = SubResource("CircleShape2D_mic76")

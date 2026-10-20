@@ -2,12 +2,12 @@ extends Item
 class_name InventoryItem
 
 
-@export var sprite: Sprite2D
-@export var label: Label
+@onready var sprite: Sprite2D =$Sprite2D
+@onready var label: Label = $Label
 
 
 
-func set_data(_name: String, _icon: Texture2D, _is_stackable: bool, _amount: int):
+func set_data(_name: String, _icon: Texture2D,):
 	self.item_name = _name
 	self.name = _name
 	self.icon = _icon
@@ -17,10 +17,8 @@ func set_data(_name: String, _icon: Texture2D, _is_stackable: bool, _amount: int
 func _process(delta):
 	self.sprite.texture = self.icon
 	self.set_sprite_size_to(sprite, Vector2(42, 42))
-	if is_stackable:
-		self.label.text = str(self.amount)
-	else:
-		label.visible = false
+
+	label.visible = false
 
 
 

@@ -132,7 +132,6 @@ func split_item() -> InventoryItem:
 		var new_item: InventoryItem = inventory_item_scene.instantiate()
 		new_item.set_data(
 			self.item.item_name, self.item.icon,
-			self.item.is_stackable, self.item.amount
 		) 
 		new_item.amount = self.item.amount / 2
 		self.item.amount -= new_item.amount
@@ -161,8 +160,7 @@ func update_slot():
 		#item.sprite.texture = item.icon
 		#item.label.text = str(item.amount) + " - " + str(item.name)
 		# If amount ios 0, make iot semi-transparent
-		if item.amount < 1:
-			item.fade()
+		#	item.fade()
 	if hint_item:
 		if not self.get_children().has(hint_item):
 			add_child(hint_item)
