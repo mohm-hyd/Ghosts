@@ -16,11 +16,10 @@ func _ready() -> void:
 	area_exited.connect(_on_area_exited)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if player_in_range and event.is_action_pressed(&"interact"): # Map "interact" to key "E" in Input Map
+	if player_in_range and event.is_action_pressed(&"interact"):
 		interact()
 
 func interact() -> void:
-	# Emit signal or call whatever UI/clue logic is needed
 	interacted.emit(current_player)
 
 

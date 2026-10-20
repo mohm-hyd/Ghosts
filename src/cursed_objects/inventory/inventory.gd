@@ -24,7 +24,6 @@ func _ready():
 		slot.slot_input.connect(self._on_slot_input) 
 		slot.slot_hovered.connect(self._on_slot_hovered) 
 
-
 func _process(delta):
 	
 	var dialogue_box = get_tree().root.find_child("DialogueSystem", true, false)
@@ -46,21 +45,15 @@ func _select_slot_by_index(index: int) -> void:
 			else:
 				selected_item = target_slot.deselect_item(selected_item)
 
-
-
 func _on_slot_input(which: InventorySlot, action: InventorySlot.InventorySlotAction):
 	print(action)
-	# Select/deselect items
 	if not selected_item:
-		# Spliting only occurs if not item selected already
 		if action == InventorySlot.InventorySlotAction.SELECT:
 			selected_item = which.select_item()
 		elif action == InventorySlot.InventorySlotAction.SPLIT:
-			selected_item = which.split_item() # Split means selecting half amount
+			selected_item = which.split_item()
 	else:
 		selected_item = which.deselect_item(selected_item)
-
-
 
 func _on_slot_hovered(which: InventorySlot, is_hovering: bool):
 	if which.item:
@@ -72,19 +65,16 @@ func _on_slot_hovered(which: InventorySlot, is_hovering: bool):
 
 
 
-# API::
 
-# !DESTRUCTUVE (removes item itself from world  and adds its copy to inventory)
-# Calling thius func impies that item is not already in inventory
 func add_item(item: Item, amount: int) -> void:
-	var _item: InventoryItem = inventory_item_scene.instantiate() # Duplicate
+	var _item: InventoryItem = inventory_item_scene.instantiate()
 	_item.set_data(
 		item.item_name, item.icon, item.is_stackable, amount
 	)
-	item.queue_free() # Consume the item by inventory (by the end of frame)
+	item.queue_free()
 	if item.is_stackable:
 		for slot in slots:
-			if slot.item and slot.item.item_name == _item.item_name: # if item and is of same type
+			if slot.item and slot.item.item_name == _item.item_name:
 				slot.item.amount += _item.amount
 				return
 	for slot in slots:
@@ -95,8 +85,6 @@ func add_item(item: Item, amount: int) -> void:
 
 
 
-# !DESTRUCTUVE (removes from inventory if retrieved)
-#A function to remove item from inventory and return if it exists
 func retrieve_item(_item_name: String) -> Item:
 	for slot in slots:
 		if slot.item and slot.item.item_name == _item_name:
@@ -114,7 +102,6 @@ func retrieve_item(_item_name: String) -> Item:
 
 
 
-# !NON-DESTRUCTIVE (read-only function) to get all items in inventory
 func all_items() -> Array[Item]:
 	var items: Array[Item] = []
 	for slot in slots:
@@ -124,7 +111,6 @@ func all_items() -> Array[Item]:
 
 
 
-# ! NON-DESTRUCTUVE (read-only), returns all items of a particular type
 func all(_name: String) -> Array[Item]:
 	var items: Array[Item] = []
 	for slot in slots:
@@ -133,16 +119,11 @@ func all(_name: String) -> Array[Item]:
 	return items
 
 
-
-# !DESTRUCTUVE (removes all items of a particular type)
 func remove_all(_name: String) -> void:
 	for slot in slots:
 		if slot.item and slot.item.item_name == _name:
 			slot.remove_item()
 
-
-
-# !DESTRUCTUVE (removes all items from inventory)
 func clear_inventory() -> void:
 	for slot in slots:
 		slot.remove_item()

@@ -10,7 +10,7 @@ class_name InventorySlot
 
 
 enum InventorySlotAction {
-	SELECT, SPLIT, # FOR ITEM SELECTION
+	SELECT, SPLIT,
 }
 
 
@@ -24,7 +24,6 @@ func _ready():
 	add_to_group("inventory_slots")
 
 
-# When slot is pressed
 func _on_texture_button_gui_input(event):
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
@@ -49,7 +48,6 @@ func _on_texture_button_mouse_exited():
 
 
 
-# Is it having same type and amount as indicated by the hint_item
 func is_respecting_hint(new_item: InventoryItem, in_amount_as_well: bool = true) -> bool:
 	if not hint_item:
 		return true
@@ -63,7 +61,6 @@ func is_respecting_hint(new_item: InventoryItem, in_amount_as_well: bool = true)
 
 
 
-# Sets hint item
 func set_item_hint(new_item_hint: InventoryItem):
 	if self.hint_item:
 		self.hint_item.free()
@@ -72,7 +69,6 @@ func set_item_hint(new_item_hint: InventoryItem):
 	update_slot()
 
 
-# Deletes hint item
 func clear_item_hint():
 	if self.hint_item:
 		self.hint_item.free()
@@ -81,7 +77,6 @@ func clear_item_hint():
 
 
 
-# Removes item from slot
 func remove_item():
 	self.remove_child(item)
 	item.free()
@@ -91,7 +86,6 @@ func remove_item():
 
 
 
-# Removes item from slot and returns it.
 func select_item() -> InventoryItem:
 	var inventory = self.get_parent().get_parent() # Inventory
 	var tmp_item := self.item
@@ -99,51 +93,47 @@ func select_item() -> InventoryItem:
 		tmp_item.reparent(inventory)
 		self.item = null
 		tmp_item.z_index = 128
-	# Show it above other items
 	return tmp_item
 
 
 
 
 
-# If swap, then returb swapped item, else return null and add new item
 func deselect_item(new_item: InventoryItem) -> InventoryItem:
 	if not is_respecting_hint(new_item):
-		return new_item # Do nothing
-	var inventory = self.get_parent().get_parent() # Inventory
+		return new_item 
+	var inventory = self.get_parent().get_parent()
 	if self.is_empty():
 		new_item.reparent(self)
 		self.item = new_item
 		self.item.z_index = 64
 		return null
 	else:
-		if self.has_same_item(new_item): # if both items are same
-			print("Has same item")
+		if self.has_same_item(new_item):
 			self.item.amount += new_item.amount
 			new_item.free()
 			return null
-		else: # if different type, swap
-			new_item.reparent(self) # Make new thing our child
-			self.item.reparent(inventory) # make old thing inventory child
+		else: 
+			new_item.reparent(self)
+			self.item.reparent(inventory) 
 			var tmp_item = self.item
 			self.item = new_item
-			new_item.z_index = 64 # Reset its z index
-			tmp_item.z_index = 128 # Update swapped item's z index
+			new_item.z_index = 64 
+			tmp_item.z_index = 128
 			return tmp_item
 
 
 
-# Split means selecting half amount
 func split_item() -> InventoryItem:
 	if self.is_empty():
 		return null
-	var inventory = self.get_parent().get_parent() # Inventory
+	var inventory = self.get_parent().get_parent()
 	if self.item.amount > 1:
 		var new_item: InventoryItem = inventory_item_scene.instantiate()
 		new_item.set_data(
 			self.item.item_name, self.item.icon,
 			self.item.is_stackable, self.item.amount
-		) # Because .duplicate() is buggy (doesnt make it unique0 thats why duplicating via this way
+		) 
 		new_item.amount = self.item.amount / 2
 		self.item.amount -= new_item.amount
 		inventory.add_child(new_item)
@@ -155,20 +145,13 @@ func split_item() -> InventoryItem:
 		return null
 
 
-
-# Is slot empty (has no item)
 func is_empty():
 	return self.item == null
 
 
 
-
-# Has same kind of item? (same name)
 func has_same_item(_item: InventoryItem):
 	return _item.item_name == self.item.item_name
-
-
-
 
 
 func update_slot():
@@ -183,4 +166,4 @@ func update_slot():
 	if hint_item:
 		if not self.get_children().has(hint_item):
 			add_child(hint_item)
-		hint_item.fade() # Visually look faded
+		hint_item.fade()
