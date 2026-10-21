@@ -19,7 +19,6 @@ func set_ghost_vision_active(active: bool) -> void:
 	else:
 		if gpu_particles:
 			gpu_particles.emitting = false
-			gpu_particles.restart()
 		stop_pulsing()
 
 func start_pulsing() -> void:
