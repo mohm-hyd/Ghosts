@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://b2uwscwmi0sde"]
+
+[ext_resource type="Script" uid="uid://cxnv6efeam1sl" path="res://assets/characters/ghosts/bus_driver/bus_driver.gd" id="1_ai15g"]
+[ext_resource type="Texture2D" uid="uid://bkbi16c4h0awb" path="res://art/characters/ghosts/bus_driver/full_sprite.png" id="2_mt0b4"]
+[ext_resource type="PackedScene" uid="uid://c123v3db4lkfu" path="res://src/components/ghost_vision_reveal_component/GhostVisionRevealComponent.tscn" id="3_h5j8d"]
+[ext_resource type="PackedScene" uid="uid://dqnofcbxhaiyo" path="res://src/components/interactable_component/InteractableComponent.tscn" id="4_h5j8d"]
+[ext_resource type="PackedScene" uid="uid://bt4oigxm2d1l6" path="res://src/components/highlight_component/HighlightComponent.tscn" id="4_vr4ss"]
+[ext_resource type="Script" uid="uid://ff01h2x760hg" path="res://src/system/dialogue_system/dialogue_components/DialogueExportResource.gd" id="7_o8oq4"]
+[ext_resource type="Script" uid="uid://ydeyb2qi3j0f" path="res://src/system/dialogue_system/dialogue_components/dialogue_text_resource.gd" id="8_ai15g"]
+
+[sub_resource type="Resource" id="Resource_ai15g"]
+script = ExtResource("8_ai15g")
+speaker_name = "Bus Driver"
+text = "My, what a nice drawing, it reminds me of one a student made for me long ago."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_4a0gt"]
+script = ExtResource("8_ai15g")
+speaker_name = "Bus Driver"
+text = "Hold on, this is that exact drawing, how did you get this?"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_ixdp2"]
+script = ExtResource("8_ai15g")
+speaker_name = "BusDriver"
+text = "You went over to my house and took it? How did you even get in ?"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_8tsgb"]
+script = ExtResource("8_ai15g")
+speaker_name = "Bus Driver"
+text = "You asked at my wife? How do you know her ? Your just a student!"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_o8oq4"]
+script = ExtResource("8_ai15g")
+speaker_name = "Bus Driver"
+text = "You met her at the funeral?! Who's funeral?"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_os4w4"]
+script = ExtResource("8_ai15g")
+speaker_name = "Bus Driver"
+text = "Mine? "
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_e1p28"]
+script = ExtResource("8_ai15g")
+speaker_name = "Bus Driver"
+text = "But how?"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_hvtcx"]
+script = ExtResource("8_ai15g")
+speaker_name = "Bus Driver"
+text = "..."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_wlphc"]
+script = ExtResource("8_ai15g")
+speaker_name = "Bus Driver"
+text = "I see ... I'm already dead aren't I."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_8noxx"]
+script = ExtResource("8_ai15g")
+speaker_name = "Bus Driver"
+text = "Are you here to release me ?"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_aq6ow"]
+script = ExtResource("8_ai15g")
+speaker_name = "Bus Driver"
+text = "Thank you."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kd8bc"]
+radius = 194.0
+height = 594.0
+
+[node name="BusDriver" type="Node2D" unique_id=858132750]
+script = ExtResource("1_ai15g")
+ghost_dialogue = Array[ExtResource("7_o8oq4")]([SubResource("Resource_ai15g"), SubResource("Resource_4a0gt"), SubResource("Resource_ixdp2"), SubResource("Resource_8tsgb"), SubResource("Resource_o8oq4"), SubResource("Resource_os4w4"), SubResource("Resource_e1p28"), SubResource("Resource_hvtcx"), SubResource("Resource_wlphc"), SubResource("Resource_8noxx"), SubResource("Resource_aq6ow")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=992971850]
+texture = ExtResource("2_mt0b4")
+
+[node name="GhostVisionRevealComponent" parent="." unique_id=2030860639 node_paths=PackedStringArray("highlight_sprite") instance=ExtResource("3_h5j8d")]
+highlight_sprite = NodePath("../Sprite2D")
+
+[node name="HighlightComponent" parent="." unique_id=1002274899 instance=ExtResource("4_vr4ss")]
+
+[node name="InteractableComponent" parent="." unique_id=2145141222 instance=ExtResource("4_h5j8d")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1094710369]
+shape = SubResource("CapsuleShape2D_kd8bc")

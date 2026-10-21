@@ -1,0 +1,21 @@
+class_name BusDriver
+extends GhostEntity
+
+@onready var animation_player: AnimationPlayer 
+
+func _ready() -> void:
+	super._ready() 
+	play_idle_animation()
+
+func play_walk_animation() -> void:
+	if animation_player and animation_player.has_animation("walk"):
+		animation_player.play("walk")
+	
+func play_idle_animation() -> void:
+	if animation_player and animation_player.has_animation("idle"):
+		animation_player.play("idle")
+
+func _on_survival_success(player: Player) -> void:
+	super._on_survival_success(player)
+	# Custom BusDriver behavior when survived (e.g. play dialogue or vanish with an effect)
+	queue_free()

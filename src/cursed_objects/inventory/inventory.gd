@@ -11,7 +11,7 @@ const INVENTORY_ITEM_SCENE = preload("uid://dsiuo5ciwurqj")
 @export var inventory_slot_scene = preload("uid://cmlhn4odctb4f")
 var slots: Array[InventorySlot]
 
-static var selected_item: Item = null
+static var selected_item = null
 
 
 func _ready():
@@ -57,31 +57,28 @@ func _on_slot_input(which: InventorySlot, action: InventorySlot.InventorySlotAct
 		selected_item = which.deselect_item(selected_item)
 
 func _on_slot_hovered(which: InventorySlot, is_hovering: bool):
-	if which.item:
-		pass
-	elif which.hint_item:
-		pass
+	pass
 
+func _sync_equipped_item_to_game_state() -> void:
+	var game_state = get_tree().root.find_child("GameStateController", true, false)
+	if game_state and "equipped_item_name" in game_state:
+		if selected_item:
+			game_state.equipped_item_name = selected_item.item_name
+		else:
+			game_state.equipped_item_name = ""
+		print("Equipped item updated in GameStateController: ", game_state.equipped_item_name)
 
-
-
-
-
-func add_item(world_item : WorldItem) -> void:
+func add_item(world_item: WorldItem) -> void:
 	var item_data = world_item.get_item_data()
-	
-	var _item : InventoryItem = INVENTORY_ITEM_SCENE.instantiate()
+	var _item: InventoryItem = INVENTORY_ITEM_SCENE.instantiate()
 	_item.set_data(item_data.item_name, item_data.icon)
 	
 	for slot in slots:
 		if slot.is_empty() and slot.is_respecting_hint(_item):
 			slot.item = _item
-			
-			slot.update_slot()
+			slot.update_slot() # Forces the slot to instantiate and render the icon visual child
 			world_item.queue_free()
 			return
-
-
 
 func retrieve_item(_item_name: String) -> Item:
 	for slot in slots:
@@ -91,14 +88,10 @@ func retrieve_item(_item_name: String) -> Item:
 			copy_item.name = copy_item.item_name
 			copy_item.icon = slot.item.icon
 			copy_item.is_stackable = slot.item.is_stackable
-			if slot.item.amount > 1:
-				slot.item.amount -= 1
-			else:
-				slot.remove_item()
+			slot.remove_item()
+			_sync_equipped_item_to_game_state()
 			return copy_item
 	return null
-
-
 
 func all_items() -> Array[Item]:
 	var items: Array[Item] = []
@@ -106,7 +99,6 @@ func all_items() -> Array[Item]:
 		if slot.item:
 			items.append(slot.item)
 	return items
-
 
 
 func all(_name: String) -> Array[Item]:

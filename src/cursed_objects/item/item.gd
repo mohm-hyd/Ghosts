@@ -1,5 +1,5 @@
 class_name Item
-extends Node
+extends Control
 
 @export var item_name : String = ""
 @export var icon: Texture2D

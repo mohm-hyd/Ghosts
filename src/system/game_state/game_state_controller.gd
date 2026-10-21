@@ -12,6 +12,7 @@ signal level_transition_requested(level_uid: String, spawn_name: String)
 
 var in_game : bool = false
 var is_paused : bool = false
+var equipped_item_name : String = "" 
 
 func _unhandled_input(event : InputEvent) -> void:
 	if event.is_action_pressed(&"pause") and in_game:

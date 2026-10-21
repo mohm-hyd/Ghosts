@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://biv0vs4lspvlh" path="res://src/ui/credits_screen/credits_scene.gd" id="1_2pswy"]
 [ext_resource type="Texture2D" uid="uid://dk03pfvthc2rj" path="res://art/clue_objects/photo_of_friends.png" id="1_eof08"]
+[ext_resource type="FontFile" uid="uid://cpldgjk3fl2uj" path="res://assets/fonts/Xolonium-Regular.ttf" id="3_h0nwq"]
 
 [node name="CreditsScene" type="Control" unique_id=1578922016]
 layout_mode = 3
@@ -37,11 +38,13 @@ alignment = 1
 
 [node name="Line1" type="Label" parent="VBoxContainer" unique_id=84852475]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_h0nwq")
 theme_override_font_sizes/font_size = 48
 text = "Mustafa Mohamed"
 
 [node name="Line2" type="Label" parent="VBoxContainer" unique_id=1041628811]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_h0nwq")
 theme_override_font_sizes/font_size = 48
 text = "Eveie Nedeljak"
 
@@ -50,6 +53,7 @@ custom_minimum_size = Vector2(600, 180)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("3_h0nwq")
 theme_override_font_sizes/font_size = 64
 text = "Return to Main Menu"
 

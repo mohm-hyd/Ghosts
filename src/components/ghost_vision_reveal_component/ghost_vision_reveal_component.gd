@@ -2,6 +2,7 @@ class_name GhostVisionRevealComponent
 extends Node2D
 
 @export var highlight_sprite: Sprite2D
+
 @onready var gpu_particles : GPUParticles2D = $"../HighlightComponent"
 
 var pulse_tween: Tween = null

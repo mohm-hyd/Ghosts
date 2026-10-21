@@ -157,7 +157,5 @@ func update_slot():
 	if item:
 		if not self.get_children().has(item):
 			add_child(item)
-		if item.has_method("set_data") and item.icon:
-			if item.has_node("Sprite2D"):
-				var spr = item.get_node("Sprite2D") as Sprite2D
-				spr.texture = item.icon
+		if item.has_method("_scale_and_center_sprite"):
+			item._scale_and_center_sprite() 

@@ -17,7 +17,8 @@ item_name = "ChildsDrawing"
 icon = ExtResource("2_ar5fi")
 
 [node name="Sprite2D" type="Sprite2D" parent="WorldItem" unique_id=1799629576]
-position = Vector2(-75, 79)
+position = Vector2(-80.00001, 77.00001)
+scale = Vector2(1.0567867, 0.9000535)
 texture = ExtResource("2_ar5fi")
 
 [node name="GhostVisionRevealComponent" parent="WorldItem" unique_id=2030860639 node_paths=PackedStringArray("highlight_sprite") instance=ExtResource("3_dlwd4")]
