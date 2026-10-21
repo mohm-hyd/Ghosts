@@ -62,7 +62,7 @@ func _update_slot_visuals() -> void:
 	for i in range(slots.size()):
 		var slot = slots[i]
 		if i == equipped_slot_index:
-			slot.modulate = Color(1.3, 1.3, 1.3, 1.0)
+			slot.modulate = Color(0.0, 0.923, 0.923, 1.0)
 		else:
 			slot.modulate = Color(1.0, 1.0, 1.0, 1.0)
 

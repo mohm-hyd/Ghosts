@@ -5,6 +5,7 @@ const TUTORIAL_BEDROOM_SCENE_UID : String="uid://d1wycq0ylykwr"
 const PLAYER_SCENE_UID: String = "uid://ckudr8chj1kgo"
 const SCENE_TRANSITION : PackedScene = preload("uid://cy18gylahgif")
 
+
 @onready var vision_state_controller: Node2D = $System/VisionStateController
 @onready var game_state_controller: GameStateController = $System/GameStateController
 

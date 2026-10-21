@@ -11,6 +11,8 @@ curve = SubResource("Curve_yjrey")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mtcm8"]
 particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 580.5
 spread = 180.0
 initial_velocity_min = 100.0
 initial_velocity_max = 100.0
@@ -20,7 +22,7 @@ scale_max = 0.29999998
 scale_curve = SubResource("CurveTexture_2wyyt")
 
 [node name="HighlightComponent" type="GPUParticles2D" unique_id=1002274899]
-amount = 60
+amount = 100
 texture = ExtResource("1_2wyyt")
-lifetime = 2.0
+lifetime = 1.5
 process_material = SubResource("ParticleProcessMaterial_mtcm8")

@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://dpaxyirrvfu6o"]
 
 [ext_resource type="Script" uid="uid://c4nwoemjgidkr" path="res://src/components/level_transition_component/level_transition.gd" id="1_i04j0"]
+[ext_resource type="PackedScene" uid="uid://c2iw7ntdpg3s7" path="res://src/components/room_transition_highlight/room_transition_highlight.tscn" id="2_4d12r"]
 
 [node name="LevelTransition" type="Area2D" unique_id=153564768]
 collision_mask = 3
 script = ExtResource("1_i04j0")
+
+[node name="RoomTransitionHighlight" parent="." unique_id=1002274899 instance=ExtResource("2_4d12r")]

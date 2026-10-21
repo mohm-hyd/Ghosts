@@ -8,15 +8,79 @@
 [ext_resource type="PackedScene" uid="uid://dpaxyirrvfu6o" path="res://src/components/level_transition_component/LevelTransition.tscn" id="4_cy15j"]
 [ext_resource type="PackedScene" uid="uid://b5denm6htffy0" path="res://src/levels/level_objects/PlayerSpawn.tscn" id="5_cy15j"]
 [ext_resource type="PackedScene" uid="uid://b2uwscwmi0sde" path="res://assets/characters/ghosts/bus_driver/bus_driver.tscn" id="7_0nnp1"]
+[ext_resource type="PackedScene" uid="uid://cy4v5vkkmokrq" path="res://src/components/dialogue_area_component/dialogue_area.tscn" id="9_ybiqv"]
+[ext_resource type="Script" uid="uid://ff01h2x760hg" path="res://src/system/dialogue_system/dialogue_components/DialogueExportResource.gd" id="10_dp4qk"]
+[ext_resource type="Script" uid="uid://ydeyb2qi3j0f" path="res://src/system/dialogue_system/dialogue_components/dialogue_text_resource.gd" id="11_k63yi"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_kd8bc"]
 a = Vector2(1912, -9)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0nnp1"]
+a = Vector2(-26, -938)
+b = Vector2(-9, 133)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kd8bc"]
 size = Vector2(71, 300.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tw3v3"]
-size = Vector2(56.375, 570.5)
+size = Vector2(56.375, 370.25)
+
+[sub_resource type="Resource" id="Resource_c7e5e"]
+script = ExtResource("11_k63yi")
+speaker_name = "Aspen"
+text = "The bus feels eerie today ..."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_2nqjk"]
+script = ExtResource("11_k63yi")
+speaker_name = "Aspen"
+text = "I should check it out in ghost vision."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_lgad6"]
+script = ExtResource("11_k63yi")
+speaker_name = "Aspen"
+text = "Oh no, I didn't expect the bus driver to be  a ghost."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_01moj"]
+script = ExtResource("11_k63yi")
+speaker_name = "Aspen"
+text = "To release ghosts I need to match them with their corresponding cursed object."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_0qhvc"]
+script = ExtResource("11_k63yi")
+speaker_name = "Aspen"
+text = "As the wielder of ghost vision, i can interact with them, but if I match cursed objects incorrectly the backlash will kill me."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_walme"]
+script = ExtResource("11_k63yi")
+speaker_name = "Aspen"
+text = "Im pretty sure this drawing is what's keeping him in the mortal plane, but I'm not sure."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_74aqo"]
+script = ExtResource("11_k63yi")
+speaker_name = "Aspen"
+text = "I'll go check with Nash, after all he's the one that drew it."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_15xwe"]
+script = ExtResource("11_k63yi")
+speaker_name = "Aspen"
+text = "I don't see him though, hes probably in the back of the bus somewhere."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_hh25s"]
+script = ExtResource("11_k63yi")
+speaker_name = "Aspen"
+text = "I'll leave the bus driver alone for now."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxtu0"]
+size = Vector2(153, 99)
 
 [node name="FrontBusLevel" type="Node2D" unique_id=313346568]
 script = ExtResource("1_8ojvc")
@@ -45,6 +109,10 @@ texture = ExtResource("2_vhbfv")
 position = Vector2(-26, 238)
 shape = SubResource("SegmentShape2D_kd8bc")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomBoundsComponent" unique_id=2013150262]
+position = Vector2(1554, 950)
+shape = SubResource("SegmentShape2D_0nnp1")
+
 [node name="Entities" type="Node2D" parent="." unique_id=81746490]
 
 [node name="PlayerCamera" parent="Entities" unique_id=436012757 instance=ExtResource("2_kb1fg")]
@@ -52,10 +120,10 @@ shape = SubResource("SegmentShape2D_kd8bc")
 [node name="GhostVisionCamera" parent="Entities" unique_id=393315676 instance=ExtResource("3_8ojvc")]
 
 [node name="PlayerSpawn" parent="Entities" unique_id=1644690995 instance=ExtResource("5_cy15j")]
-position = Vector2(1644, 836)
+position = Vector2(854, 912)
 
 [node name="FrontOfBus" parent="Entities" unique_id=731827706 instance=ExtResource("5_cy15j")]
-position = Vector2(919, 790)
+position = Vector2(914, 757)
 
 [node name="Interactables" type="Node2D" parent="." unique_id=1660967318]
 
@@ -64,7 +132,7 @@ position = Vector2(1302, 601)
 scale = Vector2(0.7310269, 0.52356964)
 
 [node name="BackOfBusTransition" parent="." unique_id=153564768 instance=ExtResource("4_cy15j")]
-position = Vector2(894, 472)
+position = Vector2(911, 427)
 target_level_uid = "uid://b22c8mb7r6qo4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackOfBusTransition" unique_id=2092818825]
@@ -72,9 +140,20 @@ position = Vector2(24, -136.25)
 shape = SubResource("RectangleShape2D_kd8bc")
 
 [node name="LockersTransition" parent="." unique_id=1544203805 instance=ExtResource("4_cy15j")]
-position = Vector2(31, 73)
+position = Vector2(380, 786)
 target_level_uid = "uid://f1yyxvt25dxx"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LockersTransition" unique_id=1437120548]
-position = Vector2(1875, 707.25)
+position = Vector2(0, 100.125)
 shape = SubResource("RectangleShape2D_tw3v3")
+
+[node name="DialogueArea" parent="." unique_id=162237154 instance=ExtResource("9_ybiqv")]
+position = Vector2(872, 976)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("10_dp4qk")]([SubResource("Resource_c7e5e"), SubResource("Resource_2nqjk"), SubResource("Resource_lgad6"), SubResource("Resource_01moj"), SubResource("Resource_0qhvc"), SubResource("Resource_walme"), SubResource("Resource_74aqo"), SubResource("Resource_15xwe"), SubResource("Resource_hh25s"), null])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea" unique_id=267415967]
+position = Vector2(5.5, -59.5)
+shape = SubResource("RectangleShape2D_pxtu0")
+debug_color = Color(0.25490198, 0.14117648, 0.6392157, 0.41960785)

@@ -5,6 +5,7 @@ const MAIN_MENU = preload("uid://m3enuov566vc")
 const PAUSE_SCREEN = preload("uid://37s110v2h0ue")
 const CREDIT_SCENE = preload("uid://baxl57vk8crpg")
 const INVENTORY_SCENE = preload("uid://bm7naboypwi3i")
+const HELP_SCREEN = preload("uid://c4nqsiiso1w3d")
 
 @onready var hud_root : Control = %HudRoot
 @onready var pause_root : Control = %PauseRoot
@@ -15,6 +16,7 @@ var active_pause_menu: Node = null
 var active_main_menu: Node = null
 var active_credits : Node = null
 var active_inventory : Node = null
+var active_help_screen: Node = null
 
 func _ready() -> void:
 	if game_state:
@@ -39,6 +41,21 @@ func show_main_menu() -> void:
 		if active_main_menu.has_signal("display_credits"):
 			active_main_menu.display_credits.connect(_on_menu_credits_pressed)
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("toggle_help") and active_inventory != null:
+		toggle_help_screen()
+
+func toggle_help_screen() -> void:
+	if active_help_screen:
+		active_help_screen.queue_free()
+		active_help_screen = null
+		print("Help screen closed.")
+	else:
+		if HELP_SCREEN:
+			active_help_screen = HELP_SCREEN.instantiate()
+			hud_root.add_child(active_help_screen)
+			print("Help screen opened.")
+			
 func show_credits() -> void:
 	if active_main_menu:
 		active_main_menu.queue_free()

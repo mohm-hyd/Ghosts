@@ -28,26 +28,32 @@ size = Vector2(87, 221)
 
 [sub_resource type="Resource" id="Resource_yu3f5"]
 script = ExtResource("10_hymaj")
-speaker_name = "Aspen's Thoughts"
-text = "I need to exorcise all [b]5[/b] ghosts before class today or something bad will happen. [i](hit enter to go through text)[\\i]"
+speaker_name = "Aspen"
+text = "I need to exorcise all [b]5[/b] ghosts before class today or something bad will happen. [i](press H to toggle help)[\\i]"
 metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
 
 [sub_resource type="Resource" id="Resource_q1kh8"]
 script = ExtResource("10_hymaj")
-speaker_name = "Aspen's Thoughts"
+speaker_name = "Aspen"
 text = "First i need to find all the objects tethering them to the mortal plane, luckily I managed to find one earlier."
 metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
 
 [sub_resource type="Resource" id="Resource_0pe5k"]
 script = ExtResource("10_hymaj")
-speaker_name = "Aspen's Thoughts"
-text = "Where did I put it? [i]( hit space bar to activate your ghost vision and peer into the other realm)[/i]"
+speaker_name = "Aspen"
+text = "Where did I put it? [i]( press space bar to activate your ghost vision and peer into the other realm)[/i]"
 metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
 
-[sub_resource type="Resource" id="Resource_hymaj"]
+[sub_resource type="Resource" id="Resource_nx426"]
 script = ExtResource("10_hymaj")
-speaker_name = "Aspen's Thoughts"
-text = "There it is, this ghost vision is useful, I'll need to use it to find the remaining cursed objects."
+speaker_name = "Aspen"
+text = "There it is, I'll need to use ghost vision to find the remaing cursed objects."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_qhv2s"]
+script = ExtResource("10_hymaj")
+speaker_name = "Aspen"
+text = "I'll grab it and then head to the bus. ( the exit is marked to the right)"
 metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tw3v3"]
@@ -116,7 +122,7 @@ shape = SubResource("RectangleShape2D_kd8bc")
 position = Vector2(1301, 876)
 activate_instant = true
 only_activate_once = true
-dialogue = Array[ExtResource("9_0pe5k")]([SubResource("Resource_yu3f5"), SubResource("Resource_q1kh8"), SubResource("Resource_0pe5k"), SubResource("Resource_hymaj")])
+dialogue = Array[ExtResource("9_0pe5k")]([SubResource("Resource_yu3f5"), SubResource("Resource_q1kh8"), SubResource("Resource_0pe5k"), SubResource("Resource_nx426"), SubResource("Resource_qhv2s")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea" unique_id=1991570168]
 position = Vector2(-8, 1)
