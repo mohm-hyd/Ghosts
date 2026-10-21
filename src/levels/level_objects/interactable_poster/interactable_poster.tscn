@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dp1bgrfrbomsq"]
+
+[ext_resource type="Script" uid="uid://cm7x4kx1gm7gg" path="res://src/levels/level_objects/interactable_poster/interactable_poster.gd" id="1_h8v68"]
+[ext_resource type="Texture2D" uid="uid://63mauj3x8j0t" path="res://art/hallway_poster/posters.png" id="1_kph3a"]
+[ext_resource type="PackedScene" uid="uid://dub1rejsitjlm" path="res://src/cursed_objects/objects/flower/flower.tscn" id="2_h8v68"]
+[ext_resource type="PackedScene" uid="uid://dqnofcbxhaiyo" path="res://src/components/interactable_component/InteractableComponent.tscn" id="2_tvpoj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kd8bc"]
+radius = 259.5573
+
+[node name="InteractablePoster" type="Node2D" unique_id=500230780]
+script = ExtResource("1_h8v68")
+
+[node name="Poster" type="Sprite2D" parent="." unique_id=1997927270]
+texture = ExtResource("1_kph3a")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1318576300]
+
+[node name="Flower" parent="." unique_id=1042455939 instance=ExtResource("2_h8v68")]
+position = Vector2(296, -189)
+
+[node name="InteractableComponent" parent="." unique_id=2145141222 instance=ExtResource("2_tvpoj")]
+position = Vector2(293, -204)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1716980103]
+shape = SubResource("CircleShape2D_kd8bc")

@@ -22,7 +22,7 @@ func _ready() -> void:
 
 func set_container_accessible(container_is_open: bool) -> void:
 	is_accessible = container_is_open and not is_collected
-	visible = is_accessible
+	sprite.visible = is_accessible
 	
 	if interactable_component:
 		interactable_component.monitoring = is_accessible
