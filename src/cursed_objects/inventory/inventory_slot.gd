@@ -157,11 +157,7 @@ func update_slot():
 	if item:
 		if not self.get_children().has(item):
 			add_child(item)
-		#item.sprite.texture = item.icon
-		#item.label.text = str(item.amount) + " - " + str(item.name)
-		# If amount ios 0, make iot semi-transparent
-		#	item.fade()
-	if hint_item:
-		if not self.get_children().has(hint_item):
-			add_child(hint_item)
-		hint_item.fade()
+		if item.has_method("set_data") and item.icon:
+			if item.has_node("Sprite2D"):
+				var spr = item.get_node("Sprite2D") as Sprite2D
+				spr.texture = item.icon

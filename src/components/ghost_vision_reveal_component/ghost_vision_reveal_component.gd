@@ -4,51 +4,44 @@ extends Node2D
 @export var highlight_sprite: Sprite2D
 @onready var gpu_particles : GPUParticles2D = $"../HighlightComponent"
 
-var pulsing : bool = false
-var discovered : bool = false
-
+var pulse_tween: Tween = null
 
 func _ready() -> void:
 	add_to_group("clue_objects")
 	if gpu_particles:
-		gpu_particles.emitting= false
+		gpu_particles.emitting = false
 
 func set_ghost_vision_active(active: bool) -> void:
+	if active:
+		if gpu_particles:
+			gpu_particles.emitting = true
+		start_pulsing()
+	else:
+		if gpu_particles:
+			gpu_particles.emitting = false
+			gpu_particles.restart()
+		stop_pulsing()
+
+func start_pulsing() -> void:
+	if pulse_tween and pulse_tween.is_valid():
+		return
+	if not highlight_sprite:
+		return
+
+	highlight_sprite.scale = Vector2.ONE
+	highlight_sprite.modulate.a = 1.0
+
+	pulse_tween = create_tween().set_loops()
+	pulse_tween.tween_property(
+		highlight_sprite, "scale", Vector2.ONE * 1.4, 0.4
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	pulse_tween.tween_property(
+		highlight_sprite, "scale", Vector2.ONE * 1.0, 0.4
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+func stop_pulsing() -> void:
+	if pulse_tween and pulse_tween.is_valid():
+		pulse_tween.kill()
+		pulse_tween = null
 	if highlight_sprite:
-		highlight_sprite.visible = active
-		discovered = active
-	if gpu_particles:
-		gpu_particles.emitting = active
-		
-		
-		
-func _process(delta: float) -> void:
-	if discovered:
-		pulsing = true
-		play_discovery_pulse()
-	else :
-		pulsing = false
-		
-
-func play_discovery_pulse() -> void:
-	while pulsing:
-		if not highlight_sprite:
-			return
-		
-		highlight_sprite.scale = Vector2.ONE * 0.5
-		highlight_sprite.modulate.a = 1.0
-
-		var tween := create_tween()
-		tween.tween_property(
-			highlight_sprite,
-			"scale",
-			Vector2.ONE * 1.4,
-			0.25
-		).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-
-		tween.tween_property(
-			highlight_sprite,
-			"scale",
-			Vector2.ONE,
-			0.15
-		)
+		highlight_sprite.scale = Vector2.ONE

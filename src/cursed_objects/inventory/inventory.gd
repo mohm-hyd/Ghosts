@@ -74,7 +74,7 @@ func add_item(world_item : WorldItem) -> void:
 	_item.set_data(item_data.item_name, item_data.icon)
 	
 	for slot in slots:
-		if slot.is_empty and slot.is_respecting_hint(_item):
+		if slot.is_empty() and slot.is_respecting_hint(_item):
 			slot.item = _item
 			
 			slot.update_slot()

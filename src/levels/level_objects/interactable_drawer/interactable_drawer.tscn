@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cp72eon435r6s" path="res://art/bedroom_level/drawer_closed.png" id="1_kn8oq"]
 [ext_resource type="Texture2D" uid="uid://dvicrgkhg42am" path="res://art/bedroom_level/drawer_open.png" id="2_yw3y6"]
 [ext_resource type="PackedScene" uid="uid://dqnofcbxhaiyo" path="res://src/components/interactable_component/InteractableComponent.tscn" id="4_qe0ox"]
+[ext_resource type="PackedScene" uid="uid://3xnui40cbwol" path="res://src/cursed_objects/objects/ChildsDrawing.tscn" id="4_v2q2w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kd8bc"]
 size = Vector2(75, 39)
@@ -16,6 +17,11 @@ texture = ExtResource("1_kn8oq")
 
 [node name="DrawerOpen" type="Sprite2D" parent="." unique_id=1618599256]
 texture = ExtResource("2_yw3y6")
+
+[node name="ChildsDrawing" parent="." unique_id=605731523 instance=ExtResource("4_v2q2w")]
+position = Vector2(-271, 94)
+rotation = -1.078303
+scale = Vector2(0.34309846, 0.5359753)
 
 [node name="InteractableComponent" parent="." unique_id=2145141222 instance=ExtResource("4_qe0ox")]
 

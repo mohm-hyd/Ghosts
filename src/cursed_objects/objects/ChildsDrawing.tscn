@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_agnjl"]
 radius = 86.023254
 
-[node name="ChildsDrawing" type="Node2D" unique_id=605731523]
+[node name="ChildsDrawing" type="Node2D" unique_id=835678254]
 
 [node name="WorldItem" type="Node2D" parent="." unique_id=696127865]
 script = ExtResource("1_3gqlh")
@@ -21,6 +21,7 @@ position = Vector2(-75, 79)
 texture = ExtResource("2_ar5fi")
 
 [node name="GhostVisionRevealComponent" parent="WorldItem" unique_id=2030860639 node_paths=PackedStringArray("highlight_sprite") instance=ExtResource("3_dlwd4")]
+z_index = 3
 highlight_sprite = NodePath("../Sprite2D")
 
 [node name="HighlightComponent" parent="WorldItem" unique_id=2096291363 instance=ExtResource("4_63wim")]
