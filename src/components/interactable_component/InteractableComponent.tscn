@@ -6,3 +6,10 @@
 collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_do5er")
+
+[node name="InteractLabel" type="Label" parent="." unique_id=2143098515]
+offset_left = -145.0
+offset_top = -50.0
+offset_right = -46.0
+offset_bottom = -27.0
+text = "\"placeholder"

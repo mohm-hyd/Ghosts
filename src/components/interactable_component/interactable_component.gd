@@ -5,6 +5,7 @@ signal interacted(player: Player)
 signal player_entered_range
 signal player_exited_range
 
+@onready var prompt_label : Label = $InteractLabel
 @export var prompt_text : String = "Press E to Inspect"
 
 var player_in_range : bool = false
@@ -14,6 +15,7 @@ func _ready() -> void:
 
 	area_entered.connect(_on_area_entered)
 	area_exited.connect(_on_area_exited)
+	prompt_label.text = prompt_text
 
 func _unhandled_input(event: InputEvent) -> void:
 	if player_in_range and event.is_action_pressed(&"interact"):

@@ -147,6 +147,7 @@ func _text_resource(i : DialogueText) -> void:
 	while dialogue_label.visible_characters < total_characters:
 		if Input.is_action_just_pressed("skip_text"):
 			dialogue_label.visible_characters = total_characters
+			await get_tree().process_frame
 			break
 		
 		character_timer += get_process_delta_time()
@@ -166,6 +167,7 @@ func _text_resource(i : DialogueText) -> void:
 			if Input.is_action_just_pressed("next_text"):
 				current_dialogue_item += 1
 				next_item = true
+				
 
 func _text_without_square_brackets(text: String) -> String:
 	var result : String = ""

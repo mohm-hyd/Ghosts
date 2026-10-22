@@ -6,6 +6,7 @@ extends Node2D
 
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var interactable_component : InteractableComponent = $InteractableComponent
+@onready var interact_prompt : Label = $InteractableComponent/InteractLabel
 
 var is_collected: bool = false
 var is_accessible: bool = false
@@ -23,6 +24,7 @@ func _ready() -> void:
 func set_container_accessible(container_is_open: bool) -> void:
 	is_accessible = container_is_open and not is_collected
 	sprite.visible = is_accessible
+	interact_prompt.visible = is_accessible
 	
 	if interactable_component:
 		interactable_component.monitoring = is_accessible

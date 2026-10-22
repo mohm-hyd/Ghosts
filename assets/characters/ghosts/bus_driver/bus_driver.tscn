@@ -30,7 +30,7 @@ metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
 [sub_resource type="Resource" id="Resource_8tsgb"]
 script = ExtResource("8_ai15g")
 speaker_name = "Bus Driver"
-text = "You asked at my wife? How do you know her ? Your just a student!"
+text = "You asked at my wife? How do you know her ? Your just a student! "
 metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
 
 [sub_resource type="Resource" id="Resource_o8oq4"]
@@ -79,7 +79,14 @@ metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
 script = ExtResource("4_o8oq4")
 target_path = NodePath(".")
 function_name = "_update_ghost_visability"
-function_arguments = [false]
+function_arguments = [true]
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://27vv5fr2igy"
+
+[sub_resource type="Resource" id="Resource_uqphs"]
+script = ExtResource("4_o8oq4")
+target_path = NodePath(".")
+function_name = "queue_free"
 hide_dialogue_box = true
 metadata/_custom_type_script = "uid://27vv5fr2igy"
 
@@ -90,7 +97,7 @@ height = 594.0
 [node name="BusDriver" type="Node2D" unique_id=858132750]
 script = ExtResource("1_ai15g")
 required_item_to_survive = "ChildsDrawing"
-ghost_dialogue = Array[ExtResource("7_o8oq4")]([SubResource("Resource_ai15g"), SubResource("Resource_4a0gt"), SubResource("Resource_ixdp2"), SubResource("Resource_8tsgb"), SubResource("Resource_o8oq4"), SubResource("Resource_os4w4"), SubResource("Resource_e1p28"), SubResource("Resource_hvtcx"), SubResource("Resource_wlphc"), SubResource("Resource_8noxx"), SubResource("Resource_aq6ow"), SubResource("Resource_4vuq7")])
+ghost_dialogue = Array[ExtResource("7_o8oq4")]([SubResource("Resource_ai15g"), SubResource("Resource_4a0gt"), SubResource("Resource_ixdp2"), SubResource("Resource_8tsgb"), SubResource("Resource_o8oq4"), SubResource("Resource_os4w4"), SubResource("Resource_e1p28"), SubResource("Resource_hvtcx"), SubResource("Resource_wlphc"), SubResource("Resource_8noxx"), SubResource("Resource_aq6ow"), SubResource("Resource_4vuq7"), SubResource("Resource_uqphs")])
 reload_level_uid = "uid://cerpx8cld4433"
 reload_spawn = "FrontOfBus"
 
@@ -103,6 +110,7 @@ highlight_sprite = NodePath("../Sprite2D")
 [node name="HighlightComponent" parent="." unique_id=1002274899 instance=ExtResource("4_vr4ss")]
 
 [node name="InteractableComponent" parent="." unique_id=2145141222 instance=ExtResource("4_h5j8d")]
+prompt_text = "Press E to talk to the bus driver"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1094710369]
 shape = SubResource("CapsuleShape2D_kd8bc")

@@ -11,6 +11,7 @@ const DIALOGUE_SYSTEM_PRELOAD = preload("uid://hdkrdoo7lmii")
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var interactable_component: InteractableComponent = $InteractableComponent
+@onready var interactable_prompt : Label = $InteractableComponent/InteractLabel
 @onready var reveal_component: GhostVisionRevealComponent = $GhostVisionRevealComponent
 
 var is_ghost_vision_active: bool = false
@@ -33,6 +34,7 @@ func _update_ghost_visibility(active: bool) -> void:
 	
 	if sprite:
 		sprite.visible = visible_state
+		interactable_prompt.visible = visible_state
 		
 	if interactable_component:
 		interactable_component.set_deferred("monitoring", visible_state)
@@ -62,11 +64,9 @@ func _on_survival_success(player: Player) -> void:
 	
 	get_tree().root.add_child(new_dialogue)
 	
-	#_update_ghost_visibility(false)
-	
 	
 	print(ghost_name + " pacified/satisfied successfully!")
-	is_resolved
+
 
 
 func _kill_player(player: Player,level_uid: String, spawn_name: String) -> void:
