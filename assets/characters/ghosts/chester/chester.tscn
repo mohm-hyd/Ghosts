@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://cgp4yr7faswc0"]
+
+[ext_resource type="Script" uid="uid://cxnv6efeam1sl" path="res://assets/characters/ghosts/bus_driver/bus_driver.gd" id="1_xjec0"]
+[ext_resource type="Script" uid="uid://ff01h2x760hg" path="res://src/system/dialogue_system/dialogue_components/DialogueExportResource.gd" id="2_naua7"]
+[ext_resource type="Script" uid="uid://ydeyb2qi3j0f" path="res://src/system/dialogue_system/dialogue_components/dialogue_text_resource.gd" id="3_ngtc1"]
+[ext_resource type="Script" uid="uid://27vv5fr2igy" path="res://src/system/dialogue_system/dialogue_components/DialogueFunctionResource.gd" id="4_ylhld"]
+[ext_resource type="Texture2D" uid="uid://4gpowc2tcx2v" path="res://art/characters/ghosts/Chester/C-Arm1.png" id="5_xqcrk"]
+[ext_resource type="Texture2D" uid="uid://cuydne01stuyu" path="res://art/characters/ghosts/Chester/C-Arm2.png" id="6_wgp1v"]
+[ext_resource type="Texture2D" uid="uid://barerrtj3jnk5" path="res://art/characters/ghosts/Chester/C-Hand.png" id="7_gnw16"]
+[ext_resource type="Texture2D" uid="uid://cr2rua0v6meid" path="res://art/characters/ghosts/Chester/C-Hair.png" id="8_sdx2j"]
+[ext_resource type="Texture2D" uid="uid://btmj625bky1qh" path="res://art/characters/ghosts/Chester/C-Neck.png" id="9_iy6ce"]
+[ext_resource type="Texture2D" uid="uid://bxjpj1b8kokxr" path="res://art/characters/ghosts/Chester/C-Head.png" id="10_1lkmb"]
+[ext_resource type="PackedScene" uid="uid://c123v3db4lkfu" path="res://src/components/ghost_vision_reveal_component/GhostVisionRevealComponent.tscn" id="11_hccgj"]
+[ext_resource type="PackedScene" uid="uid://bt4oigxm2d1l6" path="res://src/components/highlight_component/HighlightComponent.tscn" id="12_ob76y"]
+[ext_resource type="PackedScene" uid="uid://dqnofcbxhaiyo" path="res://src/components/interactable_component/InteractableComponent.tscn" id="13_ghx8w"]
+
+[sub_resource type="Resource" id="Resource_ai15g"]
+script = ExtResource("3_ngtc1")
+speaker_name = "Bus Driver"
+text = "My, what a nice drawing, it reminds me of one a student made for me long ago."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_4a0gt"]
+script = ExtResource("3_ngtc1")
+speaker_name = "Bus Driver"
+text = "Hold on, this is that exact drawing, how did you get this?"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_ixdp2"]
+script = ExtResource("3_ngtc1")
+speaker_name = "BusDriver"
+text = "You went over to my house and took it? How did you even get in ?"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_8tsgb"]
+script = ExtResource("3_ngtc1")
+speaker_name = "Bus Driver"
+text = "You asked at my wife? How do you know her ? Your just a student!"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_o8oq4"]
+script = ExtResource("3_ngtc1")
+speaker_name = "Bus Driver"
+text = "You met her at the funeral?! Who's funeral?"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_os4w4"]
+script = ExtResource("3_ngtc1")
+speaker_name = "Bus Driver"
+text = "Mine? "
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_e1p28"]
+script = ExtResource("3_ngtc1")
+speaker_name = "Bus Driver"
+text = "But how?"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_hvtcx"]
+script = ExtResource("3_ngtc1")
+speaker_name = "Bus Driver"
+text = "..."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_wlphc"]
+script = ExtResource("3_ngtc1")
+speaker_name = "Bus Driver"
+text = "I see ... I'm already dead aren't I."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_8noxx"]
+script = ExtResource("3_ngtc1")
+speaker_name = "Bus Driver"
+text = "Are you here to release me ?"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_aq6ow"]
+script = ExtResource("3_ngtc1")
+speaker_name = "Bus Driver"
+text = "Thank you."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_4vuq7"]
+script = ExtResource("4_ylhld")
+target_path = NodePath(".")
+function_name = "_update_ghost_visability"
+function_arguments = [false]
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://27vv5fr2igy"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kd8bc"]
+radius = 194.0
+height = 594.0
+
+[node name="Chester" type="Node2D" unique_id=858132750]
+script = ExtResource("1_xjec0")
+required_item_to_survive = "ChildsDrawing"
+ghost_dialogue = Array[ExtResource("2_naua7")]([SubResource("Resource_ai15g"), SubResource("Resource_4a0gt"), SubResource("Resource_ixdp2"), SubResource("Resource_8tsgb"), SubResource("Resource_o8oq4"), SubResource("Resource_os4w4"), SubResource("Resource_e1p28"), SubResource("Resource_hvtcx"), SubResource("Resource_wlphc"), SubResource("Resource_8noxx"), SubResource("Resource_aq6ow"), SubResource("Resource_4vuq7")])
+reload_level_uid = "uid://cerpx8cld4433"
+reload_spawn = "FrontOfBus"
+
+[node name="arm-1" type="Sprite2D" parent="." unique_id=813226117]
+texture = ExtResource("5_xqcrk")
+
+[node name="arm-2" type="Sprite2D" parent="." unique_id=1635708110]
+texture = ExtResource("6_wgp1v")
+
+[node name="Hand" type="Sprite2D" parent="." unique_id=2146446727]
+texture = ExtResource("7_gnw16")
+
+[node name="Hair" type="Sprite2D" parent="." unique_id=1937546881]
+texture = ExtResource("8_sdx2j")
+
+[node name="Neck" type="Sprite2D" parent="." unique_id=992971850]
+texture = ExtResource("9_iy6ce")
+
+[node name="Head" type="Sprite2D" parent="." unique_id=722276012]
+texture = ExtResource("10_1lkmb")
+
+[node name="GhostVisionRevealComponent" parent="." unique_id=2030860639 node_paths=PackedStringArray("highlight_sprite") instance=ExtResource("11_hccgj")]
+highlight_sprite = NodePath("../Neck")
+
+[node name="HighlightComponent" parent="." unique_id=1002274899 instance=ExtResource("12_ob76y")]
+
+[node name="InteractableComponent" parent="." unique_id=2145141222 instance=ExtResource("13_ghx8w")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1094710369]
+shape = SubResource("CapsuleShape2D_kd8bc")
