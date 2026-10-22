@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://d1wycq0ylykwr"]
 
 [ext_resource type="Script" uid="uid://c3x0foqt4c4bh" path="res://src/levels/bedroom_level/bedroom_level.gd" id="1_7dtca"]
-[ext_resource type="Texture2D" uid="uid://3jgsclfr4cpr" path="res://art/bedroom_level/bedroom.png" id="2_tlaxa"]
+[ext_resource type="Texture2D" uid="uid://cgddw3sqqkrib" path="res://art/bedroom_level/bedroom_no_drawer.png" id="2_hymaj"]
 [ext_resource type="PackedScene" uid="uid://d254p8jqutkx" path="res://src/gameplay/cameras/ghost_vision_camera/GhostVisionCamera.tscn" id="3_tlaxa"]
 [ext_resource type="PackedScene" uid="uid://budryreehyrlk" path="res://src/components/room_bounds_component/room_bounds_component.tscn" id="3_yu3f5"]
 [ext_resource type="PackedScene" uid="uid://wsrbanrjsdtq" path="res://src/gameplay/cameras/player_camera/PlayerCamera.tscn" id="4_yu3f5"]
 [ext_resource type="PackedScene" uid="uid://b5denm6htffy0" path="res://src/levels/level_objects/PlayerSpawn.tscn" id="5_ih3vv"]
 [ext_resource type="PackedScene" uid="uid://dpaxyirrvfu6o" path="res://src/components/level_transition_component/LevelTransition.tscn" id="6_l52dp"]
+[ext_resource type="PackedScene" uid="uid://b3vavy53edynb" path="res://src/levels/level_objects/interactable_drawer/interactable_drawer.tscn" id="7_q1kh8"]
 [ext_resource type="PackedScene" uid="uid://cy4v5vkkmokrq" path="res://src/components/dialogue_area_component/dialogue_area.tscn" id="8_yu3f5"]
 [ext_resource type="Script" uid="uid://ff01h2x760hg" path="res://src/system/dialogue_system/dialogue_components/DialogueExportResource.gd" id="9_0pe5k"]
 [ext_resource type="Script" uid="uid://ydeyb2qi3j0f" path="res://src/system/dialogue_system/dialogue_components/dialogue_text_resource.gd" id="10_hymaj"]
@@ -27,26 +28,32 @@ size = Vector2(87, 221)
 
 [sub_resource type="Resource" id="Resource_yu3f5"]
 script = ExtResource("10_hymaj")
-speaker_name = "Aspen's Thoughts"
-text = "I need to exorcise all [b]5[/b] ghosts before class todayor something bad will happen. [i](hit enter to go through text)[\\i]"
+speaker_name = "Aspen"
+text = "I need to exorcise all [b]5[/b] ghosts before class today or something bad will happen. [i](press H to toggle help)[\\i]"
 metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
 
 [sub_resource type="Resource" id="Resource_q1kh8"]
 script = ExtResource("10_hymaj")
-speaker_name = "Aspen's Thoughts"
+speaker_name = "Aspen"
 text = "First i need to find all the objects tethering them to the mortal plane, luckily I managed to find one earlier."
 metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
 
 [sub_resource type="Resource" id="Resource_0pe5k"]
 script = ExtResource("10_hymaj")
-speaker_name = "Aspen's Thoughts"
-text = "Where did I put it? [i]( hit space bar to activate your ghost vision and peer into the other realm)[/i]"
+speaker_name = "Aspen"
+text = "Where did I put it? [i]( press space bar to activate your ghost vision and peer into the other realm)[/i]"
 metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
 
-[sub_resource type="Resource" id="Resource_hymaj"]
+[sub_resource type="Resource" id="Resource_nx426"]
 script = ExtResource("10_hymaj")
-speaker_name = "Aspen's Thoughts"
-text = "There it is, this ghost vision is useful, I'll need to use it to find the remaining cursed objects."
+speaker_name = "Aspen"
+text = "There it is, I'll need to use ghost vision to find the remaing cursed objects."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_qhv2s"]
+script = ExtResource("10_hymaj")
+speaker_name = "Aspen"
+text = "I'll grab it and then head to the bus. ( the exit is marked to the right)"
 metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tw3v3"]
@@ -71,7 +78,7 @@ metadata/_edit_lock_ = true
 
 [node name="Bedroom" type="Sprite2D" parent="Backgound" unique_id=2090999657]
 position = Vector2(962, 540)
-texture = ExtResource("2_tlaxa")
+texture = ExtResource("2_hymaj")
 
 [node name="RoomBoundsComponent" parent="." unique_id=1265175140 instance=ExtResource("3_yu3f5")]
 
@@ -96,7 +103,12 @@ position = Vector2(951, 539)
 position = Vector2(945, 550)
 
 [node name="PlayerSpawn" parent="Entities" unique_id=1644690995 instance=ExtResource("5_ih3vv")]
-position = Vector2(957, 546)
+position = Vector2(1308, 586)
+
+[node name="Interactables" type="Node2D" parent="." unique_id=1584806864]
+
+[node name="InteractableDrawer" parent="Interactables" unique_id=694264267 instance=ExtResource("7_q1kh8")]
+position = Vector2(984, 537)
 
 [node name="LevelTransition" parent="." unique_id=153564768 instance=ExtResource("6_l52dp")]
 position = Vector2(1868, 835)
@@ -107,10 +119,10 @@ position = Vector2(46, 126.5)
 shape = SubResource("RectangleShape2D_kd8bc")
 
 [node name="DialogueArea" parent="." unique_id=162237154 instance=ExtResource("8_yu3f5")]
-position = Vector2(984, 882)
+position = Vector2(1301, 876)
 activate_instant = true
 only_activate_once = true
-dialogue = Array[ExtResource("9_0pe5k")]([SubResource("Resource_yu3f5"), SubResource("Resource_q1kh8"), SubResource("Resource_0pe5k"), SubResource("Resource_hymaj")])
+dialogue = Array[ExtResource("9_0pe5k")]([SubResource("Resource_yu3f5"), SubResource("Resource_q1kh8"), SubResource("Resource_0pe5k"), SubResource("Resource_nx426"), SubResource("Resource_qhv2s")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea" unique_id=1991570168]
 position = Vector2(-8, 1)

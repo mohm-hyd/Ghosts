@@ -10,6 +10,11 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	
 	if body is Player:
+		var parent_door = get_parent()
+		if parent_door and "is_open" in parent_door:
+			if not parent_door.is_open:
+				return
+		
 		if target_level_uid.is_empty():
 			push_error("LevelTransition has no target level UID assigned!")
 			return

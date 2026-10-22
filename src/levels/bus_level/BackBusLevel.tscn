@@ -6,10 +6,49 @@
 [ext_resource type="PackedScene" uid="uid://budryreehyrlk" path="res://src/components/room_bounds_component/room_bounds_component.tscn" id="3_2gxcm"]
 [ext_resource type="PackedScene" uid="uid://d254p8jqutkx" path="res://src/gameplay/cameras/ghost_vision_camera/GhostVisionCamera.tscn" id="3_xcr33"]
 [ext_resource type="PackedScene" uid="uid://b5denm6htffy0" path="res://src/levels/level_objects/PlayerSpawn.tscn" id="4_2gxcm"]
+[ext_resource type="PackedScene" uid="uid://dm2fp7vif84xx" path="res://assets/characters/nash/nash.tscn" id="4_e6jmk"]
+[ext_resource type="PackedScene" uid="uid://hgi7r25b06wv" path="res://src/components/interactable_dialogue_component/interactable_dialogue.tscn" id="5_7oyvy"]
 [ext_resource type="PackedScene" uid="uid://dpaxyirrvfu6o" path="res://src/components/level_transition_component/LevelTransition.tscn" id="5_e6jmk"]
+[ext_resource type="Script" uid="uid://ff01h2x760hg" path="res://src/system/dialogue_system/dialogue_components/DialogueExportResource.gd" id="6_ceq0k"]
+[ext_resource type="PackedScene" uid="uid://dqnofcbxhaiyo" path="res://src/components/interactable_component/InteractableComponent.tscn" id="6_dlnqa"]
+[ext_resource type="Script" uid="uid://ydeyb2qi3j0f" path="res://src/system/dialogue_system/dialogue_components/dialogue_text_resource.gd" id="7_8xjwo"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_kd8bc"]
 a = Vector2(1938, -10)
+
+[sub_resource type="Resource" id="Resource_d5p2f"]
+script = ExtResource("7_8xjwo")
+speaker_name = "Nash"
+text = "Oh hey Aspen"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_gbyms"]
+script = ExtResource("7_8xjwo")
+speaker_name = "Nash"
+text = "Huh, that drawing?"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_mq2mu"]
+script = ExtResource("7_8xjwo")
+speaker_name = "Nash"
+text = "I think i made that for the bus driver when  I was a kid."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_g6yxo"]
+script = ExtResource("7_8xjwo")
+speaker_name = "Nash"
+text = "He was really grateful for it."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_xprci"]
+script = ExtResource("7_8xjwo")
+speaker_name = "Nash"
+text = "Is there anything special about it?  Well I'm not sure."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kd8bc"]
+radius = 86.0
+height = 454.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tw3v3"]
 size = Vector2(76, 654)
@@ -40,6 +79,19 @@ texture = ExtResource("1_3jikx")
 [node name="FloorEdge" type="CollisionShape2D" parent="RoomBoundsComponent" unique_id=859964264]
 position = Vector2(0, 545)
 shape = SubResource("SegmentShape2D_kd8bc")
+
+[node name="Nash" parent="RoomBoundsComponent" unique_id=519938265 instance=ExtResource("4_e6jmk")]
+position = Vector2(346, 745)
+
+[node name="InteractableDialogue" parent="RoomBoundsComponent/Nash" unique_id=2011521357 instance=ExtResource("5_7oyvy")]
+position = Vector2(-3207.2075, -542.4424)
+dialogue = Array[ExtResource("6_ceq0k")]([SubResource("Resource_d5p2f"), SubResource("Resource_gbyms"), SubResource("Resource_mq2mu"), SubResource("Resource_g6yxo"), SubResource("Resource_xprci")])
+
+[node name="InteractableComponent" parent="RoomBoundsComponent/Nash" unique_id=2145141222 instance=ExtResource("6_dlnqa")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomBoundsComponent/Nash/InteractableComponent" unique_id=1309601845]
+position = Vector2(-24, -40)
+shape = SubResource("CapsuleShape2D_kd8bc")
 
 [node name="Entities" type="Node2D" parent="." unique_id=81746490]
 

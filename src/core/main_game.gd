@@ -5,6 +5,7 @@ const TUTORIAL_BEDROOM_SCENE_UID : String="uid://d1wycq0ylykwr"
 const PLAYER_SCENE_UID: String = "uid://ckudr8chj1kgo"
 const SCENE_TRANSITION : PackedScene = preload("uid://cy18gylahgif")
 
+
 @onready var vision_state_controller: Node2D = $System/VisionStateController
 @onready var game_state_controller: GameStateController = $System/GameStateController
 
@@ -26,7 +27,7 @@ func _ready() -> void:
 		game_state_controller.game_started.connect(_on_game_started)
 		game_state_controller.game_quit.connect(_on_game_quit)
 		game_state_controller.level_transition_requested.connect(_on_level_transition_requested)
-
+		
 func _on_game_started() -> void:
 	load_level(TUTORIAL_BEDROOM_SCENE_UID)
 	_init_player()
@@ -34,6 +35,7 @@ func _on_game_started() -> void:
 func _on_game_quit() -> void:
 	quit_game()
 
+	
 func _on_level_transition_requested(level_uid: String, spawn_name: String) -> void:
 	next_spawn_marker_name = spawn_name
 	load_level(level_uid)

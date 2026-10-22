@@ -1,21 +1,23 @@
 [gd_scene format=3 uid="uid://0i7swgf8ofww"]
 
 [ext_resource type="Script" uid="uid://ceh1mnm8onh4l" path="res://src/levels/hallway_poster_level/hallway_poster.gd" id="1_2ker2"]
-[ext_resource type="Texture2D" uid="uid://co4s0bpulek36" path="res://art/hallway_poster/hallway_door_open.png" id="1_kg3ib"]
 [ext_resource type="PackedScene" uid="uid://budryreehyrlk" path="res://src/components/room_bounds_component/room_bounds_component.tscn" id="2_2ker2"]
+[ext_resource type="Texture2D" uid="uid://b6p81q7mtl6tq" path="res://art/hallway_poster/hallway_hole_uncovered_no_door.png" id="2_3wilc"]
 [ext_resource type="PackedScene" uid="uid://wsrbanrjsdtq" path="res://src/gameplay/cameras/player_camera/PlayerCamera.tscn" id="3_3wilc"]
 [ext_resource type="PackedScene" uid="uid://d254p8jqutkx" path="res://src/gameplay/cameras/ghost_vision_camera/GhostVisionCamera.tscn" id="4_n4c8v"]
 [ext_resource type="PackedScene" uid="uid://b5denm6htffy0" path="res://src/levels/level_objects/PlayerSpawn.tscn" id="5_mlvap"]
 [ext_resource type="PackedScene" uid="uid://dpaxyirrvfu6o" path="res://src/components/level_transition_component/LevelTransition.tscn" id="6_tyugp"]
+[ext_resource type="PackedScene" uid="uid://dp1bgrfrbomsq" path="res://src/levels/level_objects/interactable_poster/interactable_poster.tscn" id="7_3wilc"]
+[ext_resource type="PackedScene" uid="uid://cigp0ed6pfw4m" path="res://src/levels/level_objects/interactable_poster_hallway_door/poster_hallway_door.tscn" id="8_n4c8v"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_kd8bc"]
 a = Vector2(1915, -7)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tw3v3"]
-size = Vector2(111.5, 464)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kd8bc"]
 size = Vector2(113, 201)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tw3v3"]
+size = Vector2(111.5, 464)
 
 [node name="HallwayPoster" type="Node2D" unique_id=1227195245]
 script = ExtResource("1_2ker2")
@@ -36,7 +38,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="HallwayPoster" type="Sprite2D" parent="Background" unique_id=1916204365]
 position = Vector2(962, 539)
-texture = ExtResource("1_kg3ib")
+texture = ExtResource("2_3wilc")
 
 [node name="RoomBoundsComponent" parent="." unique_id=1265175140 instance=ExtResource("2_2ker2")]
 
@@ -56,6 +58,22 @@ position = Vector2(204, 824)
 [node name="HallwayPosterSpawn" parent="Entities" unique_id=776366711 instance=ExtResource("5_mlvap")]
 position = Vector2(1682, 936)
 
+[node name="Interactables" type="Node2D" parent="." unique_id=20158982]
+
+[node name="InteractablePoster" parent="Interactables" unique_id=500230780 instance=ExtResource("7_3wilc")]
+position = Vector2(972, 562)
+
+[node name="PosterHallwayDoor" parent="Interactables" unique_id=1479095392 instance=ExtResource("8_n4c8v")]
+position = Vector2(1701, 525)
+
+[node name="BathroomTransition" parent="Interactables/PosterHallwayDoor" unique_id=1184958589 instance=ExtResource("6_tyugp")]
+position = Vector2(17, -123)
+target_level_uid = "uid://bp8a8x1xw0agi"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/PosterHallwayDoor/BathroomTransition" unique_id=1637930803]
+position = Vector2(9.5, 13.5)
+shape = SubResource("RectangleShape2D_kd8bc")
+
 [node name="Hallway360Transition" parent="." unique_id=153564768 instance=ExtResource("6_tyugp")]
 position = Vector2(19, 927)
 target_level_uid = "uid://dnlbnbxiyqnrq"
@@ -64,11 +82,3 @@ target_spawn_name = "Hallway360Spawn"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hallway360Transition" unique_id=1054793371]
 position = Vector2(42, -61)
 shape = SubResource("RectangleShape2D_tw3v3")
-
-[node name="BathroomTransition" parent="." unique_id=1184958589 instance=ExtResource("6_tyugp")]
-position = Vector2(1726, 443)
-target_level_uid = "uid://bp8a8x1xw0agi"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BathroomTransition" unique_id=1637930803]
-position = Vector2(9.5, 13.5)
-shape = SubResource("RectangleShape2D_kd8bc")

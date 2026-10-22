@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dg1rjpbgpvhv6"]
+
+[ext_resource type="Script" uid="uid://bqr5rfohy7245" path="res://src/gameplay/ghosts/ghost_entity.gd" id="1_ecd1q"]
+
+[node name="GhostEntity" type="Node2D" unique_id=820594876]
+script = ExtResource("1_ecd1q")

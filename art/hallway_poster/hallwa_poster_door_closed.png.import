@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cedpo4xelmouc"
-path="res://.godot/imported/drawn_picture.png-24818a17e5ec8077e89bde18cbae7bce.ctex"
+uid="uid://j6o8icpaanmj"
+path="res://.godot/imported/hallwa_poster_door_closed.png-37c26ab8b73de9cca1d12deaf63f2de5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/bus/drawn_picture.png"
-dest_files=["res://.godot/imported/drawn_picture.png-24818a17e5ec8077e89bde18cbae7bce.ctex"]
+source_file="res://art/hallway_poster/hallwa_poster_door_closed.png"
+dest_files=["res://.godot/imported/hallwa_poster_door_closed.png-37c26ab8b73de9cca1d12deaf63f2de5.ctex"]
 
 [params]
 

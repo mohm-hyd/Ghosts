@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dsiuo5ciwurqj"]
+
+[ext_resource type="Script" uid="uid://bti5tntaa3xti" path="res://src/cursed_objects/item/inventory_item.gd" id="1_og6hr"]
+
+[node name="InventoryItem" type="Control" unique_id=1070724728]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_og6hr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=931714889]
+
+[node name="Label" type="Label" parent="." unique_id=1376799363]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

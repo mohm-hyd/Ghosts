@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://c4nqsiiso1w3d"]
+
+[node name="Help" type="Control" unique_id=388962932]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2107070944]
+custom_minimum_size = Vector2(800, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1341322609]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -248.5
+offset_top = -119.5
+offset_right = 248.5
+offset_bottom = 119.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Help" type="Label" parent="VBoxContainer" unique_id=691094951]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Help:"
+horizontal_alignment = 1
+
+[node name="Pause" type="Label" parent="VBoxContainer" unique_id=346016065]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "press Q to pause"
+
+[node name="Move" type="Label" parent="VBoxContainer" unique_id=1846415455]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "move with WASD or arrow keys"
+
+[node name="GhostVision" type="Label" parent="VBoxContainer" unique_id=1697098194]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "press space bar to toggle ghost vision"
+
+[node name="SkipText" type="Label" parent="VBoxContainer" unique_id=1920992699]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "press R to skip text "
+
+[node name="NextText" type="Label" parent="VBoxContainer" unique_id=1578190445]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "press Enter to  cycle through dialogue."
+
+[node name="Interact" type="Label" parent="VBoxContainer" unique_id=203983719]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "press E to interact or pick up items"
+
+[node name="Inventory" type="Label" parent="VBoxContainer" unique_id=1744035721]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "use the number keys  1 - 7 to toggle your selected inventory slot,"
+
+[node name="HelpToggle" type="Label" parent="VBoxContainer" unique_id=960309173]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "press H to toggle this menu at any time"

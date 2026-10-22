@@ -22,6 +22,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			ghost_camera.set_ghost_vision_active(false)
 			activate_camera(level_camera)
+			view_clue_objects()
 			AudioManager.play_normal_music()
 
 func _sync_audio_state() -> void:

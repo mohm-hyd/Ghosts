@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cigp0ed6pfw4m"]
+
+[ext_resource type="Script" uid="uid://dgi52cx3llq4q" path="res://src/levels/level_objects/interactable_poster_hallway_door/poster_hallway_door.gd" id="1_1krh2"]
+[ext_resource type="Texture2D" uid="uid://j6o8icpaanmj" path="res://art/hallway_poster/hallwa_poster_door_closed.png" id="1_7nlu7"]
+[ext_resource type="Texture2D" uid="uid://m1qao83xgo6l" path="res://art/hallway_poster/door.png" id="2_dv6c8"]
+[ext_resource type="PackedScene" uid="uid://dqnofcbxhaiyo" path="res://src/components/interactable_component/InteractableComponent.tscn" id="4_jxhml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kd8bc"]
+size = Vector2(182, 325)
+
+[node name="PosterHallwayDoor" type="Node2D" unique_id=1479095392]
+script = ExtResource("1_1krh2")
+
+[node name="DoorClosed" type="Sprite2D" parent="." unique_id=935429391]
+position = Vector2(4, 1)
+texture = ExtResource("1_7nlu7")
+
+[node name="DoorOpen" type="Sprite2D" parent="." unique_id=127832495]
+visible = false
+position = Vector2(-735, 7)
+texture = ExtResource("2_dv6c8")
+
+[node name="InteractableComponent" parent="." unique_id=2145141222 instance=ExtResource("4_jxhml")]
+position = Vector2(110, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=327039325]
+position = Vector2(17, 7.5)
+shape = SubResource("RectangleShape2D_kd8bc")

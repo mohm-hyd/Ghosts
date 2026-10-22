@@ -21,6 +21,7 @@ unique_name_in_owner = true
 shape = SubResource("CapsuleShape2D_kd8bc")
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=256261536]
+collision_layer = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1129531386]
 shape = SubResource("CircleShape2D_kd8bc")

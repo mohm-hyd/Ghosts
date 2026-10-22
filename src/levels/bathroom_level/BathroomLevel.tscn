@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bp8a8x1xw0agi"]
 
 [ext_resource type="Script" uid="uid://dy1iv03xajsv5" path="res://src/levels/bathroom_level/bathroom_level.gd" id="1_cgeu1"]
-[ext_resource type="Texture2D" uid="uid://c06vndpmed4u1" path="res://art/bathroom/bathroom_stall_closed.png" id="1_emqms"]
 [ext_resource type="PackedScene" uid="uid://budryreehyrlk" path="res://src/components/room_bounds_component/room_bounds_component.tscn" id="2_cgeu1"]
 [ext_resource type="PackedScene" uid="uid://wsrbanrjsdtq" path="res://src/gameplay/cameras/player_camera/PlayerCamera.tscn" id="2_wbm8p"]
 [ext_resource type="PackedScene" uid="uid://d254p8jqutkx" path="res://src/gameplay/cameras/ghost_vision_camera/GhostVisionCamera.tscn" id="3_cgeu1"]
 [ext_resource type="PackedScene" uid="uid://b5denm6htffy0" path="res://src/levels/level_objects/PlayerSpawn.tscn" id="4_g6cap"]
 [ext_resource type="PackedScene" uid="uid://dpaxyirrvfu6o" path="res://src/components/level_transition_component/LevelTransition.tscn" id="5_hv8o5"]
+[ext_resource type="PackedScene" uid="uid://dea3uaeccjwf" path="res://src/levels/level_objects/interactable_bathroom_door/interactable_bathroom.tscn" id="7_hv8o5"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_kd8bc"]
 a = Vector2(1892, -24)
@@ -32,9 +32,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="Node2D" parent="." unique_id=103844965]
 
-[node name="Bus" type="Sprite2D" parent="Background" unique_id=1916204365]
-position = Vector2(962, 539)
-texture = ExtResource("1_emqms")
+[node name="InteractableBathroom" parent="Background" unique_id=1697719076 instance=ExtResource("7_hv8o5")]
+position = Vector2(965, 542)
 
 [node name="RoomBoundsComponent" parent="." unique_id=1265175140 instance=ExtResource("2_cgeu1")]
 
@@ -50,6 +49,9 @@ shape = SubResource("SegmentShape2D_kd8bc")
 
 [node name="PlayerSpawn" parent="Entities" unique_id=1644690995 instance=ExtResource("4_g6cap")]
 position = Vector2(210, 812)
+
+[node name="Interactables" type="Node2D" parent="." unique_id=600247798]
+position = Vector2(959, 562)
 
 [node name="HallwayPosterTransition" parent="." unique_id=153564768 instance=ExtResource("5_hv8o5")]
 position = Vector2(-8, 716)

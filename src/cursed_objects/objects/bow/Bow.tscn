@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dfn2eqvohlqk8"]
+
+[ext_resource type="Script" uid="uid://71h2h42xgjve" path="res://src/cursed_objects/item/world_item.gd" id="1_qaxms"]
+[ext_resource type="Texture2D" uid="uid://djb7u1mrq8unb" path="res://art/clue_objects/bow.png" id="2_efyso"]
+[ext_resource type="PackedScene" uid="uid://c123v3db4lkfu" path="res://src/components/ghost_vision_reveal_component/GhostVisionRevealComponent.tscn" id="2_hvrua"]
+[ext_resource type="PackedScene" uid="uid://bt4oigxm2d1l6" path="res://src/components/highlight_component/HighlightComponent.tscn" id="3_efyso"]
+[ext_resource type="PackedScene" uid="uid://dqnofcbxhaiyo" path="res://src/components/interactable_component/InteractableComponent.tscn" id="4_hxvj4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w0sv7"]
+radius = 38.0
+height = 612.0
+
+[node name="Bow" type="Node2D" unique_id=515360846]
+
+[node name="WorldItem" type="Node2D" parent="." unique_id=696127865]
+script = ExtResource("1_qaxms")
+item_name = "Bow"
+icon = ExtResource("2_efyso")
+
+[node name="Sprite2D" type="Sprite2D" parent="WorldItem" unique_id=1799629576]
+position = Vector2(60, -14)
+scale = Vector2(0.4144466, 0.54499817)
+texture = ExtResource("2_efyso")
+
+[node name="GhostVisionRevealComponent" parent="WorldItem" unique_id=2030860639 instance=ExtResource("2_hvrua")]
+
+[node name="HighlightComponent" parent="WorldItem" unique_id=2096291363 instance=ExtResource("3_efyso")]
+unique_name_in_owner = true
+
+[node name="InteractableComponent" parent="WorldItem" unique_id=2145141222 instance=ExtResource("4_hxvj4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldItem/InteractableComponent" unique_id=1532821006]
+shape = SubResource("CapsuleShape2D_w0sv7")

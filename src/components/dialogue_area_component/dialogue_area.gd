@@ -35,7 +35,6 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("next_text") :
 			_activate_dialogue()
 			player_body_in = false
-			
 
 func _activate_dialogue()-> void:
 	player_node.can_move = false
@@ -60,8 +59,6 @@ func _on_body_entered(body: Node2D) -> void:
 		player_body_in = true
 		if activate_instant:
 			_activate_dialogue()
-			
-
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):

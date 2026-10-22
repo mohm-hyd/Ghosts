@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://0285pcu5qrt0" path="res://src/ui/main_menu/main_menu.gd" id="1_m3ldw"]
 [ext_resource type="Texture2D" uid="uid://cosur5m6gdilc" path="res://art/main_menu/bedroomfloor.png" id="2_xre00"]
+[ext_resource type="Texture2D" uid="uid://3bcbf50hx47m" path="res://art/main_menu/title.png" id="3_xre00"]
+[ext_resource type="FontFile" uid="uid://cpldgjk3fl2uj" path="res://assets/fonts/Xolonium-Regular.ttf" id="4_mlydd"]
 
 [node name="MainMenu" type="Control" unique_id=1073486521]
 layout_mode = 3
@@ -11,50 +13,57 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m3ldw")
+metadata/_edit_vertical_guides_ = [-788.0]
 
 [node name="BedroomFloor" type="Sprite2D" parent="." unique_id=153784688]
 position = Vector2(961, 543)
 texture = ExtResource("2_xre00")
 
-[node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=11274864]
+[node name="GameName" type="Sprite2D" parent="." unique_id=736556475]
+position = Vector2(989, 453)
+texture = ExtResource("3_xre00")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=992466913]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -284.0
+offset_top = -571.0
+offset_right = 316.0
+offset_bottom = -23.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
-[node name="GameNameLabel" type="Label" parent="HBoxContainer" unique_id=209424823]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.6499779, 0.08311876, 0.84178084, 1)
-theme_override_font_sizes/font_size = 120
-text = "Game Name Place Holder"
-horizontal_alignment = 1
-
-[node name="StartButton" type="Button" parent="HBoxContainer" unique_id=198918616]
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=198918616]
 custom_minimum_size = Vector2(600, 180)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_mlydd")
 theme_override_font_sizes/font_size = 80
 text = "Start Game"
 
-[node name="QuitButton" type="Button" parent="HBoxContainer" unique_id=382945461]
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=382945461]
 custom_minimum_size = Vector2(600, 180)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_mlydd")
 theme_override_font_sizes/font_size = 80
 text = "Quit Game"
 
-[node name="CreditsButton" type="Button" parent="HBoxContainer" unique_id=212726370]
+[node name="CreditsButton" type="Button" parent="VBoxContainer" unique_id=212726370]
 custom_minimum_size = Vector2(600, 180)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_mlydd")
 theme_override_font_sizes/font_size = 80
 text = "Credits"
 
-[connection signal="pressed" from="HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

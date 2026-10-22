@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://37s110v2h0ue"]
 
+[ext_resource type="FontFile" uid="uid://cpldgjk3fl2uj" path="res://assets/fonts/Xolonium-Regular.ttf" id="1_pdqif"]
+
 [node name="PauseUI" type="Node2D" unique_id=1519504847]
 
 [node name="Label" type="Label" parent="." unique_id=938339398]
 custom_minimum_size = Vector2(1920, 1080)
 offset_right = 669.0
 offset_bottom = 559.0
+theme_override_fonts/font = ExtResource("1_pdqif")
+theme_override_font_sizes/font_size = 64
 text = "PAUSE"
 horizontal_alignment = 1
 vertical_alignment = 1
