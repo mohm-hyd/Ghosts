@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="GoingToScool"
+config/name="Ghosts"
 run/main_scene="uid://dv7g0gei7xp3y"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="uid://dk03pfvthc2rj"
+config/icon="uid://3bcbf50hx47m"
 
 [audio]
 

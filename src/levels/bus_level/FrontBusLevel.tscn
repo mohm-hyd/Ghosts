@@ -19,6 +19,9 @@ a = Vector2(1912, -9)
 a = Vector2(-26, -938)
 b = Vector2(-9, 133)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tw3v3"]
+a = Vector2(-6, -813)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kd8bc"]
 size = Vector2(71, 300.5)
 
@@ -109,9 +112,13 @@ texture = ExtResource("2_vhbfv")
 position = Vector2(-26, 238)
 shape = SubResource("SegmentShape2D_kd8bc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomBoundsComponent" unique_id=2013150262]
+[node name="RightBusEdge" type="CollisionShape2D" parent="RoomBoundsComponent" unique_id=2013150262]
 position = Vector2(1554, 950)
 shape = SubResource("SegmentShape2D_0nnp1")
+
+[node name="LeftBusEdge" type="CollisionShape2D" parent="RoomBoundsComponent" unique_id=1448913139]
+position = Vector2(368, 1063)
+shape = SubResource("SegmentShape2D_tw3v3")
 
 [node name="Entities" type="Node2D" parent="." unique_id=81746490]
 
@@ -130,6 +137,7 @@ position = Vector2(914, 757)
 [node name="BusDriver" parent="Interactables" unique_id=858132750 instance=ExtResource("7_0nnp1")]
 position = Vector2(1302, 601)
 scale = Vector2(0.7310269, 0.52356964)
+required_item_to_survive = "ChildsDrawing"
 
 [node name="BackOfBusTransition" parent="." unique_id=153564768 instance=ExtResource("4_cy15j")]
 position = Vector2(911, 427)
@@ -140,6 +148,7 @@ position = Vector2(24, -136.25)
 shape = SubResource("RectangleShape2D_kd8bc")
 
 [node name="LockersTransition" parent="." unique_id=1544203805 instance=ExtResource("4_cy15j")]
+visible = false
 position = Vector2(380, 786)
 target_level_uid = "uid://f1yyxvt25dxx"
 
@@ -151,7 +160,7 @@ shape = SubResource("RectangleShape2D_tw3v3")
 position = Vector2(872, 976)
 activate_instant = true
 only_activate_once = true
-dialogue = Array[ExtResource("10_dp4qk")]([SubResource("Resource_c7e5e"), SubResource("Resource_2nqjk"), SubResource("Resource_lgad6"), SubResource("Resource_01moj"), SubResource("Resource_0qhvc"), SubResource("Resource_walme"), SubResource("Resource_74aqo"), SubResource("Resource_15xwe"), SubResource("Resource_hh25s"), null])
+dialogue = Array[ExtResource("10_dp4qk")]([SubResource("Resource_c7e5e"), SubResource("Resource_2nqjk"), SubResource("Resource_lgad6"), SubResource("Resource_01moj"), SubResource("Resource_0qhvc"), SubResource("Resource_walme"), SubResource("Resource_74aqo"), SubResource("Resource_15xwe"), SubResource("Resource_hh25s")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea" unique_id=267415967]
 position = Vector2(5.5, -59.5)

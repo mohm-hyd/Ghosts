@@ -17,5 +17,5 @@ func play_idle_animation() -> void:
 
 func _on_survival_success(player: Player) -> void:
 	super._on_survival_success(player)
-	# Custom BusDriver behavior when survived (e.g. play dialogue or vanish with an effect)
+	
 	queue_free()
