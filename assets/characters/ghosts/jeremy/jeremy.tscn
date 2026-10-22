@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://qto02lgcn6qq"]
+
+[ext_resource type="Script" uid="uid://cxnv6efeam1sl" path="res://assets/characters/ghosts/bus_driver/bus_driver.gd" id="1_1qlfx"]
+[ext_resource type="Script" uid="uid://ff01h2x760hg" path="res://src/system/dialogue_system/dialogue_components/DialogueExportResource.gd" id="2_5588o"]
+[ext_resource type="Script" uid="uid://ydeyb2qi3j0f" path="res://src/system/dialogue_system/dialogue_components/dialogue_text_resource.gd" id="3_05fr7"]
+[ext_resource type="Script" uid="uid://27vv5fr2igy" path="res://src/system/dialogue_system/dialogue_components/DialogueFunctionResource.gd" id="4_7t80r"]
+[ext_resource type="Texture2D" uid="uid://dqtj8ki1eu27q" path="res://art/characters/ghosts/Jeremy/J-torso.png" id="5_hf4pn"]
+[ext_resource type="Texture2D" uid="uid://cd42f2m7e1tya" path="res://art/characters/ghosts/Jeremy/J-R_Bicep.png" id="6_ax366"]
+[ext_resource type="Texture2D" uid="uid://5uqsrxyw6o12" path="res://art/characters/ghosts/Jeremy/J-R_forearm.png" id="7_7x0tl"]
+[ext_resource type="Texture2D" uid="uid://bk1lxmenlkfnt" path="res://art/characters/ghosts/Jeremy/J-L_forearm.png" id="8_jtap1"]
+[ext_resource type="Texture2D" uid="uid://cpsnbsp4mt4ch" path="res://art/characters/ghosts/Jeremy/J-L_Bicep-.png" id="9_kytdb"]
+[ext_resource type="Texture2D" uid="uid://kihmglqa40uq" path="res://art/characters/ghosts/Jeremy/J-Head.png" id="10_w555m"]
+[ext_resource type="Texture2D" uid="uid://bo3hlsqwxdyig" path="res://art/characters/ghosts/Jeremy/J-Hair.png" id="11_j57jl"]
+[ext_resource type="PackedScene" uid="uid://c123v3db4lkfu" path="res://src/components/ghost_vision_reveal_component/GhostVisionRevealComponent.tscn" id="12_375ic"]
+[ext_resource type="PackedScene" uid="uid://bt4oigxm2d1l6" path="res://src/components/highlight_component/HighlightComponent.tscn" id="13_1b2eg"]
+[ext_resource type="PackedScene" uid="uid://dqnofcbxhaiyo" path="res://src/components/interactable_component/InteractableComponent.tscn" id="14_4523y"]
+
+[sub_resource type="Resource" id="Resource_ai15g"]
+script = ExtResource("3_05fr7")
+speaker_name = "Bus Driver"
+text = "My, what a nice drawing, it reminds me of one a student made for me long ago."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_4a0gt"]
+script = ExtResource("3_05fr7")
+speaker_name = "Bus Driver"
+text = "Hold on, this is that exact drawing, how did you get this?"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_ixdp2"]
+script = ExtResource("3_05fr7")
+speaker_name = "BusDriver"
+text = "You went over to my house and took it? How did you even get in ?"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_8tsgb"]
+script = ExtResource("3_05fr7")
+speaker_name = "Bus Driver"
+text = "You asked at my wife? How do you know her ? Your just a student!"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_o8oq4"]
+script = ExtResource("3_05fr7")
+speaker_name = "Bus Driver"
+text = "You met her at the funeral?! Who's funeral?"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_os4w4"]
+script = ExtResource("3_05fr7")
+speaker_name = "Bus Driver"
+text = "Mine? "
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_e1p28"]
+script = ExtResource("3_05fr7")
+speaker_name = "Bus Driver"
+text = "But how?"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_hvtcx"]
+script = ExtResource("3_05fr7")
+speaker_name = "Bus Driver"
+text = "..."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_wlphc"]
+script = ExtResource("3_05fr7")
+speaker_name = "Bus Driver"
+text = "I see ... I'm already dead aren't I."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_8noxx"]
+script = ExtResource("3_05fr7")
+speaker_name = "Bus Driver"
+text = "Are you here to release me ?"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_aq6ow"]
+script = ExtResource("3_05fr7")
+speaker_name = "Bus Driver"
+text = "Thank you."
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_4vuq7"]
+script = ExtResource("4_7t80r")
+target_path = NodePath(".")
+function_name = "_update_ghost_visability"
+function_arguments = [false]
+hide_dialogue_box = true
+metadata/_custom_type_script = "uid://27vv5fr2igy"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kd8bc"]
+radius = 194.0
+height = 594.0
+
+[node name="Jeremy" type="Node2D" unique_id=858132750]
+script = ExtResource("1_1qlfx")
+required_item_to_survive = "ChildsDrawing"
+ghost_dialogue = Array[ExtResource("2_5588o")]([SubResource("Resource_ai15g"), SubResource("Resource_4a0gt"), SubResource("Resource_ixdp2"), SubResource("Resource_8tsgb"), SubResource("Resource_o8oq4"), SubResource("Resource_os4w4"), SubResource("Resource_e1p28"), SubResource("Resource_hvtcx"), SubResource("Resource_wlphc"), SubResource("Resource_8noxx"), SubResource("Resource_aq6ow"), SubResource("Resource_4vuq7")])
+reload_level_uid = "uid://cerpx8cld4433"
+reload_spawn = "FrontOfBus"
+
+[node name="Torso" type="Sprite2D" parent="." unique_id=992971850]
+texture = ExtResource("5_hf4pn")
+
+[node name="R-bicep" type="Sprite2D" parent="." unique_id=813226117]
+texture = ExtResource("6_ax366")
+
+[node name="R-forearm" type="Sprite2D" parent="." unique_id=1635708110]
+texture = ExtResource("7_7x0tl")
+
+[node name="L-forearm" type="Sprite2D" parent="." unique_id=999490239]
+texture = ExtResource("8_jtap1")
+
+[node name="L-bicep" type="Sprite2D" parent="." unique_id=345995592]
+texture = ExtResource("9_kytdb")
+
+[node name="Head" type="Sprite2D" parent="." unique_id=722276012]
+texture = ExtResource("10_w555m")
+
+[node name="Hair" type="Sprite2D" parent="." unique_id=1003437711]
+texture = ExtResource("11_j57jl")
+
+[node name="GhostVisionRevealComponent" parent="." unique_id=2030860639 node_paths=PackedStringArray("highlight_sprite") instance=ExtResource("12_375ic")]
+highlight_sprite = NodePath("../Torso")
+
+[node name="HighlightComponent" parent="." unique_id=1002274899 instance=ExtResource("13_1b2eg")]
+
+[node name="InteractableComponent" parent="." unique_id=2145141222 instance=ExtResource("14_4523y")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1094710369]
+shape = SubResource("CapsuleShape2D_kd8bc")

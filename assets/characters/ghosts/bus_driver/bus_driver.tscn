@@ -1,13 +1,21 @@
 [gd_scene format=3 uid="uid://b2uwscwmi0sde"]
 
 [ext_resource type="Script" uid="uid://cxnv6efeam1sl" path="res://assets/characters/ghosts/bus_driver/bus_driver.gd" id="1_ai15g"]
-[ext_resource type="Texture2D" uid="uid://bkbi16c4h0awb" path="res://art/characters/ghosts/bus_driver/full_sprite.png" id="2_mt0b4"]
 [ext_resource type="PackedScene" uid="uid://c123v3db4lkfu" path="res://src/components/ghost_vision_reveal_component/GhostVisionRevealComponent.tscn" id="3_h5j8d"]
 [ext_resource type="PackedScene" uid="uid://dqnofcbxhaiyo" path="res://src/components/interactable_component/InteractableComponent.tscn" id="4_h5j8d"]
 [ext_resource type="Script" uid="uid://27vv5fr2igy" path="res://src/system/dialogue_system/dialogue_components/DialogueFunctionResource.gd" id="4_o8oq4"]
 [ext_resource type="PackedScene" uid="uid://bt4oigxm2d1l6" path="res://src/components/highlight_component/HighlightComponent.tscn" id="4_vr4ss"]
+[ext_resource type="Texture2D" uid="uid://f71immyka4jf" path="res://art/characters/ghosts/bus_driver/S-B_Hair.png" id="5_8noxx"]
+[ext_resource type="Texture2D" uid="uid://cngny78aipjca" path="res://art/characters/ghosts/bus_driver/S-Torso.png" id="6_aq6ow"]
 [ext_resource type="Script" uid="uid://ff01h2x760hg" path="res://src/system/dialogue_system/dialogue_components/DialogueExportResource.gd" id="7_o8oq4"]
+[ext_resource type="Texture2D" uid="uid://bb5rgpksbktle" path="res://art/characters/ghosts/bus_driver/L-Arm.png" id="7_uqphs"]
 [ext_resource type="Script" uid="uid://ydeyb2qi3j0f" path="res://src/system/dialogue_system/dialogue_components/dialogue_text_resource.gd" id="8_ai15g"]
+[ext_resource type="Texture2D" uid="uid://du3iwiwsu6fd0" path="res://art/characters/ghosts/bus_driver/R-Arm.png" id="8_vdv03"]
+[ext_resource type="Texture2D" uid="uid://cj0j1xlnncjks" path="res://art/characters/ghosts/bus_driver/S-Head.png" id="9_ijuat"]
+[ext_resource type="Texture2D" uid="uid://o2c87lhcai0s" path="res://art/characters/ghosts/bus_driver/Beard.png" id="10_5vtnt"]
+[ext_resource type="Texture2D" uid="uid://bic8a7fcdny8b" path="res://art/characters/ghosts/bus_driver/R-hand.png" id="11_wyuud"]
+[ext_resource type="Texture2D" uid="uid://qxq7hp6qm27t" path="res://art/characters/ghosts/bus_driver/L-hand.png" id="12_y4u8p"]
+[ext_resource type="Texture2D" uid="uid://bnqdeorfvlb6k" path="res://art/characters/ghosts/bus_driver/Tears.png" id="13_pbwbd"]
 
 [sub_resource type="Resource" id="Resource_ai15g"]
 script = ExtResource("8_ai15g")
@@ -94,11 +102,35 @@ ghost_dialogue = Array[ExtResource("7_o8oq4")]([SubResource("Resource_ai15g"), S
 reload_level_uid = "uid://cerpx8cld4433"
 reload_spawn = "FrontOfBus"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=992971850]
-texture = ExtResource("2_mt0b4")
+[node name="Hair-Behind" type="Sprite2D" parent="." unique_id=992971850]
+texture = ExtResource("5_8noxx")
+
+[node name="Torso" type="Sprite2D" parent="." unique_id=777802538]
+texture = ExtResource("6_aq6ow")
+
+[node name="L-Arm" type="Sprite2D" parent="." unique_id=1758773529]
+texture = ExtResource("7_uqphs")
+
+[node name="R-Arm" type="Sprite2D" parent="." unique_id=676407034]
+texture = ExtResource("8_vdv03")
+
+[node name="Head" type="Sprite2D" parent="." unique_id=1708320979]
+texture = ExtResource("9_ijuat")
+
+[node name="Beard" type="Sprite2D" parent="." unique_id=1024975972]
+texture = ExtResource("10_5vtnt")
+
+[node name="R-Hand" type="Sprite2D" parent="." unique_id=1986028650]
+texture = ExtResource("11_wyuud")
+
+[node name="L-Hand" type="Sprite2D" parent="." unique_id=1379480242]
+texture = ExtResource("12_y4u8p")
+
+[node name="Tears" type="Sprite2D" parent="." unique_id=1425791869]
+texture = ExtResource("13_pbwbd")
 
 [node name="GhostVisionRevealComponent" parent="." unique_id=2030860639 node_paths=PackedStringArray("highlight_sprite") instance=ExtResource("3_h5j8d")]
-highlight_sprite = NodePath("../Sprite2D")
+highlight_sprite = NodePath("../Hair-Behind")
 
 [node name="HighlightComponent" parent="." unique_id=1002274899 instance=ExtResource("4_vr4ss")]
 
