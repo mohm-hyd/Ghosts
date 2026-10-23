@@ -58,15 +58,21 @@ func _on_interacted(player: Player) -> void:
 		_kill_player(player, reload_level_uid, reload_spawn)
 
 func _on_survival_success(player: Player) -> void:
-	is_resolved = true
+	#is_resolved = true
 	var new_dialogue = DIALOGUE_SYSTEM_PRELOAD.instantiate()
 	new_dialogue.dialogue = ghost_dialogue
-	
 	get_tree().root.add_child(new_dialogue)
 	
+	new_dialogue.tree_exited.connect(func():
+		is_resolved = true
+		_update_ghost_visibility(false)
+		queue_free()
+		if player:
+			player.can_move = true
+		print(ghost_name + " despawned automatically when dialogue closed!")
+	)
 	
 	print(ghost_name + " pacified/satisfied successfully!")
-
 
 func _kill_player(player: Player,level_uid: String, spawn_name: String) -> void:
 	print(ghost_name + " killed the player due to wrong item: " + required_item_to_survive)
