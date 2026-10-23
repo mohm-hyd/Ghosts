@@ -55,7 +55,7 @@ position = Vector2(210, 812)
 position = Vector2(959, 562)
 
 [node name="Medal" parent="Interactables" unique_id=1456220755 instance=ExtResource("7_g6cap")]
-position = Vector2(-368, 1.9073486e-06)
+position = Vector2(-553, -22.999996)
 scale = Vector2(0.58947897, 0.28818983)
 
 [node name="HallwayPosterTransition" parent="." unique_id=153564768 instance=ExtResource("5_hv8o5")]

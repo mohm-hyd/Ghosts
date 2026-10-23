@@ -8,6 +8,8 @@ var can_move :bool = true
 
 @onready var player_sprite = %Aspen
 
+var ghost_kills : int = 0
+
 
 func _ready() -> void:
 	add_to_group("player")

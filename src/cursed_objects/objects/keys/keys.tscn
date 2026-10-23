@@ -1,32 +1,30 @@
 [gd_scene format=3 uid="uid://bd4svhlyxytwc"]
 
-[ext_resource type="Script" uid="uid://71h2h42xgjve" path="res://src/cursed_objects/item/world_item.gd" id="1_il801"]
+[ext_resource type="Script" uid="uid://oyn04hnqbjxc" path="res://src/cursed_objects/objects/keys/keys.gd" id="1_xogum"]
 [ext_resource type="Texture2D" uid="uid://b77u55tjtrr7y" path="res://art/clue_objects/keys.png" id="2_xogum"]
 [ext_resource type="PackedScene" uid="uid://c123v3db4lkfu" path="res://src/components/ghost_vision_reveal_component/GhostVisionRevealComponent.tscn" id="3_fwswh"]
 [ext_resource type="PackedScene" uid="uid://bt4oigxm2d1l6" path="res://src/components/highlight_component/HighlightComponent.tscn" id="4_vxgv3"]
 [ext_resource type="PackedScene" uid="uid://dqnofcbxhaiyo" path="res://src/components/interactable_component/InteractableComponent.tscn" id="5_4c6e1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ue3f8"]
-radius = 132.37825
+radius = 221.18318
 
 [node name="Keys" type="Node2D" unique_id=2134917809]
-
-[node name="WorldItem" type="Node2D" parent="." unique_id=696127865]
-script = ExtResource("1_il801")
+script = ExtResource("1_xogum")
 item_name = "Keys"
 icon = ExtResource("2_xogum")
 
-[node name="Sprite2D" type="Sprite2D" parent="WorldItem" unique_id=1799629576]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1799629576]
 texture = ExtResource("2_xogum")
 
-[node name="GhostVisionRevealComponent" parent="WorldItem" unique_id=2030860639 node_paths=PackedStringArray("highlight_sprite") instance=ExtResource("3_fwswh")]
+[node name="GhostVisionRevealComponent" parent="." unique_id=2030860639 node_paths=PackedStringArray("highlight_sprite") instance=ExtResource("3_fwswh")]
 highlight_sprite = NodePath("../Sprite2D")
 
-[node name="HighlightComponent" parent="WorldItem" unique_id=2096291363 instance=ExtResource("4_vxgv3")]
+[node name="HighlightComponent" parent="." unique_id=2096291363 instance=ExtResource("4_vxgv3")]
 unique_name_in_owner = true
 
-[node name="InteractableComponent" parent="WorldItem" unique_id=2145141222 instance=ExtResource("5_4c6e1")]
+[node name="InteractableComponent" parent="." unique_id=2145141222 instance=ExtResource("5_4c6e1")]
 prompt_text = "Press E to Pick Up"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldItem/InteractableComponent" unique_id=1532821006]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1532821006]
 shape = SubResource("CircleShape2D_ue3f8")

@@ -18,13 +18,14 @@ func _ready() -> void:
 		interactable_component.prompt_text = "Press E to pick up " + item_name
 		interactable_component.interacted.connect(_on_item_interacted)
 		
-	# Start hidden by default
 	set_container_accessible(false)
 
 func set_container_accessible(container_is_open: bool) -> void:
 	is_accessible = container_is_open and not is_collected
-	sprite.visible = is_accessible
-	interact_prompt.visible = is_accessible
+	if sprite:
+		sprite.visible = is_accessible
+	if interact_prompt:
+		interact_prompt.visible = is_accessible
 	
 	if interactable_component:
 		interactable_component.monitoring = is_accessible

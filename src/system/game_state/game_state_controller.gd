@@ -4,6 +4,7 @@ extends Node2D
 signal game_started
 signal game_paused
 signal game_resumed
+signal game_won
 signal returned_to_main_menu
 signal credits_requested
 signal returned_from_credits

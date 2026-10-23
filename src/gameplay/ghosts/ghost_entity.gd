@@ -14,6 +14,8 @@ const DIALOGUE_SYSTEM_PRELOAD = preload("uid://hdkrdoo7lmii")
 @onready var interactable_prompt : Label = $InteractableComponent/InteractLabel
 @onready var reveal_component: GhostVisionRevealComponent = $GhostVisionRevealComponent
 
+signal death
+
 var is_ghost_vision_active: bool = false
 var is_resolved: bool = false
 
@@ -70,6 +72,7 @@ func _on_survival_success(player: Player) -> void:
 		queue_free()
 		if player:
 			player.can_move = true
+			player.ghost_kills += 1
 		print(ghost_name + " despawned automatically when dialogue closed!")
 	)
 	

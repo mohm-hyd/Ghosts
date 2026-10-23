@@ -3,6 +3,7 @@ extends Node2D
 
 const MAIN_MENU = preload("uid://m3enuov566vc")
 const PAUSE_SCREEN = preload("uid://37s110v2h0ue")
+const WIN_SCREEN = preload("uid://bd7a20t287rh7")
 const CREDIT_SCENE = preload("uid://baxl57vk8crpg")
 const INVENTORY_SCENE = preload("uid://bm7naboypwi3i")
 const HELP_SCREEN = preload("uid://c4nqsiiso1w3d")
@@ -16,7 +17,8 @@ var active_pause_menu: Node = null
 var active_main_menu: Node = null
 var active_credits : Node = null
 var active_inventory : Node = null
-var active_help_screen: Node = null
+var active_help_screen : Node = null
+var active_win_screen : Node = null
 
 func _ready() -> void:
 	if game_state:
@@ -24,6 +26,7 @@ func _ready() -> void:
 		game_state.game_paused.connect(_on_game_paused)
 		game_state.game_resumed.connect(_on_game_resumed)
 		game_state.returned_to_main_menu.connect(_on_returned_to_main_menu)
+		game_state.game_won.connect(_on_game_won)
 		
 
 	else:
@@ -67,7 +70,19 @@ func show_credits() -> void:
 		
 		if active_credits.has_signal("return_to_main"):
 			active_credits.return_to_main.connect(_on_credits_return_pressed)
+func _on_game_won() -> void:
+	if active_inventory:
+		active_inventory.queue_free()
+		active_inventory = null
 
+	if not active_win_screen and WIN_SCREEN:
+		active_win_screen = WIN_SCREEN.instantiate()
+		hud_root.add_child(active_win_screen)
+		print("Win screen displayed!")
+
+	await get_tree().create_timer(5.0).timeout
+
+	show_credits()
 func _on_menu_start_pressed() -> void:
 	if active_main_menu:
 		active_main_menu.queue_free()

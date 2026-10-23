@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bd7a20t287rh7"]
+
+[node name="Win" type="Control" unique_id=1539550109]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2064569839]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="WinMessage" type="RichTextLabel" parent="." unique_id=182861174]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 326.0
+offset_right = 1319.0
+offset_bottom = 760.0
+theme_override_font_sizes/normal_font_size = 96
+theme_override_font_sizes/bold_italics_font_size = 96
+text = "YOU WIN"
+fit_content = true
+scroll_active = false

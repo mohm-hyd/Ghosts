@@ -17,10 +17,12 @@ const SCENE_TRANSITION : PackedScene = preload("uid://cy18gylahgif")
 @onready var pause_root: Control = %PauseRoot
 @onready var transition_root: Control = %TransitionRoot
 
+
 var player : Player = null
 var _current_level : BaseLevel
 var next_spawn_marker_name : String = "PlayerSpawn"
 var is_transitioning : bool = false
+var has_won : bool = false
 
 func _ready() -> void:
 	if game_state_controller:
@@ -55,6 +57,11 @@ func _init_player() -> void:
 	entity_root.add_child(player)
 	player.hide()
 
+func _process(_delta) -> void:
+	if player and player.ghost_kills >= 5 and not has_won:
+		has_won = true
+		game_state_controller.game_won.emit()
+		
 func load_level(local_scene : String) -> void:
 	_deferred_load_room.call_deferred(local_scene)
 	vision_state_controller.reset_vision()
@@ -72,7 +79,7 @@ func _on_returned_to_main_menu() -> void:
 	if player != null:
 		player.queue_free()
 		player = null
-		
+	
 	is_transitioning = false
 	
 func _unhandled_input(event :InputEvent) -> void:

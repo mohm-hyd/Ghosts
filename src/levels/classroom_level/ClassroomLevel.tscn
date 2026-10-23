@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dpaxyirrvfu6o" path="res://src/components/level_transition_component/LevelTransition.tscn" id="6_15g4u"]
 [ext_resource type="PackedScene" uid="uid://dgbtjq804wdmt" path="res://assets/characters/ghosts/classroom_ghost/classroom_ghost.tscn" id="7_214d8"]
 [ext_resource type="Texture2D" uid="uid://bgrgw6h827al5" path="res://art/classroom/classroom_seats_row2.png" id="7_f06ws"]
+[ext_resource type="PackedScene" uid="uid://bd4svhlyxytwc" path="res://src/cursed_objects/objects/keys/keys.tscn" id="8_8vc0d"]
 [ext_resource type="Texture2D" uid="uid://w8rshnk8d63u" path="res://art/classroom/classroom_seats_row1.png" id="8_214d8"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_kd8bc"]
@@ -61,8 +62,13 @@ position = Vector2(203, 758)
 position = Vector2(1151, 568)
 scale = Vector2(0.8, 0.8)
 
-[node name="ClassroomGhost" parent="." unique_id=1460321713 instance=ExtResource("7_214d8")]
-position = Vector2(1535, 169)
+[node name="ClassroomGhost" parent="Interactables" unique_id=1460321713 instance=ExtResource("7_214d8")]
+position = Vector2(480, -498.74994)
+scale = Vector2(1.2499999, 1.2499999)
+
+[node name="Keys" parent="Interactables" unique_id=2134917809 instance=ExtResource("8_8vc0d")]
+position = Vector2(-721.25, -137.49998)
+scale = Vector2(0.7809086, 0.6390523)
 
 [node name="ForeGroundVisuals" type="Node2D" parent="." unique_id=1091080096]
 
