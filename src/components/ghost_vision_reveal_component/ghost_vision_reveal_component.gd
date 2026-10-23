@@ -5,6 +5,8 @@ extends Node2D
 
 @onready var gpu_particles : GPUParticles2D = $"../HighlightComponent"
 
+@onready var parent_node : Node = $".."
+
 var pulse_tween: Tween = null
 
 func _ready() -> void:
@@ -13,11 +15,16 @@ func _ready() -> void:
 		gpu_particles.emitting = false
 
 func set_ghost_vision_active(active: bool) -> void:
-	if active:
+	var is_ghost = parent_node.is_in_group("ghosts")
+	
+	if active and !is_ghost:
 		if gpu_particles:
 			gpu_particles.emitting = true
 		start_pulsing()
-	else:
+	elif active and is_ghost:
+		if gpu_particles:
+			gpu_particles.emitting = true
+	else : 
 		if gpu_particles:
 			gpu_particles.emitting = false
 		stop_pulsing()

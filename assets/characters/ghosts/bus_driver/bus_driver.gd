@@ -11,7 +11,3 @@ func _ready() -> void:
 func play_idle_animation() -> void:
 	if animation_player and animation_player.has_animation("idle"):
 		animation_player.play("idle")
-
-#func _on_survival_success(player: Player) -> void:
-	#super._on_survival_success(player)
-	#ueue_free()

@@ -53,5 +53,6 @@ func activate_camera(camera: Camera2D) -> void:
 
 func view_clue_objects() -> void:
 	for clue in get_tree().get_nodes_in_group("clue_objects"):
-				if clue.has_method("set_ghost_vision_active"):
-					clue.set_ghost_vision_active(is_ghost_vision_on)
+		
+		if clue.has_method("set_ghost_vision_active"):
+			clue.set_ghost_vision_active(is_ghost_vision_on)

@@ -19,6 +19,7 @@ var is_resolved: bool = false
 
 func _ready() -> void:
 	add_to_group("clue_objects")
+	add_to_group("ghosts")
 	if interactable_component:
 		interactable_component.prompt_text = "Press E to confront " + ghost_name
 		interactable_component.interacted.connect(_on_interacted)
