@@ -3,12 +3,15 @@ extends Area2D
 
 @export_file("*.tscn") var target_level_uid : String
 @export var target_spawn_name : String = "PlayerSpawn"
+@export var can_transition : bool = true
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node2D) -> void:
 	
+	if !can_transition:
+		return 
 	if body is Player:
 		var parent_door = get_parent()
 		if parent_door and "is_open" in parent_door:

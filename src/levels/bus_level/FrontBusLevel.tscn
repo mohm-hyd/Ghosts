@@ -31,13 +31,13 @@ size = Vector2(56.375, 370.25)
 [sub_resource type="Resource" id="Resource_c7e5e"]
 script = ExtResource("11_k63yi")
 speaker_name = "Aspen"
-text = "The bus feels eerie today ..."
+text = "This school bus seems eerie..."
 metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
 
-[sub_resource type="Resource" id="Resource_2nqjk"]
+[sub_resource type="Resource" id="Resource_ybiqv"]
 script = ExtResource("11_k63yi")
 speaker_name = "Aspen"
-text = "I should check it out in ghost vision."
+text = "I should check it out with my ghost vision."
 metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
 
 [sub_resource type="Resource" id="Resource_lgad6"]
@@ -137,7 +137,6 @@ position = Vector2(914, 757)
 [node name="BusDriver" parent="Interactables" unique_id=858132750 instance=ExtResource("7_0nnp1")]
 position = Vector2(1302, 601)
 scale = Vector2(0.7310269, 0.52356964)
-required_item_to_survive = "ChildsDrawing"
 
 [node name="BackOfBusTransition" parent="." unique_id=153564768 instance=ExtResource("4_cy15j")]
 position = Vector2(911, 427)
@@ -151,16 +150,18 @@ shape = SubResource("RectangleShape2D_kd8bc")
 visible = false
 position = Vector2(380, 786)
 target_level_uid = "uid://f1yyxvt25dxx"
+can_transition = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LockersTransition" unique_id=1437120548]
 position = Vector2(0, 100.125)
 shape = SubResource("RectangleShape2D_tw3v3")
 
 [node name="DialogueArea" parent="." unique_id=162237154 instance=ExtResource("9_ybiqv")]
+visible = false
 position = Vector2(872, 976)
 activate_instant = true
 only_activate_once = true
-dialogue = Array[ExtResource("10_dp4qk")]([SubResource("Resource_c7e5e"), SubResource("Resource_2nqjk"), SubResource("Resource_lgad6"), SubResource("Resource_01moj"), SubResource("Resource_0qhvc"), SubResource("Resource_walme"), SubResource("Resource_74aqo"), SubResource("Resource_15xwe"), SubResource("Resource_hh25s")])
+dialogue = Array[ExtResource("10_dp4qk")]([SubResource("Resource_c7e5e"), SubResource("Resource_ybiqv"), SubResource("Resource_lgad6"), SubResource("Resource_01moj"), SubResource("Resource_0qhvc"), SubResource("Resource_walme"), SubResource("Resource_74aqo"), SubResource("Resource_15xwe"), SubResource("Resource_hh25s")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea" unique_id=267415967]
 position = Vector2(5.5, -59.5)

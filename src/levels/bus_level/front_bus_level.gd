@@ -22,4 +22,5 @@ func get_ghost_vision_camera()-> GhostCamera:
 func _process(delta: float) -> void:
 	if !bus_driver:
 		lockers_transition.visible = true
+		lockers_transition.can_transition = true
 		

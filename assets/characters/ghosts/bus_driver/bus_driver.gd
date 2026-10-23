@@ -14,4 +14,4 @@ func play_idle_animation() -> void:
 
 func _on_survival_success(player: Player) -> void:
 	super._on_survival_success(player)
-	#queue_free()
+	queue_free()

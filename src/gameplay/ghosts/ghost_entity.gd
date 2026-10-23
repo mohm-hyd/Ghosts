@@ -68,7 +68,6 @@ func _on_survival_success(player: Player) -> void:
 	print(ghost_name + " pacified/satisfied successfully!")
 
 
-
 func _kill_player(player: Player,level_uid: String, spawn_name: String) -> void:
 	print(ghost_name + " killed the player due to wrong item: " + required_item_to_survive)
 	var game_state = get_tree().root.find_child("GameStateController", true, false)

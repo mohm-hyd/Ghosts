@@ -104,7 +104,7 @@ position = Vector2(1481, 835)
 
 [node name="LevelTransition" parent="." unique_id=153564768 instance=ExtResource("5_e6jmk")]
 position = Vector2(1836, 706)
-target_level_uid = "uid://cerpx8cld4433"
+target_level_uid = "uid://t4mbrj70ye4n"
 target_spawn_name = "FrontOfBus"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransition" unique_id=1054793371]

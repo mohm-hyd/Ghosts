@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://t4mbrj70ye4n"]
+
+[ext_resource type="Script" uid="uid://bn3456giu7iir" path="res://src/levels/bus_level/front_bus_level_2.gd" id="1_1e2uk"]
+[ext_resource type="Texture2D" uid="uid://p543mk0773hs" path="res://art/bus/front_bus.png" id="2_1cab6"]
+[ext_resource type="PackedScene" uid="uid://budryreehyrlk" path="res://src/components/room_bounds_component/room_bounds_component.tscn" id="3_lnrvu"]
+[ext_resource type="PackedScene" uid="uid://wsrbanrjsdtq" path="res://src/gameplay/cameras/player_camera/PlayerCamera.tscn" id="4_a4qog"]
+[ext_resource type="PackedScene" uid="uid://d254p8jqutkx" path="res://src/gameplay/cameras/ghost_vision_camera/GhostVisionCamera.tscn" id="5_r5bui"]
+[ext_resource type="PackedScene" uid="uid://b5denm6htffy0" path="res://src/levels/level_objects/PlayerSpawn.tscn" id="6_fcwv6"]
+[ext_resource type="PackedScene" uid="uid://b2uwscwmi0sde" path="res://assets/characters/ghosts/bus_driver/bus_driver.tscn" id="7_mwcb2"]
+[ext_resource type="PackedScene" uid="uid://dpaxyirrvfu6o" path="res://src/components/level_transition_component/LevelTransition.tscn" id="8_3tsug"]
+[ext_resource type="PackedScene" uid="uid://cy4v5vkkmokrq" path="res://src/components/dialogue_area_component/dialogue_area.tscn" id="9_yns4b"]
+[ext_resource type="Script" uid="uid://ff01h2x760hg" path="res://src/system/dialogue_system/dialogue_components/DialogueExportResource.gd" id="10_ena3l"]
+[ext_resource type="Script" uid="uid://ydeyb2qi3j0f" path="res://src/system/dialogue_system/dialogue_components/dialogue_text_resource.gd" id="11_cehsc"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_kd8bc"]
+a = Vector2(1912, -9)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0nnp1"]
+a = Vector2(-26, -938)
+b = Vector2(-9, 133)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tw3v3"]
+a = Vector2(-6, -813)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kd8bc"]
+size = Vector2(71, 300.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tw3v3"]
+size = Vector2(56.375, 370.25)
+
+[sub_resource type="Resource" id="Resource_tw3v3"]
+script = ExtResource("11_cehsc")
+speaker_name = "Aspen"
+text = "That wasn't very helpful"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="Resource" id="Resource_pxtu0"]
+script = ExtResource("11_cehsc")
+speaker_name = "Aspen"
+text = "Ill have to take a chance and go meet the ghost holding the drawing. (press H to toggle the help menu)"
+metadata/_custom_type_script = "uid://ydeyb2qi3j0f"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1e2uk"]
+size = Vector2(89, 83)
+
+[node name="FrontBusLevel2" type="Node2D" unique_id=313346568]
+script = ExtResource("1_1e2uk")
+
+[node name="BackBackground" type="CanvasLayer" parent="." unique_id=2095015324]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="BackBackground" unique_id=1699339057]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="Node2D" parent="." unique_id=103844965]
+
+[node name="Bus" type="Sprite2D" parent="Background" unique_id=1916204365]
+position = Vector2(962, 539)
+texture = ExtResource("2_1cab6")
+
+[node name="RoomBoundsComponent" parent="." unique_id=1265175140 instance=ExtResource("3_lnrvu")]
+
+[node name="FloorEdge" type="CollisionShape2D" parent="RoomBoundsComponent" unique_id=2049130015]
+position = Vector2(-26, 238)
+shape = SubResource("SegmentShape2D_kd8bc")
+
+[node name="RightBusEdge" type="CollisionShape2D" parent="RoomBoundsComponent" unique_id=2013150262]
+position = Vector2(1554, 950)
+shape = SubResource("SegmentShape2D_0nnp1")
+
+[node name="LeftBusEdge" type="CollisionShape2D" parent="RoomBoundsComponent" unique_id=1448913139]
+position = Vector2(368, 1063)
+shape = SubResource("SegmentShape2D_tw3v3")
+
+[node name="Entities" type="Node2D" parent="." unique_id=81746490]
+
+[node name="PlayerCamera" parent="Entities" unique_id=436012757 instance=ExtResource("4_a4qog")]
+
+[node name="GhostVisionCamera" parent="Entities" unique_id=393315676 instance=ExtResource("5_r5bui")]
+
+[node name="PlayerSpawn" parent="Entities" unique_id=1644690995 instance=ExtResource("6_fcwv6")]
+position = Vector2(854, 912)
+
+[node name="FrontOfBus" parent="Entities" unique_id=731827706 instance=ExtResource("6_fcwv6")]
+position = Vector2(914, 757)
+
+[node name="Interactables" type="Node2D" parent="." unique_id=1660967318]
+
+[node name="BusDriver" parent="Interactables" unique_id=858132750 instance=ExtResource("7_mwcb2")]
+position = Vector2(1302, 601)
+scale = Vector2(0.7310269, 0.52356964)
+
+[node name="BackOfBusTransition" parent="." unique_id=153564768 instance=ExtResource("8_3tsug")]
+position = Vector2(911, 427)
+target_level_uid = "uid://b22c8mb7r6qo4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackOfBusTransition" unique_id=2092818825]
+position = Vector2(24, -136.25)
+shape = SubResource("RectangleShape2D_kd8bc")
+
+[node name="LockersTransition" parent="." unique_id=1544203805 instance=ExtResource("8_3tsug")]
+visible = false
+position = Vector2(380, 786)
+target_level_uid = "uid://f1yyxvt25dxx"
+can_transition = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LockersTransition" unique_id=1437120548]
+position = Vector2(0, 100.125)
+shape = SubResource("RectangleShape2D_tw3v3")
+
+[node name="DialogueArea" parent="." unique_id=162237154 instance=ExtResource("9_yns4b")]
+position = Vector2(915, 814)
+activate_instant = true
+only_activate_once = true
+dialogue = Array[ExtResource("10_ena3l")]([SubResource("Resource_tw3v3"), SubResource("Resource_pxtu0")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueArea" unique_id=1699593096]
+position = Vector2(-16.5, -31.5)
+shape = SubResource("RectangleShape2D_1e2uk")
+debug_color = Color(0.25490198, 0.14117648, 0.6392157, 0.41960785)
