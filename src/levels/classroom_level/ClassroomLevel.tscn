@@ -7,17 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://d254p8jqutkx" path="res://src/gameplay/cameras/ghost_vision_camera/GhostVisionCamera.tscn" id="4_214d8"]
 [ext_resource type="PackedScene" uid="uid://b5denm6htffy0" path="res://src/levels/level_objects/PlayerSpawn.tscn" id="5_8vc0d"]
 [ext_resource type="PackedScene" uid="uid://dpaxyirrvfu6o" path="res://src/components/level_transition_component/LevelTransition.tscn" id="6_15g4u"]
+[ext_resource type="PackedScene" uid="uid://dgbtjq804wdmt" path="res://assets/characters/ghosts/classroom_ghost/classroom_ghost.tscn" id="7_214d8"]
 [ext_resource type="Texture2D" uid="uid://bgrgw6h827al5" path="res://art/classroom/classroom_seats_row2.png" id="7_f06ws"]
 [ext_resource type="Texture2D" uid="uid://w8rshnk8d63u" path="res://art/classroom/classroom_seats_row1.png" id="8_214d8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nqjk"]
-size = Vector2(1425, 214)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_udblw"]
-size = Vector2(1544.5, 229)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_kd8bc"]
+a = Vector2(1907, 18)
+b = Vector2(-31, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kd8bc"]
-size = Vector2(71, 597)
+size = Vector2(71, 357)
 
 [node name="ClassroomLevel" type="Node2D" unique_id=1339029774]
 script = ExtResource("1_0o8ub")
@@ -43,12 +42,11 @@ texture = ExtResource("2_ptrsb")
 [node name="BackRow" type="StaticBody2D" parent="." unique_id=1227723093]
 position = Vector2(946, 630)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BackRow" unique_id=374147111]
-position = Vector2(250.5, 53)
-shape = SubResource("RectangleShape2D_2nqjk")
-debug_color = Color(0.078431375, 0.92156863, 0.08235294, 0.41960785)
-
 [node name="RoomBoundsComponent" parent="." unique_id=1265175140 instance=ExtResource("3_0o8ub")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomBoundsComponent" unique_id=902342484]
+position = Vector2(20, 265)
+shape = SubResource("SegmentShape2D_kd8bc")
 
 [node name="Entities" type="Node2D" parent="." unique_id=81746490]
 
@@ -59,13 +57,12 @@ debug_color = Color(0.078431375, 0.92156863, 0.08235294, 0.41960785)
 [node name="PlayerSpawn" parent="Entities" unique_id=1644690995 instance=ExtResource("5_8vc0d")]
 position = Vector2(203, 758)
 
-[node name="FrontRow" type="StaticBody2D" parent="." unique_id=1083673698]
-position = Vector2(963, 866)
+[node name="Interactables" type="Node2D" parent="." unique_id=515130231]
+position = Vector2(1151, 568)
+scale = Vector2(0.8, 0.8)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontRow" unique_id=310467663]
-position = Vector2(193.25, -18)
-shape = SubResource("RectangleShape2D_udblw")
-debug_color = Color(0.078431375, 0.92156863, 0.08235294, 0.41960785)
+[node name="ClassroomGhost" parent="." unique_id=1460321713 instance=ExtResource("7_214d8")]
+position = Vector2(1535, 169)
 
 [node name="ForeGroundVisuals" type="Node2D" parent="." unique_id=1091080096]
 
@@ -75,6 +72,7 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("7_f06ws")
 
 [node name="FrontRowSeats" type="Sprite2D" parent="ForeGroundVisuals" unique_id=520367014]
+z_index = 5
 position = Vector2(1151, 568)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("8_214d8")
@@ -84,5 +82,5 @@ position = Vector2(16, 729)
 target_level_uid = "uid://dnlbnbxiyqnrq"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hallway360Transition" unique_id=2092818825]
-position = Vector2(23.5, -39.5)
+position = Vector2(23.5, 80.5)
 shape = SubResource("RectangleShape2D_kd8bc")

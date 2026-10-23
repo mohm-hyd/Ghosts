@@ -18,10 +18,11 @@ icon = ExtResource("2_1pdps")
 
 [node name="Sprite2D" type="Sprite2D" parent="WorldItem" unique_id=1799629576]
 position = Vector2(12, -13)
-scale = Vector2(0.11255412, 0.19565004)
+scale = Vector2(0.23109117, 0.3290413)
 texture = ExtResource("2_1pdps")
 
-[node name="GhostVisionRevealComponent" parent="WorldItem" unique_id=2030860639 instance=ExtResource("3_h1jp7")]
+[node name="GhostVisionRevealComponent" parent="WorldItem" unique_id=2030860639 node_paths=PackedStringArray("highlight_sprite") instance=ExtResource("3_h1jp7")]
+highlight_sprite = NodePath("../Sprite2D")
 
 [node name="HighlightComponent" parent="WorldItem" unique_id=2096291363 instance=ExtResource("4_hmppf")]
 unique_name_in_owner = true

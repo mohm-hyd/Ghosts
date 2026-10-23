@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d254p8jqutkx" path="res://src/gameplay/cameras/ghost_vision_camera/GhostVisionCamera.tscn" id="3_cgeu1"]
 [ext_resource type="PackedScene" uid="uid://b5denm6htffy0" path="res://src/levels/level_objects/PlayerSpawn.tscn" id="4_g6cap"]
 [ext_resource type="PackedScene" uid="uid://dpaxyirrvfu6o" path="res://src/components/level_transition_component/LevelTransition.tscn" id="5_hv8o5"]
+[ext_resource type="PackedScene" uid="uid://b6bba1dy5dpfs" path="res://src/cursed_objects/objects/medal/medal.tscn" id="7_g6cap"]
 [ext_resource type="PackedScene" uid="uid://dea3uaeccjwf" path="res://src/levels/level_objects/interactable_bathroom_door/interactable_bathroom.tscn" id="7_hv8o5"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_kd8bc"]
@@ -52,6 +53,10 @@ position = Vector2(210, 812)
 
 [node name="Interactables" type="Node2D" parent="." unique_id=600247798]
 position = Vector2(959, 562)
+
+[node name="Medal" parent="Interactables" unique_id=1456220755 instance=ExtResource("7_g6cap")]
+position = Vector2(-368, 1.9073486e-06)
+scale = Vector2(0.58947897, 0.28818983)
 
 [node name="HallwayPosterTransition" parent="." unique_id=153564768 instance=ExtResource("5_hv8o5")]
 position = Vector2(-8, 716)

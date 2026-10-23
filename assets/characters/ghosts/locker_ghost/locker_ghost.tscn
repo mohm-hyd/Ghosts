@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://u8tpql30wriy"]
+
+[ext_resource type="Script" uid="uid://b7bnvxgyhue24" path="res://assets/characters/ghosts/locker_ghost/locker_ghost.gd" id="1_40b5j"]
+[ext_resource type="Texture2D" uid="uid://weitk6nf7kwh" path="res://art/characters/ghosts/locker_ghost/chester.png" id="1_syghb"]
+[ext_resource type="PackedScene" uid="uid://c123v3db4lkfu" path="res://src/components/ghost_vision_reveal_component/GhostVisionRevealComponent.tscn" id="2_ry4hr"]
+[ext_resource type="PackedScene" uid="uid://bt4oigxm2d1l6" path="res://src/components/highlight_component/HighlightComponent.tscn" id="3_0tulo"]
+[ext_resource type="PackedScene" uid="uid://dqnofcbxhaiyo" path="res://src/components/interactable_component/InteractableComponent.tscn" id="4_mbrto"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kd8bc"]
+radius = 217.5247
+
+[node name="LockerGhost" type="Node2D" unique_id=637925189]
+script = ExtResource("1_40b5j")
+ghost_name = "Chester"
+required_item_to_survive = "Flower"
+reload_level_uid = "uid://f1yyxvt25dxx"
+reload_spawn = "PlayerSpawn"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2089359619]
+texture = ExtResource("1_syghb")
+
+[node name="GhostVisionRevealComponent" parent="." unique_id=2030860639 instance=ExtResource("2_ry4hr")]
+
+[node name="HighlightComponent" parent="." unique_id=1002274899 instance=ExtResource("3_0tulo")]
+
+[node name="InteractableComponent" parent="." unique_id=2145141222 instance=ExtResource("4_mbrto")]
+prompt_text = "Press E to talk to Chester"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1610026205]
+shape = SubResource("CircleShape2D_kd8bc")

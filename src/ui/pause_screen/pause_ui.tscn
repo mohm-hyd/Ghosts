@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://37s110v2h0ue"]
 
+[ext_resource type="Script" uid="uid://txiip6lh5yh3" path="res://src/ui/pause_screen/pause_ui.gd" id="1_kicah"]
 [ext_resource type="FontFile" uid="uid://cpldgjk3fl2uj" path="res://assets/fonts/Xolonium-Regular.ttf" id="1_pdqif"]
 
 [node name="PauseUI" type="Node2D" unique_id=1519504847]
+script = ExtResource("1_kicah")
 
 [node name="Label" type="Label" parent="." unique_id=938339398]
 custom_minimum_size = Vector2(1920, 1080)
@@ -20,3 +22,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ReturnButton" type="Button" parent="." unique_id=1895201431]
+custom_minimum_size = Vector2(600, 180)
+size_flags_horizontal = 8
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("1_pdqif")
+theme_override_font_sizes/font_size = 64
+text = "Return to Main Menu"
+
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]

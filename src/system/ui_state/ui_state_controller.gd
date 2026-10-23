@@ -42,7 +42,7 @@ func show_main_menu() -> void:
 			active_main_menu.display_credits.connect(_on_menu_credits_pressed)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_help") and active_inventory != null:
+	if event.is_action_pressed("toggle_help"):
 		toggle_help_screen()
 
 func toggle_help_screen() -> void:
@@ -82,6 +82,12 @@ func _on_menu_credits_pressed() -> void:
 
 func _on_credits_return_pressed() -> void:
 	_on_returned_to_main_menu()
+	
+func _on_pause_return_pressed() -> void:
+	if active_pause_menu:
+		active_pause_menu.queue_free()
+		active_pause_menu = null
+	game_state.return_to_main_menu() 
 
 func _on_game_started() -> void:
 	if active_main_menu:
@@ -96,6 +102,8 @@ func _on_game_paused() -> void:
 	if not active_pause_menu and PAUSE_SCREEN:
 		active_pause_menu = PAUSE_SCREEN.instantiate()
 		pause_root.add_child(active_pause_menu)
+	if active_pause_menu.has_signal("return_to_main_menu"):
+			active_pause_menu.return_to_main_menu.connect(_on_pause_return_pressed)
 
 func _on_game_resumed() -> void:
 	if active_pause_menu:

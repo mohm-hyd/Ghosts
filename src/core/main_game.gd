@@ -27,6 +27,7 @@ func _ready() -> void:
 		game_state_controller.game_started.connect(_on_game_started)
 		game_state_controller.game_quit.connect(_on_game_quit)
 		game_state_controller.level_transition_requested.connect(_on_level_transition_requested)
+		game_state_controller.returned_to_main_menu.connect(_on_returned_to_main_menu)
 		
 func _on_game_started() -> void:
 	load_level(TUTORIAL_BEDROOM_SCENE_UID)
@@ -61,7 +62,19 @@ func load_level(local_scene : String) -> void:
 func  quit_game() -> void:
 	get_tree().quit()
 
+func _on_returned_to_main_menu() -> void:
 
+	if _current_level != null:
+		_current_level.queue_free()
+		_current_level = null
+		
+
+	if player != null:
+		player.queue_free()
+		player = null
+		
+	is_transitioning = false
+	
 func _unhandled_input(event :InputEvent) -> void:
 	if event.is_action_pressed(&"debug_quit"):
 		quit_game()

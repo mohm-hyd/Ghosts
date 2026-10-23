@@ -12,6 +12,9 @@ var can_move :bool = true
 func _ready() -> void:
 	add_to_group("player")
 
+#func _process() -> void:
+	
+
 
 func _physics_process(_delta: float) -> void:
 	if !can_move:

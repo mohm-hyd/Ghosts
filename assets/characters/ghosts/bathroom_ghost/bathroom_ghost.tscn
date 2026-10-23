@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bykcg48t3vggm"]
+
+[ext_resource type="Script" uid="uid://b0lv7mlno5303" path="res://assets/characters/ghosts/bathroom_ghost/bathroom_ghost.gd" id="1_ajy5e"]
+[ext_resource type="Texture2D" uid="uid://01xqkc1i6tee" path="res://art/characters/ghosts/toilet_ghost/garry.png" id="1_w3ht2"]
+[ext_resource type="PackedScene" uid="uid://c123v3db4lkfu" path="res://src/components/ghost_vision_reveal_component/GhostVisionRevealComponent.tscn" id="2_ajy5e"]
+[ext_resource type="PackedScene" uid="uid://bt4oigxm2d1l6" path="res://src/components/highlight_component/HighlightComponent.tscn" id="3_jahq6"]
+[ext_resource type="PackedScene" uid="uid://dqnofcbxhaiyo" path="res://src/components/interactable_component/InteractableComponent.tscn" id="4_ser6v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tw3v3"]
+radius = 138.0
+height = 452.0
+
+[node name="BathroomGhost" type="Node2D" unique_id=289409077]
+script = ExtResource("1_ajy5e")
+ghost_name = "Garry"
+required_item_to_survive = "Keys"
+reload_level_uid = "uid://bp8a8x1xw0agi"
+reload_spawn = "PlayerSpawn"
+metadata/_edit_vertical_guides_ = [-214.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=998398036]
+texture = ExtResource("1_w3ht2")
+
+[node name="GhostVisionRevealComponent" parent="." unique_id=2030860639 instance=ExtResource("2_ajy5e")]
+
+[node name="HighlightComponent" parent="." unique_id=1002274899 instance=ExtResource("3_jahq6")]
+
+[node name="InteractableComponent" parent="." unique_id=2145141222 instance=ExtResource("4_ser6v")]
+position = Vector2(29, -43)
+prompt_text = "Press E to talk to Garry"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1658556409]
+shape = SubResource("CapsuleShape2D_tw3v3")

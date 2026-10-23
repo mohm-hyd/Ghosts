@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dgbtjq804wdmt"]
+
+[ext_resource type="Texture2D" uid="uid://3c7dpn10jk00" path="res://art/characters/ghosts/classroom_ghost/jeremy.png" id="1_0u67j"]
+[ext_resource type="Script" uid="uid://f5pc0bpb70o" path="res://assets/characters/ghosts/classroom_ghost/classroom_ghost.gd" id="1_o4yfn"]
+[ext_resource type="PackedScene" uid="uid://c123v3db4lkfu" path="res://src/components/ghost_vision_reveal_component/GhostVisionRevealComponent.tscn" id="2_o4yfn"]
+[ext_resource type="PackedScene" uid="uid://bt4oigxm2d1l6" path="res://src/components/highlight_component/HighlightComponent.tscn" id="3_bvqp3"]
+[ext_resource type="PackedScene" uid="uid://dqnofcbxhaiyo" path="res://src/components/interactable_component/InteractableComponent.tscn" id="4_53dbq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kd8bc"]
+radius = 198.0
+height = 570.0
+
+[node name="ClassroomGhost" type="Node2D" unique_id=1460321713]
+script = ExtResource("1_o4yfn")
+ghost_name = "Chester"
+required_item_to_survive = "Medal"
+reload_level_uid = "uid://8axw3nvdk2qm"
+reload_spawn = "PlayerSpawn"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=790519180]
+texture = ExtResource("1_0u67j")
+
+[node name="GhostVisionRevealComponent" parent="." unique_id=2030860639 instance=ExtResource("2_o4yfn")]
+
+[node name="HighlightComponent" parent="." unique_id=1002274899 instance=ExtResource("3_bvqp3")]
+
+[node name="InteractableComponent" parent="." unique_id=2145141222 instance=ExtResource("4_53dbq")]
+prompt_text = "Press E to Talk to Jeremy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=1963927143]
+shape = SubResource("CapsuleShape2D_kd8bc")

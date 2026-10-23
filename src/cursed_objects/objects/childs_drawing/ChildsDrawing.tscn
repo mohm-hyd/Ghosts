@@ -28,6 +28,7 @@ highlight_sprite = NodePath("../Sprite2D")
 [node name="HighlightComponent" parent="WorldItem" unique_id=2096291363 instance=ExtResource("4_63wim")]
 
 [node name="InteractableComponent" parent="WorldItem" unique_id=2145141222 instance=ExtResource("1_vapd1")]
+prompt_text = "Press E to pick up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldItem/InteractableComponent" unique_id=1532821006]
 position = Vector2(-7, 3)

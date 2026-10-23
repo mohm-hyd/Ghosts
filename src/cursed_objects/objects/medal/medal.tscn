@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b6bba1dy5dpfs"]
+
+[ext_resource type="Script" uid="uid://71h2h42xgjve" path="res://src/cursed_objects/item/world_item.gd" id="1_mxdv2"]
+[ext_resource type="Texture2D" uid="uid://bovk7xdm3mblk" path="res://art/clue_objects/medal.png" id="2_08vpm"]
+[ext_resource type="PackedScene" uid="uid://c123v3db4lkfu" path="res://src/components/ghost_vision_reveal_component/GhostVisionRevealComponent.tscn" id="3_pxlkw"]
+[ext_resource type="PackedScene" uid="uid://bt4oigxm2d1l6" path="res://src/components/highlight_component/HighlightComponent.tscn" id="4_p1sdu"]
+[ext_resource type="PackedScene" uid="uid://dqnofcbxhaiyo" path="res://src/components/interactable_component/InteractableComponent.tscn" id="5_xcxoi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mic76"]
+radius = 173.56555
+
+[node name="Medal" type="Node2D" unique_id=1456220755]
+
+[node name="WorldItem" type="Node2D" parent="." unique_id=696127865]
+script = ExtResource("1_mxdv2")
+item_name = "Medal"
+icon = ExtResource("2_08vpm")
+
+[node name="Sprite2D" type="Sprite2D" parent="WorldItem" unique_id=1799629576]
+texture = ExtResource("2_08vpm")
+
+[node name="GhostVisionRevealComponent" parent="WorldItem" unique_id=2030860639 node_paths=PackedStringArray("highlight_sprite") instance=ExtResource("3_pxlkw")]
+highlight_sprite = NodePath("../Sprite2D")
+
+[node name="HighlightComponent" parent="WorldItem" unique_id=2096291363 instance=ExtResource("4_p1sdu")]
+unique_name_in_owner = true
+
+[node name="InteractableComponent" parent="WorldItem" unique_id=2145141222 instance=ExtResource("5_xcxoi")]
+prompt_text = "Press E to Pick Up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldItem/InteractableComponent" unique_id=1532821006]
+shape = SubResource("CircleShape2D_mic76")

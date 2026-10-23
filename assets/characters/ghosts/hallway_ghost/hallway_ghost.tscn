@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b3k4ixk4uxjxa"]
+
+[ext_resource type="Texture2D" uid="uid://dx6dk5504d8vx" path="res://art/characters/ghosts/hallway_ghost/eleanor.png" id="1_eb66u"]
+[ext_resource type="Script" uid="uid://b6nin10vyjlmg" path="res://assets/characters/ghosts/hallway_ghost/hallway_ghost.gd" id="1_mbrto"]
+[ext_resource type="PackedScene" uid="uid://c123v3db4lkfu" path="res://src/components/ghost_vision_reveal_component/GhostVisionRevealComponent.tscn" id="2_ry4hr"]
+[ext_resource type="PackedScene" uid="uid://bt4oigxm2d1l6" path="res://src/components/highlight_component/HighlightComponent.tscn" id="3_0tulo"]
+[ext_resource type="PackedScene" uid="uid://dqnofcbxhaiyo" path="res://src/components/interactable_component/InteractableComponent.tscn" id="4_mbrto"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tw3v3"]
+radius = 105.0
+height = 476.0
+
+[node name="HallwayGhost" type="Node2D" unique_id=162080032]
+script = ExtResource("1_mbrto")
+ghost_name = "Eleanor"
+required_item_to_survive = "Bow"
+reload_level_uid = "uid://dnlbnbxiyqnrq"
+reload_spawn = "PLayerSpawn"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1105965285]
+texture = ExtResource("1_eb66u")
+
+[node name="GhostVisionRevealComponent" parent="." unique_id=2030860639 instance=ExtResource("2_ry4hr")]
+
+[node name="HighlightComponent" parent="." unique_id=1002274899 instance=ExtResource("3_0tulo")]
+
+[node name="InteractableComponent" parent="." unique_id=2145141222 instance=ExtResource("4_mbrto")]
+prompt_text = "Press E to talk to Eleanor"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent" unique_id=176152990]
+shape = SubResource("CapsuleShape2D_tw3v3")

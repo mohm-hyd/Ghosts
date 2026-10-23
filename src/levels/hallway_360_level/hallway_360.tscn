@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d254p8jqutkx" path="res://src/gameplay/cameras/ghost_vision_camera/GhostVisionCamera.tscn" id="4_qeu6u"]
 [ext_resource type="PackedScene" uid="uid://b5denm6htffy0" path="res://src/levels/level_objects/PlayerSpawn.tscn" id="5_a1ris"]
 [ext_resource type="PackedScene" uid="uid://dpaxyirrvfu6o" path="res://src/components/level_transition_component/LevelTransition.tscn" id="6_2ktnl"]
+[ext_resource type="PackedScene" uid="uid://b3k4ixk4uxjxa" path="res://assets/characters/ghosts/hallway_ghost/hallway_ghost.tscn" id="7_8t0fi"]
 [ext_resource type="PackedScene" uid="uid://cpyiq5jbwwmad" path="res://src/levels/level_objects/interactable_classroom_door/interactable_classroom_door.tscn" id="7_qeu6u"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_kd8bc"]
@@ -75,6 +76,9 @@ position = Vector2(206, 944)
 position = Vector2(1688, 822)
 
 [node name="Interactables" type="Node2D" parent="." unique_id=374182926]
+
+[node name="HallwayGhost" parent="Interactables" unique_id=162080032 instance=ExtResource("7_8t0fi")]
+position = Vector2(1104, 713)
 
 [node name="InteractableClassroomDoor" parent="Interactables" unique_id=75508541 instance=ExtResource("7_qeu6u")]
 position = Vector2(970, 539)
